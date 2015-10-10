@@ -1,8 +1,33 @@
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
+# Eclipse
+.classpath
+.project
+.settings
+eclipsebin
+
+# Ant
+bin
+gen
+build
+out
+lib
+
+# Maven
+target
+pom.xml.*
 release.properties
+coverage.ec
 dependency-reduced-pom.xml
 buildNumber.properties
+
+# IntelliJ
+.idea
+*.iml
+*.iws
+*.ipr
+classes
+gen-external-apklibs
+
+# Robolectric
+tmp
+
+.DS_Store
