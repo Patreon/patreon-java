@@ -5,7 +5,7 @@
 
   <groupId>com.patreon</groupId>
   <artifactId>patreon</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.1-SNAPSHOT</version>
 
   <name>${project.groupId}:${project.artifactId}</name>
   <description>Interact with the Patreon API via OAuth</description>
@@ -46,4 +46,15 @@
       <version>20140107</version>
     </dependency>
   </dependencies>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
 </project>

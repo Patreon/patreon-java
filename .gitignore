@@ -18,6 +18,7 @@ release.properties
 coverage.ec
 dependency-reduced-pom.xml
 buildNumber.properties
+settings.xml
 
 # IntelliJ
 .idea

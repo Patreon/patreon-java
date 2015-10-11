@@ -19,6 +19,9 @@ public class PatreonTest extends TestCase {
     }
 
     public void testPatreon() {
+        OAuth oauthClient = new OAuth("", "");
+        API apiClient = new API("");
+        /*
         String clientID = null;        // Replace with your data
         String clientSecret = null;    // Replace with your data
         String creatorID = null;       // Replace with your data
@@ -50,5 +53,6 @@ public class PatreonTest extends TestCase {
                 }
             }
         }
+        */
     }
 }
