@@ -2,6 +2,14 @@
 Interact with the Patreon API via OAuth.
 
 Get the artifact from [Maven](http://mvnrepository.com/artifact/com.patreon/patreon)
+```
+<dependency>
+    <groupId>com.patreon</groupId>
+    <artifactId>patreon</artifactId>
+    <version>0.0.2</version>
+</dependency>
+```
+
 
 Step 1. Get your client_id and client_secret
 ---
@@ -12,7 +20,7 @@ This will provide you with a `client_id` and a `client_secret`.
 
 Step 2. Use this library
 ---
-```javatSuite;
+```java
     import com.patreon.OAuth;
     import com.patreon.API;
     import org.json.JSONObject;
