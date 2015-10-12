@@ -55,3 +55,10 @@ Step 2. Use this library
 
     // use the user, pledge, and campaign objects as you desire
 ```
+
+For Patreon Developers Wishing to Release Updates
+---
+1. Get settings.xml
+2. Get GPG keypair
+3. `mvn clean deploy -s settings.xml -P release`
+4. visit https://oss.sonatype.org/#stagingRepositories find the latest repository, close it, release it
