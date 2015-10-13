@@ -1,7 +1,7 @@
 # patreon-java
 Interact with the Patreon API via OAuth.
 
-Get the artifact from [Maven](http://mvnrepository.com/artifact/com.patreon/patreon)
+Get the artifact from [Maven](http://search.maven.org/#search|ga|1|g%3A%22com.patreon%22%20AND%20a%3A%22patreon%22)
 ```
 <dependency>
     <groupId>com.patreon</groupId>
