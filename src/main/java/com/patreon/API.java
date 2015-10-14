@@ -23,7 +23,7 @@ public class API {
   }
 
   public JSONObject fetchCampaignAndPatrons() {
-    return this.getJSON("current_user/campaign?include=rewards,creator,goals,pledges");
+    return this.getJSON("current_user/campaigns?include=rewards,creator,goals,pledges");
   }
 
   private JSONObject getJSON(String suffix) {
