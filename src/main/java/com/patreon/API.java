@@ -26,6 +26,10 @@ public class API {
     return this.getJSON("current_user/campaigns?include=rewards,creator,goals,pledges");
   }
 
+  public JSONObject fetchCampaign() {
+    return this.getJSON("current_user/campaigns?include=rewards,creator,goals");
+  }
+
   private JSONObject getJSON(String suffix) {
     try {
       String prefix = "https://api.patreon.com/oauth2/api/";
