@@ -5,7 +5,7 @@
 
   <groupId>com.patreon</groupId>
   <artifactId>patreon</artifactId>
-  <version>0.0.4</version>
+  <version>0.1.1</version>
 
   <name>${project.groupId}:${project.artifactId}</name>
   <description>Interact with the Patreon API via OAuth</description>
