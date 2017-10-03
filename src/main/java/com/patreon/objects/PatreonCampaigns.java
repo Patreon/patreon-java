@@ -1,25 +1,99 @@
 package com.patreon.objects;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSyntaxException;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.patreon.PatreonAPI.gson;
+import static com.patreon.PatreonAPI.toObject;
+
 public class PatreonCampaigns {
     private List<CampaignData> data;
-    private List<Object> included /* Unable to determine a consistent response for this */;
+    private JsonArray included /* Unable to determine a consistent response for this */;
 
-    public PatreonCampaigns(List<CampaignData> data, List<Object> included) {
+    public PatreonCampaigns(List<CampaignData> data, JsonArray included) {
         this.data = data;
         this.included = included;
     }
 
-    public List<Object> getIncluded() {
-        return included;
+    public List<PatreonUser.PatreonUserData> getUsersWithSocialConnections() {
+        List<PatreonUser.PatreonUserData> users = new ArrayList<>();
+        included.forEach(obj -> {
+            try {
+                PatreonUser.PatreonUserData user = toObject(gson.toJson(obj), PatreonUser.PatreonUserData.class);
+                Integer.valueOf(user.getId());
+                if (user.getType().equals("user")) users.add(user);
+            } catch (JsonSyntaxException | NumberFormatException ignored) {
+            }
+        });
+        System.out.println(users.size());
+        return users;
+    }
+
+    public List<Goal> getGoals() {
+        // TODO
+       return null;
     }
 
     public List<CampaignData> getCampaigns() {
         return data;
     }
 
+
+    public static class Goal {
+        private String id;
+        private String type;
+        private GoalAttributes attributes;
+
+        public GoalAttributes getAttributes() {
+            return attributes;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public String getId() {
+            return id;
+        }
+    }
+
+    public static class GoalAttributes {
+        private int amount_cents;
+        private String reached_at;
+        private String created_at;
+        private String description;
+        private String title;
+        private int completed_percentage;
+
+        public int getCompleted_percentage() {
+            return completed_percentage;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public String getCreated_at() {
+            return created_at;
+        }
+
+        public String getReached_at() {
+            return reached_at;
+        }
+
+        public int getAmount_cents() {
+            return amount_cents;
+        }
+    }
 
     public static class CampaignData {
         private String type;
@@ -208,12 +282,13 @@ public class PatreonCampaigns {
         public static class Relationships {
             private Creator creator;
             private RewardList rewards;
-            private GoalList goals;
+            private SimpleGoalList goals;
         }
     }
 
     public static class RewardList {
         private List<Data> data;
+
         public RewardList(List<Data> data) {
             this.data = data;
         }
@@ -224,9 +299,10 @@ public class PatreonCampaigns {
     }
 
 
-    public static class GoalList {
+    public static class SimpleGoalList {
         private List<Data> data;
-        public GoalList(List<Data> data) {
+
+        public SimpleGoalList(List<Data> data) {
             this.data = data;
         }
 

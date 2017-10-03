@@ -25,14 +25,6 @@ public class PatreonUser {
         private Attributes attributes;
         private Relationships relationships;
 
-
-        public PatreonUserData(String type, String id, Attributes attributes, Relationships relationships) {
-            this.type = type;
-            this.id = id;
-            this.attributes = attributes;
-            this.relationships = relationships;
-        }
-
         public String getId() {
             return id;
         }
@@ -43,6 +35,56 @@ public class PatreonUser {
 
         public Relationships getRelationships() {
             return relationships;
+        }
+
+        public String getType() {
+            return type;
+        }
+    }
+
+    public static class SocialConnections {
+        private UserIdObject youtube;
+        private UserIdObject twitter;
+        private UserIdObject deviantart;
+        private UserIdObject discord;
+        private UserIdObject twitch;
+        private UserIdObject facebook;
+        private UserIdObject spotify;
+
+        public UserIdObject getYoutube() {
+            return youtube;
+        }
+
+        public UserIdObject getTwitter() {
+            return twitter;
+        }
+
+        public UserIdObject getDeviantart() {
+            return deviantart;
+        }
+
+        public UserIdObject getDiscord() {
+            return discord;
+        }
+
+        public UserIdObject getTwitch() {
+            return twitch;
+        }
+
+        public UserIdObject getFacebook() {
+            return facebook;
+        }
+
+        public UserIdObject getSpotify() {
+            return spotify;
+        }
+
+        public static class UserIdObject {
+            private String user_id;
+
+            public String getUserId() {
+                return user_id;
+            }
         }
     }
 
@@ -61,26 +103,9 @@ public class PatreonUser {
         private String facebook;
         private String created;
         private String url;
+        private int gender;
+        private SocialConnections social_connections;
 
-
-        public Attributes(String first_name, String last_name, String full_name, String vanity, String email, String about,
-                          String facebook_id, String image_url, String thumb_url, String youtube, String twitter, String facebook,
-                          String created, String url) {
-            this.first_name = first_name;
-            this.last_name = last_name;
-            this.full_name = full_name;
-            this.vanity = vanity;
-            this.email = email;
-            this.about = about;
-            this.facebook_id = facebook_id;
-            this.image_url = image_url;
-            this.thumb_url = thumb_url;
-            this.youtube = youtube;
-            this.twitter = twitter;
-            this.facebook = facebook;
-            this.created = created;
-            this.url = url;
-        }
 
         public String getFirstName() {
             return first_name;
@@ -142,10 +167,6 @@ public class PatreonUser {
 
     public static class Relationships {
         private PatreonCampaigns campaign;
-
-        public Relationships(PatreonCampaigns campaign) {
-            this.campaign = campaign;
-        }
 
         public PatreonCampaigns getCampaign() {
             return campaign;
