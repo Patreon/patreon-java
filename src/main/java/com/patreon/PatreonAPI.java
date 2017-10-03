@@ -20,7 +20,7 @@ public class PatreonAPI {
         return toObject(getJSON("current_user"), PatreonUser.class);
     }
 
-    public PatreonCampaigns getCampaign() throws IOException {
+    public PatreonCampaigns getCampaignInformation() throws IOException {
         return toObject(getJSON("current_user/campaigns?include=rewards,creator,goals"), PatreonCampaigns.class);
     }
 
@@ -38,19 +38,6 @@ public class PatreonAPI {
         if (pageCursor != null) url += "&page%5Bcursor%5D=" + pageCursor;
         return toObject(getJSON(url), PatreonPledges.class);
     }
-
-    /*public JSONObject fetchPageOfPledges(String campaignID, int pageSize, String cursor) {
-        String url = String.format("campaigns/%s/pledges?page%5Bcount%5D=%s", campaignID, pageSize);
-        if (cursor != null) {
-            try {
-                String escapedCursor = URLEncoder.encode(cursor, "UTF-8");
-                url.concat(String.format("&page%5Bcursor%5D=%s", escapedCursor));
-            } catch (java.io.UnsupportedEncodingException e) {
-                System.err.println("UnsupportedEncodingException: " + e.getMessage());
-            }
-        }
-        return this.getJSON(url);
-    }*/
 
     private String getJSON(String suffix) throws IOException {
         return Jsoup.connect("https://api.patreon.com/oauth2/api/" + suffix)
