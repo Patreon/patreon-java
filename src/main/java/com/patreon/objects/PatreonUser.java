@@ -6,11 +6,6 @@ public class PatreonUser {
     private PatreonUserData data;
     private HashMap<String, String> links;
 
-    public PatreonUser(PatreonUserData data, HashMap<String, String> links) {
-        this.data = data;
-        this.links = links;
-    }
-
     public HashMap<String, String> getLinks() {
         return links;
     }

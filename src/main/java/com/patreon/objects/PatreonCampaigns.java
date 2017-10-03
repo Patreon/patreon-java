@@ -14,6 +14,7 @@ import static com.patreon.PatreonAPI.toObject;
 public class PatreonCampaigns {
     private List<CampaignData> data;
     private JsonArray included /* Unable to determine a consistent response for this */;
+    private String type;
 
     public PatreonCampaigns(List<CampaignData> data, JsonArray included) {
         this.data = data;
@@ -35,14 +36,201 @@ public class PatreonCampaigns {
     }
 
     public List<Goal> getGoals() {
-        // TODO
-       return null;
+        List<Goal> goals = new ArrayList<>();
+        included.forEach(obj -> {
+            try {
+                Goal goal = toObject(gson.toJson(obj), Goal.class);
+                System.out.println(goal.getType());
+                if (goal.getType().equals("goal")) goals.add(goal);
+            } catch (JsonSyntaxException | NumberFormatException ignored) {
+            }
+        });
+       return goals;
+    }
+
+    public List<Reward> getRewards() {
+        List<Reward> rewards = new ArrayList<>();
+        included.forEach(obj -> {
+            try {
+                Reward reward = toObject(gson.toJson(obj), Reward.class);
+                if (reward.getType().equals("reward")) rewards.add(reward);
+            } catch (JsonSyntaxException | NumberFormatException ignored) {
+            }
+        });
+        return rewards;
+    }
+
+    public List<Card> getCards() {
+        List<Card> cards = new ArrayList<>();
+        included.forEach(obj -> {
+            try {
+                Card card = toObject(gson.toJson(obj), Card.class);
+                if (card.getType().equals("card")) cards.add(card);
+            } catch (JsonSyntaxException | NumberFormatException ignored) {
+            }
+        });
+        return cards;
     }
 
     public List<CampaignData> getCampaigns() {
         return data;
     }
 
+    public static class Card {
+        private CardAttributes attributes;
+        private String id;
+        private String type;
+        private CardRelationships relationships;
+
+        public String getType() {
+            return type;
+        }
+
+        public CardAttributes getAttributes() {
+            return attributes;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public CardRelationships getRelationships() {
+            return relationships;
+        }
+    }
+
+    public static class CardRelationships {
+        private CardUserLink user;
+
+        public CardUserLink getUser() {
+            return user;
+        }
+    }
+
+    public static class CardUserLink {
+        private Data data;
+        private HashMap<String, String> links;
+
+        public HashMap<String, String> getLinks() {
+            return links;
+        }
+
+        public Data getData() {
+            return data;
+        }
+    }
+
+    public static class CardAttributes {
+        private String card_type;
+        private String created_at;
+        private String expiration_date;
+        private boolean has_a_failed_payment;
+        private boolean is_verified;
+        private String number;
+        private String payment_token;
+        private int payment_token_id;
+
+        public String getCardType() {
+            return card_type;
+        }
+
+        public String getCreatedAt() {
+            return created_at;
+        }
+
+        public String getExpirationDate() {
+            return expiration_date;
+        }
+
+        public boolean hasAFailedPayment() {
+            return has_a_failed_payment;
+        }
+
+        public boolean isVerified() {
+            return is_verified;
+        }
+
+        public String getNumber() {
+            return number;
+        }
+
+        public String getPaymentToken() {
+            return payment_token;
+        }
+
+        public int getPaymentTokenId() {
+            return payment_token_id;
+        }
+    }
+
+    public static class Reward {
+        private String id;
+        private RewardAttributes attributes;
+        private RewardRelationships relationships;
+        private String type;
+
+        public String getId() {
+            return id;
+        }
+
+        public RewardAttributes getAttributes() {
+            return attributes;
+        }
+
+        public RewardRelationships getRelationships() {
+            return relationships;
+        }
+
+        public String getType() {
+            return type;
+        }
+    }
+
+    public static class RewardAttributes {
+        private int amount;
+        private int amount_cents;
+        private String description;
+        private String id;
+        private int remaining;
+        private boolean requires_shipping;
+        private String type;
+
+        public int getAmount() {
+            return amount;
+        }
+
+        public int getAmountCents() {
+            return amount_cents;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public int getRemaining() {
+            return remaining;
+        }
+
+        public boolean doesRequireShipping() {
+            return requires_shipping;
+        }
+
+        public String getType() {
+            return type;
+        }
+    }
+
+    public static class RewardRelationships {
+        private Creator creator;
+
+        public Creator getCreator() {
+            return creator;
+        }
+    }
 
     public static class Goal {
         private String id;
@@ -146,37 +334,6 @@ public class PatreonCampaigns {
             private String thanks_embed;
             private String main_video_embed;
             private String thanks_video_url;
-
-            public Attributes(int pledge_sum, String creation_name, String discord_server_id, String created_at, boolean is_plural, String main_video_url, boolean is_nsfw,
-                              boolean is_monthly, String published_at, String earnings_visibility, int outstanding_payment_amount_cents, String image_small_url, String summary, String thanks_msg,
-                              String image_url, int creation_count, String one_liner, boolean is_charged_immediately, int patron_count, boolean display_patron_goals, String pledge_url, String pay_per_name,
-                              String thanks_embed, String main_video_embed, String thanks_video_url) {
-                this.pledge_sum = pledge_sum;
-                this.creation_name = creation_name;
-                this.discord_server_id = discord_server_id;
-                this.created_at = created_at;
-                this.is_plural = is_plural;
-                this.main_video_url = main_video_url;
-                this.is_nsfw = is_nsfw;
-                this.is_monthly = is_monthly;
-                this.published_at = published_at;
-                this.earnings_visibility = earnings_visibility;
-                this.outstanding_payment_amount_cents = outstanding_payment_amount_cents;
-                this.image_small_url = image_small_url;
-                this.summary = summary;
-                this.thanks_msg = thanks_msg;
-                this.image_url = image_url;
-                this.creation_count = creation_count;
-                this.one_liner = one_liner;
-                this.is_charged_immediately = is_charged_immediately;
-                this.patron_count = patron_count;
-                this.display_patron_goals = display_patron_goals;
-                this.pledge_url = pledge_url;
-                this.pay_per_name = pay_per_name;
-                this.thanks_embed = thanks_embed;
-                this.main_video_embed = main_video_embed;
-                this.thanks_video_url = thanks_video_url;
-            }
 
             public int getPledgeSum() {
                 return pledge_sum;

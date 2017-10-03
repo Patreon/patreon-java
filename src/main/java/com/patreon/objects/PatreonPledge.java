@@ -34,14 +34,6 @@ public class PatreonPledge {
         private DataLink patron;
         private DataLink reward;
 
-        public Relationships(HashMap<String, Object> address, DataLink card, DataLink creator, DataLink patron, DataLink reward) {
-            this.address = address;
-            this.card = card;
-            this.creator = creator;
-            this.patron = patron;
-            this.reward = reward;
-        }
-
         public DataLink getCard() {
             return card;
         }
@@ -66,11 +58,6 @@ public class PatreonPledge {
             private Data data;
             private HashMap<String, String> links;
 
-            public DataLink(Data data, HashMap<String, String> links) {
-                this.data = data;
-                this.links = links;
-            }
-
             public Data getData() {
                 return data;
             }
@@ -87,14 +74,6 @@ public class PatreonPledge {
         private String declined_since;
         private int pledge_cap_cents;
         private boolean patron_pays_fees;
-
-        public Attributes(int amount_cents, String created_at, String declined_since, int pledge_cap_cents, boolean patron_pays_fees) {
-            this.amount_cents = amount_cents;
-            this.created_at = created_at;
-            this.declined_since = declined_since;
-            this.pledge_cap_cents = pledge_cap_cents;
-            this.patron_pays_fees = patron_pays_fees;
-        }
 
         public int getAmountCents() {
             return amount_cents;

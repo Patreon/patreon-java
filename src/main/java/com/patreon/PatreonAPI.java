@@ -21,7 +21,7 @@ public class PatreonAPI {
         return toObject(getJSON("current_user"), PatreonUser.class);
     }
 
-    public PatreonCampaigns getCampaign() throws IOException {
+    public PatreonCampaigns getCampaigns() throws IOException {
         return toObject(getJSON("current_user/campaigns?include=rewards,creator,goals,pledges"), PatreonCampaigns.class);
     }
 

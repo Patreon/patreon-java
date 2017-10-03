@@ -9,13 +9,6 @@ public class PatreonPledges {
     private HashMap<String, String> links;
     private HashMap<String, Object> meta;
 
-    public PatreonPledges(List<PatreonPledge> data, List<Object> included, HashMap<String, String> links, HashMap<String, Object> meta) {
-        this.data = data;
-        this.included = included;
-        this.links = links;
-        this.meta = meta;
-    }
-
     public HashMap<String, Object> getMeta() {
         return meta;
     }

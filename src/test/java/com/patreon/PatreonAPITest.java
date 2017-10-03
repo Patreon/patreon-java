@@ -1,20 +1,21 @@
 package com.patreon;
 
-import com.patreon.objects.PatreonCampaigns;
-import com.patreon.objects.PatreonUser;
 import junit.framework.TestCase;
 
 public class PatreonAPITest extends TestCase {
+    private PatreonAPI api = new PatreonAPI("");
+
     public void testGetUser() throws Exception {
-        PatreonAPI patreonAPI = new PatreonAPI("accessToken");
-        PatreonUser.PatreonUserData userData = patreonAPI.getUser().getData();
-        //PatreonCampaigns.CampaignData campaignData = patreonAPI.getCampaignInformation().getCampaigns().get(0);
+        api.getCampaigns().getUsersWithSocialConnections().forEach(System.out::println);
+        api.getCampaigns().getGoals().forEach(goal -> System.out.println(goal.getAttributes().getAmount_cents() / 100));
+        api.getCampaigns().getRewards().forEach(reward -> System.out.println(reward.getAttributes().getDescription()));
+        api.getCampaigns().getCards().forEach(card -> System.out.println(card.getAttributes().getPaymentToken()));
+        api.getCampaigns().getGoals().forEach(goal -> System.out.println(goal.getAttributes().getAmount_cents()));
     }
 
-    public void testGetCampaign() throws Exception {
+    public void testFetchCampaign() throws Exception {
     }
 
-    public void testGetPledges() throws Exception {
+    public void testToObject() throws Exception {
     }
-
 }
