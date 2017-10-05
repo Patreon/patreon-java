@@ -14,6 +14,9 @@ public class PatreonCampaignResponse extends IncludedModel {
     @Meta
     private List<PatreonCampaign> data;
 
+    /**
+     * @return List of campaigns this creator runs - CAN be empty
+     */
     public List<PatreonCampaign> getData() {
         return data;
     }

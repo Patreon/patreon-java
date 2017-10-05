@@ -8,6 +8,9 @@ import com.patreon.models.common.RelationshipsModel;
 
 import java.util.List;
 
+/**
+ * Object representing a Patreon User - attributes are stored in the attributes field, while all other related data are located in the relationships object
+ */
 @Type("user")
 public class PatreonUser extends RelationshipsModel {
     private String type;
