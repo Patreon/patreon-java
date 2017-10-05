@@ -41,4 +41,8 @@ public class Pledge extends RelationshipsModel {
     public String getType() {
         return type;
     }
+
+    public PledgeData getAttributes() {
+        return attributes;
+    }
 }
