@@ -1,32 +1,30 @@
 package com.patreon;
 
 import com.google.gson.Gson;
-import com.patreon.objects.PatreonCampaigns;
-import com.patreon.objects.PatreonPledges;
-import com.patreon.objects.PatreonUser;
-import org.json.JSONObject;
+import com.google.gson.GsonBuilder;
+import com.patreon.models.campaign.PatreonCampaignResponse;
+import com.patreon.models.campaign.pledge.PledgeResponse;
+import com.patreon.models.user.PatreonUser;
+import com.patreon.models.user.PatreonUserResponse;
 import org.jsoup.Jsoup;
 
 import java.io.IOException;
 
 public class PatreonAPI {
     private final String accessToken;
-    public static final Gson gson = new Gson();
+    public static final Gson gson = new GsonBuilder().serializeNulls().enableComplexMapKeySerialization().create();
 
     public PatreonAPI(String accessToken) {
         this.accessToken = accessToken;
     }
 
-    public PatreonUser getUser() throws IOException {
-        return toObject(getJSON("current_user"), PatreonUser.class);
+    public PatreonUserResponse getUser() throws IOException {
+        System.out.println(getJson("current_user"));
+        return toObject(getJson("current_user"), PatreonUserResponse.class);
     }
 
-    public PatreonCampaigns getCampaigns() throws IOException {
-        return toObject(getJSON("current_user/campaigns?include=rewards,creator,goals,pledges"), PatreonCampaigns.class);
-    }
-
-    public JSONObject getJson(String endpoint) throws IOException {
-        return new JSONObject(getJSON(endpoint));
+    public PatreonCampaignResponse getCampaigns() throws IOException {
+        return toObject(getJson("current_user/campaigns?include=rewards,creator,goals,pledges"), PatreonCampaignResponse.class);
     }
 
     /**
@@ -34,30 +32,22 @@ public class PatreonAPI {
      *
      * @param campaignId id for campaign to retrieve
      * @param pageSize   how many pledges to return
-     * @param pageCursor UNKNOWN. After much research, specific syntax is still unknown
-     * @return list of Patreon Pledges
+     * @param pageCursor ignore, put null.
+     * @return PledgeResponse containing pledges & associated data
      * @throws IOException if there's an exception connecting
      */
-    public PatreonPledges getPledges(String campaignId, int pageSize, String pageCursor) throws IOException {
+    public PledgeResponse getPledges(String campaignId, int pageSize, String pageCursor) throws IOException {
         String url = "campaigns/" + campaignId + "/pledges?page%5Bcount%5D=" + pageSize;
         if (pageCursor != null) url += "&page%5Bcursor%5D=" + pageCursor;
-        return toObject(getJSON(url), PatreonPledges.class);
+        return toObject(getJson(url), PledgeResponse.class);
     }
 
-    /*public JSONObject fetchPageOfPledges(String campaignID, int pageSize, String cursor) {
-        String url = String.format("campaigns/%s/pledges?page%5Bcount%5D=%s", campaignID, pageSize);
-        if (cursor != null) {
-            try {
-                String escapedCursor = URLEncoder.encode(cursor, "UTF-8");
-                url.concat(String.format("&page%5Bcursor%5D=%s", escapedCursor));
-            } catch (java.io.UnsupportedEncodingException e) {
-                System.err.println("UnsupportedEncodingException: " + e.getMessage());
-            }
-        }
-        return this.getJSON(url);
-    }*/
+    public PatreonUserResponse getUser(String id) throws IOException {
+        return toObject(Jsoup.connect("https://www.patreon.com/api/user/" + id)
+                .ignoreContentType(true).header("Authorization", "Bearer " + accessToken).get().body().text(), PatreonUserResponse.class);
+    }
 
-    private String getJSON(String suffix) throws IOException {
+    private String getJson(String suffix) throws IOException {
         return Jsoup.connect("https://api.patreon.com/oauth2/api/" + suffix)
                 .ignoreContentType(true).header("Authorization", "Bearer " + accessToken).get().body().text();
     }
