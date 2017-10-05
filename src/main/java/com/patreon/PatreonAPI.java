@@ -19,7 +19,6 @@ public class PatreonAPI {
     }
 
     public PatreonUserResponse getUser() throws IOException {
-        System.out.println(getJson("current_user"));
         return toObject(getJson("current_user"), PatreonUserResponse.class);
     }
 

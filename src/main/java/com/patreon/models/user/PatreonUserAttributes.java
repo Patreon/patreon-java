@@ -105,4 +105,8 @@ public class PatreonUserAttributes {
     public SocialConnections getSocialConnections() {
         return social_connections;
     }
+
+    public String getDiscordId() {
+        return discord_id;
+    }
 }

@@ -12,6 +12,7 @@ public class PatreonAPITest extends TestCase {
     public void testGetUser() throws Exception {
         System.out.println(api.getUser("439234").getData().getAttributes().getEmail());
         System.out.println(api.getUser("439234").getData().getAttributes().getFullName());
+        System.out.println(api.getUser().getData().getAttributes().hasPassword());
     }
 
     public void testGetCampaigns() throws Exception {
