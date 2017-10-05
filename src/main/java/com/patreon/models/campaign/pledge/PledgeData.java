@@ -11,12 +11,8 @@ public class PledgeData {
         return pledge_cap_cents;
     }
 
-    /**
-     * Seems to always return false...
-     * @return false
-     */
-    private boolean doesPatronPayFees() {
-        return patron_pays_fees;
+    public boolean doesPatronPayFees() {
+        return declined_since == null;
     }
 
     public String getDeclinedSince() {
