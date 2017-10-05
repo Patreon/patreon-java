@@ -11,7 +11,11 @@ public class PledgeData {
         return pledge_cap_cents;
     }
 
-    public boolean doesPatronPayFees() {
+    /**
+     * Seems to always return false...
+     * @return false
+     */
+    private boolean doesPatronPayFees() {
         return patron_pays_fees;
     }
 

@@ -38,6 +38,7 @@ public class PatreonAPI {
      * @throws IOException Thrown when the GET request failed
      */
     public PatreonCampaignResponse getCampaigns() throws IOException {
+        System.out.println(getJson("current_user/campaigns?include=rewards,creator,goals,pledges"));
         return toObject(getJson("current_user/campaigns?include=rewards,creator,goals,pledges"), PatreonCampaignResponse.class);
     }
 
