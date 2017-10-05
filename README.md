@@ -22,16 +22,21 @@ Step 2. Use this library
 ---
 ```java
 import com.patreon.PatreonAPI;
-import com.patreon.objects.PatreonCampaigns;
-import com.patreon.objects.PatreonUser;
+import com.patreon.models.campaign.PatreonCampaignData;
+import com.patreon.models.campaign.PatreonCampaignResponse;
+import com.patreon.models.user.PatreonUserResponse;
 
     ...
 
 PatreonAPI patreonAPI = new PatreonAPI("accessToken");
-PatreonUser.PatreonUserData userData = patreonAPI.getUser().getData();
-PatreonCampaigns.CampaignData campaignData = patreonAPI.getCampaignInformation().getCampaigns().get(0);
+    
+// How to get user objects - this supports getting other users through getUser(String id)        
+PatreonUser user = patreonAPI.getUser();
 
-    // use the objects as you desire
+// Example of getting attributes for your first campaign
+PatreonCampaignData data = api.getCampaigns().getData().get(0).getAttributes();
+    
+// use the objects as you desire
 ```
 
 For Patreon Developers Wishing to Release Updates
@@ -39,4 +44,4 @@ For Patreon Developers Wishing to Release Updates
 1. Get settings.xml
 2. Get GPG keypair
 3. `mvn clean deploy -s settings.xml -P release`
-4. visit https://oss.sonatype.org/#stagingRepositories find the latest repository, close it, release it
+4. visit https://oss.sonatype.org/#stagingRepositories, find the latest repository, close it, then release it

@@ -1,7 +1,9 @@
 package com.patreon;
 
+import com.patreon.models.campaign.PatreonCampaignData;
 import com.patreon.models.campaign.PatreonCampaignResponse;
 import com.patreon.models.campaign.pledge.PledgeResponse;
+import com.patreon.models.user.PatreonUserResponse;
 import junit.framework.TestCase;
 
 import static com.patreon.PatreonAPI.gson;
@@ -10,6 +12,8 @@ public class PatreonAPITest extends TestCase {
     private PatreonAPI api = new PatreonAPI("");
 
     public void testGetUser() throws Exception {
+        PatreonUserResponse response = api.getUser();
+        PatreonCampaignData data = api.getCampaigns().getData().get(0).getAttributes();
         System.out.println(api.getUser("439234").getData().getAttributes().getEmail());
         System.out.println(api.getUser("439234").getData().getAttributes().getFullName());
         System.out.println(api.getUser().getData().getAttributes().hasPassword());
