@@ -21,47 +21,22 @@ This will provide you with a `client_id` and a `client_secret`.
 Step 2. Use this library
 ---
 ```java
-    import com.patreon.OAuth;
-    import com.patreon.API;
-    import org.json.JSONObject;
-    import org.json.JSONArray;
+import com.patreon.PatreonAPI;
+import com.patreon.models.campaign.PatreonCampaignData;
+import com.patreon.models.campaign.PatreonCampaignResponse;
+import com.patreon.models.user.PatreonUserResponse;
 
     ...
 
-    String clientID = null;        // Replace with your data
-    String clientSecret = null;    // Replace with your data
-    String creatorID = null;       // Replace with your data
-    String redirectURI = null;     // Replace with your data
-    String code = null;            // get from inbound HTTP request
+PatreonAPI patreonAPI = new PatreonAPI("accessToken (via PatreonOAuth obj or creator token)");
+    
+// Getting your own user
+PatreonUser user = patreonAPI.getUser();
 
-    OAuth oauthClient = new OAuth(clientID, clientSecret);
-    JSONObject tokens = oauthClient.getTokens(code, redirectURI);
-    String accessToken = tokens.getString("access_token");
-
-    API apiClient = new API(accessToken);
-    JSONObject userResponse = apiClient.fetchUser();
-    JSONObject user = userResponse.getJSONObject("data");
-    JSONArray included = userResponse.getJSONArray("included");
-    JSONObject pledge = null;
-    JSONObject campaign = null;
-    if (included != null) {
-        for (int i = 0; i < included.length(); i++) {
-            JSONObject object = included.getJSONObject(i);
-            if (object.getString("type").equals("pledge") && object.getJSONObject("relationships").getJSONObject("creator").getJSONObject("data").getString("id").equals(creatorID)) {
-                pledge = object;
-                break;
-            }
-        }
-        for (int i = 0; i < included.length(); i++) {
-            JSONObject object = included.getJSONObject(i);
-            if (object.getString("type").equals("campaign") && object.getJSONObject("relationships").getJSONObject("creator").getJSONObject("data").getString("id").equals(creatorID)) {
-                campaign = object;
-                break;
-            }
-        }
-    }
-
-    // use the user, pledge, and campaign objects as you desire
+// Example of getting attributes for your first campaign
+PatreonCampaignData data = api.getCampaigns().getData().get(0).getAttributes();
+    
+// use the objects as you desire
 ```
 
 For Patreon Developers Wishing to Release Updates
@@ -69,4 +44,4 @@ For Patreon Developers Wishing to Release Updates
 1. Get settings.xml
 2. Get GPG keypair
 3. `mvn clean deploy -s settings.xml -P release`
-4. visit https://oss.sonatype.org/#stagingRepositories find the latest repository, close it, release it
+4. visit https://oss.sonatype.org/#stagingRepositories, find the latest repository, close it, then release it
