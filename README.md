@@ -28,9 +28,9 @@ import com.patreon.models.user.PatreonUserResponse;
 
     ...
 
-PatreonAPI patreonAPI = new PatreonAPI("accessToken");
+PatreonAPI patreonAPI = new PatreonAPI("accessToken (via PatreonOAuth obj or creator token)");
     
-getMyUser
+// Getting your own user
 PatreonUser user = patreonAPI.getUser();
 
 // Example of getting attributes for your first campaign
