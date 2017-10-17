@@ -17,25 +17,29 @@ public class PatreonOAuth {
         this.clientSecret = clientSecret;
     }
 
+    public String getDefaultOauthUrl(String redirectUri) {
+        return "https://www.patreon.com/oauth2/authorize?response_type=code&client_id=" + clientID + "&redirect_uri=" + redirectUri;
+    }
+
     public Token getToken(String code, String redirectURI) throws IOException {
         return toObject(Jsoup.connect("https://api.patreon.com/oauth2/token")
                 .data("grant_type", "authorization_code")
                 .data("code", code)
                 .data("client_id", clientID)
                 .data("client_secret", clientSecret)
-                .data("redirect_uri", redirectURI).get().body().text(), Token.class);
+                .data("redirect_uri", redirectURI).ignoreContentType(true).post().body().text(), Token.class);
     }
 
     public Token refreshToken(String refreshToken) throws IOException {
         return toObject(Jsoup.connect("https://api.patreon.com/oauth2/token")
-                .data("grant_type", "authorization_code")
+                .data("grant_type", "refresh_token")
                 .data("client_id", clientID)
                 .data("client_secret", clientSecret)
-                .data("refresh)token", refreshToken).get().body().text(), Token.class);
+                .data("refresh_token", refreshToken).ignoreContentType(true).post().body().text(), Token.class);
     }
 
     private static String createQuery(List<QueryParameter> parameters) {
-        return parameters.stream().map(QueryParameter::getQueryString).collect(Collectors.joining("&"));
+        return parameters.stream().map(QueryParameter::toString).collect(Collectors.joining("&"));
     }
 
     public static class QueryParameter {
@@ -47,7 +51,8 @@ public class PatreonOAuth {
             this.value = value;
         }
 
-        String getQueryString() {
+        @Override
+        public String toString() {
             return name + "=" + value;
         }
     }

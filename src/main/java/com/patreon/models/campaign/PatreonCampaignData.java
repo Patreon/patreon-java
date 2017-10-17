@@ -101,7 +101,7 @@ public class PatreonCampaignData {
         return one_liner;
     }
 
-    public boolean isIsChargedImmediately() {
+    public boolean isChargedImmediately() {
         return is_charged_immediately;
     }
 
@@ -109,7 +109,7 @@ public class PatreonCampaignData {
         return patron_count;
     }
 
-    public boolean isDisplayPatronGoals() {
+    public boolean doesDisplayPatronGoals() {
         return display_patron_goals;
     }
 

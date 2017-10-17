@@ -8,4 +8,8 @@ public class PatreonUserResponse extends LinkedModel {
     public PatreonUser getData() {
         return data;
     }
+
+    public String getSelfUrl() {
+        return getLink("self");
+    }
 }

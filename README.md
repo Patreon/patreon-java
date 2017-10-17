@@ -30,7 +30,7 @@ import com.patreon.models.user.PatreonUserResponse;
 
 PatreonAPI patreonAPI = new PatreonAPI("accessToken");
     
-// How to get user objects - this supports getting other users through getUser(String id)        
+getMyUser
 PatreonUser user = patreonAPI.getUser();
 
 // Example of getting attributes for your first campaign

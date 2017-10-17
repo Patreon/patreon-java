@@ -34,10 +34,16 @@ public class PledgeResponse extends LinkedIncludedCombinedModel {
         return rewards;
     }
 
+    /**
+     * @return List of <b>paying</b> patrons <b>not</b> including the creator
+     */
     public List<PatreonUser> getPatrons() {
         return getUsers();
     }
 
+    /**
+     * @return List of <b>paying</b> patrons <b>including the creator</b>
+     */
     public List<PatreonUser> getUsers() {
         List<PatreonUser> users = getAll(PatreonUser.class);
         users.removeIf(patreonUser -> !patreonUser.getType().equals("user"));

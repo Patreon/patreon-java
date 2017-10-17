@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.patreon.models.campaign.PatreonCampaignResponse;
 import com.patreon.models.campaign.pledge.PledgeResponse;
-import com.patreon.models.user.PatreonUser;
 import com.patreon.models.user.PatreonUserResponse;
 import org.jsoup.Jsoup;
 
@@ -15,8 +14,9 @@ public class PatreonAPI {
     public static final Gson gson = new GsonBuilder().serializeNulls().enableComplexMapKeySerialization().create();
 
     /**
-     * Create a new instance of the Patreon API. You only need <b>one</b> of these, unless you are using the API with multiple tokens
-     * @param accessToken The "Creator's Access Token" found on <a href="https://www.patreon.com/platform/documentation/clients">the patreon client page</a>
+     * Create a new instance of the Patreon API. You only need <b>one</b> of these objects unless you are using the API with multiple tokens
+     *
+     * @param accessToken The "Creator's Access Token" found on <a href="https://www.patreon.com/platform/documentation/clients">the patreon client page</a> <b>OR</b> OAuth access token
      */
     public PatreonAPI(String accessToken) {
         this.accessToken = accessToken;
@@ -24,21 +24,22 @@ public class PatreonAPI {
 
     /**
      * Get the user object of the creator
+     *
      * @return Response containing all data pertaining to the current user
      * @throws IOException Thrown when the GET request failed
      */
-    public PatreonUserResponse getUser() throws IOException {
+    public PatreonUserResponse getMyUser() throws IOException {
         return toObject(getJson("current_user"), PatreonUserResponse.class);
     }
 
     /**
      * Get a list of campaigns the current creator is running - also contains other related data like Goals
      * Note: The first campaign data object is located at index 0 in the data list
+     *
      * @return Campaign Response containing the above-mentioned data
      * @throws IOException Thrown when the GET request failed
      */
     public PatreonCampaignResponse getCampaigns() throws IOException {
-        System.out.println(getJson("current_user/campaigns?include=rewards,creator,goals,pledges"));
         return toObject(getJson("current_user/campaigns?include=rewards,creator,goals,pledges"), PatreonCampaignResponse.class);
     }
 
@@ -51,7 +52,7 @@ public class PatreonAPI {
      * @return PledgeResponse containing pledges & associated data
      * @throws IOException Thrown when the GET request failed
      */
-    public PledgeResponse getPledges(String campaignId, int pageSize, String pageCursor) throws IOException {
+    public PledgeResponse getPledgesToMe(String campaignId, int pageSize, String pageCursor) throws IOException {
         String url = "campaigns/" + campaignId + "/pledges?page%5Bcount%5D=" + pageSize;
         if (pageCursor != null) url += "&page%5Bcursor%5D=" + pageCursor;
         return toObject(getJson(url), PledgeResponse.class);
@@ -64,7 +65,7 @@ public class PatreonAPI {
      * @return A user response containing minimal public information about a user
      * @throws IOException Thrown when the GET request failed
      */
-    public PatreonUserResponse getUser(String id) throws IOException {
+    public PatreonUserResponse getMyUser(String id) throws IOException {
         return toObject(Jsoup.connect("https://www.patreon.com/api/user/" + id)
                 .ignoreContentType(true).header("Authorization", "Bearer " + accessToken).get().body().text(), PatreonUserResponse.class);
     }
