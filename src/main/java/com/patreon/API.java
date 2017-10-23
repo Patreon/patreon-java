@@ -32,11 +32,11 @@ public class API {
   }
 
   public JSONObject fetchPageOfPledges(String campaignID, int pageSize, String cursor) {
-    String url = String.format("campaigns/%s/pledges?page%5Bcount%5D=%s", campaignID, pageSize);
+    String url = String.format("campaigns/%s/pledges?page%%5Bcount%%5D=%s", campaignID, pageSize);
     if (cursor != null) {
       try {
         String escapedCursor = URLEncoder.encode(cursor, "UTF-8");
-        url.concat(String.format("&page%5Bcursor%5D=%s", escapedCursor));
+        url.concat(String.format("&page%%5Bcursor%%5D=%s", escapedCursor));
       } catch (java.io.UnsupportedEncodingException e) {
         System.err.println("UnsupportedEncodingException: " + e.getMessage());
       }
