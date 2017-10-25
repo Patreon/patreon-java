@@ -2,9 +2,9 @@ package com.patreon;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.patreon.models.campaign.PatreonCampaignResponse;
-import com.patreon.models.campaign.pledge.PledgeResponse;
-import com.patreon.models.user.PatreonUserResponse;
+import com.patreon.resources.campaign.PatreonCampaignResponse;
+import com.patreon.resources.pledge.PledgeResponse;
+import com.patreon.resources.user.PatreonUserResponse;
 import org.jsoup.Jsoup;
 
 import java.io.IOException;

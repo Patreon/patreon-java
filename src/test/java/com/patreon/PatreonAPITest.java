@@ -1,9 +1,9 @@
 package com.patreon;
 
-import com.patreon.models.campaign.PatreonCampaign;
-import com.patreon.models.campaign.PatreonCampaignResponse;
-import com.patreon.models.campaign.pledge.PledgeResponse;
-import com.patreon.models.user.PatreonUserResponse;
+import com.patreon.resources.campaign.PatreonCampaign;
+import com.patreon.resources.campaign.PatreonCampaignResponse;
+import com.patreon.resources.pledge.PledgeResponse;
+import com.patreon.resources.user.PatreonUserResponse;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
