@@ -5,7 +5,7 @@ import java.util.HashMap;
 import static com.patreon.PatreonAPI.gson;
 import static com.patreon.PatreonAPI.toObject;
 
-public class RelationshipsModel extends BaseIdModel {
+public class RelationshipsModel extends BaseResource {
     private HashMap<String, Object> relationships;
 
     public HashMap<String, Object> getRelationships() {

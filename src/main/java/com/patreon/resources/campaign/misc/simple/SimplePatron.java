@@ -2,10 +2,9 @@ package com.patreon.resources.campaign.misc.simple;
 
 import com.github.jasminb.jsonapi.annotations.Meta;
 import com.github.jasminb.jsonapi.annotations.Type;
-import com.patreon.resources.shared.BaseIdModel;
-import com.patreon.resources.shared.LinkedModel;
+import com.patreon.resources.shared.BaseResource;
 
-public class SimplePatron extends LinkedModel {
+public class SimplePatron extends BaseResource {
     @Meta
     private SimplePatronData data;
 
@@ -14,7 +13,7 @@ public class SimplePatron extends LinkedModel {
     }
 
     @Type("user")
-    public static class SimplePatronData extends BaseIdModel {
+    public static class SimplePatronData extends BaseResource {
         private String type;
 
         public String getType() {

@@ -2,12 +2,11 @@ package com.patreon.resources.campaign.misc.simple;
 
 import com.github.jasminb.jsonapi.annotations.Meta;
 import com.github.jasminb.jsonapi.annotations.Type;
-import com.patreon.resources.shared.BaseIdModel;
-import com.patreon.resources.shared.LinkedModel;
+import com.patreon.resources.shared.BaseResource;
 
 import java.util.List;
 
-public class SimpleRewards extends LinkedModel {
+public class SimpleRewards extends BaseResource {
     @Meta
     private List<SimpleRewardData> data;
 
@@ -16,7 +15,7 @@ public class SimpleRewards extends LinkedModel {
     }
 
     @Type("reward")
-    public static class SimpleRewardData extends BaseIdModel {
+    public static class SimpleRewardData extends BaseResource {
         private String type;
 
         public String getType() {
