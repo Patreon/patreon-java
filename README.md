@@ -38,8 +38,8 @@ String redirectUri = null; // Provide this to set up your client
 
 String code = null; // Get this from the query parameter `code`
 
-PatreonOAuth oauthClient = new PatreonOAuth(clientId, clientSecret);
-PatreonOAuth.Token tokens = oauthClient.getToken(code, redirectUri);
+PatreonOAuth oauthClient = new PatreonOAuth(clientId, clientSecret, redirectUri);
+PatreonOAuth.TokensResponse tokens = oauthClient.getTokens(code);
 String accessToken = tokens.getAccessToken();
 
 PatreonAPI apiClient = new PatreonAPI(accessToken);
