@@ -3,8 +3,6 @@ package com.patreon;
 import org.jsoup.Jsoup;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.patreon.PatreonAPI.toObject;
 
@@ -36,25 +34,6 @@ public class PatreonOAuth {
                 .data("client_id", clientID)
                 .data("client_secret", clientSecret)
                 .data("refresh_token", refreshToken).ignoreContentType(true).post().body().text(), Token.class);
-    }
-
-    private static String createQuery(List<QueryParameter> parameters) {
-        return parameters.stream().map(QueryParameter::toString).collect(Collectors.joining("&"));
-    }
-
-    public static class QueryParameter {
-        private String name;
-        private String value;
-
-        public QueryParameter(String name, String value) {
-            this.name = name;
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return name + "=" + value;
-        }
     }
 
     public static class Token {

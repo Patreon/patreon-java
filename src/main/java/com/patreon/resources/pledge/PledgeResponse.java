@@ -2,7 +2,7 @@ package com.patreon.resources.pledge;
 
 import com.github.jasminb.jsonapi.annotations.Meta;
 import com.patreon.resources.campaign.PatreonCampaign;
-import com.patreon.resources.campaign.misc.full.Reward;
+import com.patreon.resources.reward.Reward;
 import com.patreon.resources.shared.LinkedIncludedCombinedModel;
 import com.patreon.resources.user.PatreonUser;
 
@@ -24,13 +24,13 @@ public class PledgeResponse extends LinkedIncludedCombinedModel {
 
     public List<PatreonCampaign> getCampaigns() {
         List<PatreonCampaign> campaigns = getAll(PatreonCampaign.class);
-        campaigns.removeIf(patreonCampaign -> !patreonCampaign.getType().equals("campaign"));
+//        campaigns.removeIf(patreonCampaign -> !patreonCampaign.getType().equals("campaign"));
         return campaigns;
     }
 
     public List<Reward> getRewards() {
         List<Reward> rewards = getAll(Reward.class);
-        rewards.removeIf(reward -> !reward.getType().equals("reward"));
+//        rewards.removeIf(reward -> !reward.getType().equals("reward"));
         return rewards;
     }
 
@@ -46,7 +46,7 @@ public class PledgeResponse extends LinkedIncludedCombinedModel {
      */
     public List<PatreonUser> getUsers() {
         List<PatreonUser> users = getAll(PatreonUser.class);
-        users.removeIf(patreonUser -> !patreonUser.getType().equals("user"));
+//        users.removeIf(patreonUser -> !patreonUser.getType().equals("user"));
         return users;
     }
 

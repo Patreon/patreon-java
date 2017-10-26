@@ -1,17 +1,28 @@
 package com.patreon;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.github.jasminb.jsonapi.DeserializationFeature;
+import com.github.jasminb.jsonapi.JSONAPIDocument;
+import com.github.jasminb.jsonapi.ResourceConverter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.patreon.resources.campaign.PatreonCampaign;
 import com.patreon.resources.campaign.PatreonCampaignResponse;
+import com.patreon.resources.pledge.Pledge;
 import com.patreon.resources.pledge.PledgeResponse;
-import com.patreon.resources.user.PatreonUserResponse;
+import com.patreon.resources.user.PatreonUser;
 import org.jsoup.Jsoup;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class PatreonAPI {
     private final String accessToken;
     public static final Gson gson = new GsonBuilder().serializeNulls().enableComplexMapKeySerialization().create();
+    private ResourceConverter converter;
 
     /**
      * Create a new instance of the Patreon API. You only need <b>one</b> of these objects unless you are using the API with multiple tokens
@@ -20,16 +31,29 @@ public class PatreonAPI {
      */
     public PatreonAPI(String accessToken) {
         this.accessToken = accessToken;
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
+        this.converter = new ResourceConverter(
+            objectMapper,
+            PatreonUser.class,
+            PatreonCampaign.class,
+            Pledge.class
+        );
+        this.converter.enableDeserializationOption(DeserializationFeature.ALLOW_UNKNOWN_INCLUSIONS);
     }
 
     /**
      * Get the user object of the creator
      *
-     * @return Response containing all data pertaining to the current user
+     * @return JSONAPIDocument<PatreonUser> containing all data pertaining to the current user
      * @throws IOException Thrown when the GET request failed
      */
-    public PatreonUserResponse getMyUser() throws IOException {
-        return toObject(getJson("current_user"), PatreonUserResponse.class);
+    public JSONAPIDocument<PatreonUser> fetchUser() throws IOException {
+        return converter.readDocument(
+            getDataStream("current_user"),
+            PatreonUser.class
+        );
     }
 
     /**
@@ -59,18 +83,6 @@ public class PatreonAPI {
     }
 
     /**
-     * Uses Patreon's public endpoint to get data about any patreon user. <b>Some data will be null, especially sensitive data</b>
-     *
-     * @param id The patreon user id
-     * @return A user response containing minimal public information about a user
-     * @throws IOException Thrown when the GET request failed
-     */
-    public PatreonUserResponse getMyUser(String id) throws IOException {
-        return toObject(Jsoup.connect("https://www.patreon.com/api/user/" + id)
-                .ignoreContentType(true).header("Authorization", "Bearer " + accessToken).get().body().text(), PatreonUserResponse.class);
-    }
-
-    /**
      * @param suffix The Patreon endpoint AFTER the base URL of https://api.patreon.com/oauth2/api/
      * @return The text content of the request, which can then be deserialized
      * @throws IOException Thrown when the GET request failed
@@ -78,6 +90,19 @@ public class PatreonAPI {
     private String getJson(String suffix) throws IOException {
         return Jsoup.connect("https://api.patreon.com/oauth2/api/" + suffix)
                 .ignoreContentType(true).header("Authorization", "Bearer " + accessToken).get().body().text();
+    }
+
+    private InputStream getDataStream(String suffix) {
+        try {
+            String prefix = "https://api.patreon.com/oauth2/api/";
+            URL url = new URL(prefix.concat(suffix));
+            HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+            connection.setRequestProperty("Authorization", "Bearer ".concat(this.accessToken));
+            return connection.getInputStream();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 
     public static <E> E toObject(String str, Class<E> clazz) {

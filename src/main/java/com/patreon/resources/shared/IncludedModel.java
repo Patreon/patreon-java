@@ -1,7 +1,5 @@
 package com.patreon.resources.shared;
 
-import com.google.gson.JsonSyntaxException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,14 +21,14 @@ public class IncludedModel {
 
     public <E> List<E> getAll(Class<E> clazz) {
         List<E> eList = new ArrayList<>();
-        included.forEach(obj -> {
-            try {
-                E e = toObject(gson.toJson(obj), clazz);
-                if (e != null) eList.add(e);
-            } catch (JsonSyntaxException | ClassCastException ignored) {
-                ignored.printStackTrace();
-            }
-        });
+//        included.forEach(obj -> {
+//            try {
+//                E e = toObject(gson.toJson(obj), clazz);
+//                if (e != null) eList.add(e);
+//            } catch (JsonSyntaxException | ClassCastException ignored) {
+//                ignored.printStackTrace();
+//            }
+//        });
         return eList;
     }
 

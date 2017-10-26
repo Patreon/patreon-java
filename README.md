@@ -22,7 +22,6 @@ Step 2. Use this library
 ---
 ```java
 import com.patreon.PatreonAPI;
-import com.patreon.resources.campaign.PatreonCampaignData;
 
     ...
 

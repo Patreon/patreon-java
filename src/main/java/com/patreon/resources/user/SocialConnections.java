@@ -1,6 +1,8 @@
 package com.patreon.resources.user;
 
 
+import java.util.List;
+
 public class SocialConnections {
     private UserIdObject youtube;
     private UserIdObject twitter;
@@ -40,9 +42,14 @@ public class SocialConnections {
 
     public static class UserIdObject {
         private String user_id;
+        private List<String> scopes;
 
-        public String getUserId() {
+        public String getUser_id() {
             return user_id;
+        }
+
+        public List<String> getScopes() {
+            return scopes;
         }
     }
 }

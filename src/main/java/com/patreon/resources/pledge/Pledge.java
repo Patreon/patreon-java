@@ -1,46 +1,78 @@
 package com.patreon.resources.pledge;
 
-import com.github.jasminb.jsonapi.annotations.Meta;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.github.jasminb.jsonapi.annotations.Relationship;
 import com.github.jasminb.jsonapi.annotations.Type;
-import com.patreon.resources.campaign.misc.simple.SimpleCreator;
-import com.patreon.resources.campaign.misc.simple.SimpleReward;
+import com.patreon.resources.reward.Reward;
 import com.patreon.resources.shared.RelationshipsModel;
+import com.patreon.resources.user.PatreonUser;
 
 @Type("pledge")
 public class Pledge extends RelationshipsModel {
-    private String type;
-    @Meta
-    private PledgeData attributes;
+    private int amountCents;
+    private String createdAt;
+    private String declinedSince;
+    private boolean patronPaysFees;
+    private int pledgeCapCents;
 
-    /**
-     * Convenience method to get the creator of the campaign where this user pledged
-     * @return Simple creator object, use to lookup or store ID
-     */
-    public SimpleCreator getSimpleCreator() {
-        return getRelationship("creator", SimpleCreator.class);
+    @Relationship("creator")
+    private PatreonUser creator;
+
+    @Relationship("patron")
+    private PatreonUser patron;
+
+    @Relationship("reward")
+    private Reward reward;
+
+    public Pledge(
+        @JsonProperty("amount_cents") int amount_cents,
+        @JsonProperty("created_at") String created_at,
+        @JsonProperty("declined_since") String declined_since,
+        @JsonProperty("patron_pays_fees") boolean patron_pays_fees,
+        @JsonProperty("pledge_cap_cents") int pledge_cap_cents,
+        @JsonProperty("creator") PatreonUser creator,
+        @JsonProperty("patron") PatreonUser patron,
+        @JsonProperty("reward") Reward reward
+    ) {
+        this.amountCents = amount_cents;
+        this.createdAt = created_at;
+        this.declinedSince = declined_since;
+        this.patronPaysFees = patron_pays_fees;
+        this.pledgeCapCents = pledge_cap_cents;
+        this.creator = creator;
+        this.patron = patron;
+        this.reward = reward;
     }
 
-    /**
-     * Convenience method to get the patron of the campaign where this user pledged
-     * @return Simple patron object, convenient to quickly get their id
-     */
-    public SimpleCreator getSimplePatron() {
-        return getRelationship("patron", SimpleCreator.class);
+    public int getAmountCents() {
+        return amountCents;
     }
 
-    /**
-     * Convenience method to get the reward this patron has
-     * @return Simple reward object - use with PatreonCampaign object to get pledge amount and rewards
-     */
-    public SimpleReward getSimpleReward() {
-        return getRelationship("reward", SimpleReward.class);
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public String getType() {
-        return type;
+    public String getDeclinedSince() {
+        return declinedSince;
     }
 
-    public PledgeData getAttributes() {
-        return attributes;
+    public boolean getPatronPaysFees() {
+        return patronPaysFees;
+    }
+
+    public int getPledgeCapCents() {
+        return pledgeCapCents;
+    }
+
+    public PatreonUser getCreator() {
+        return creator;
+    }
+
+    public PatreonUser getPatron() {
+        return patron;
+    }
+
+    public Reward getReward() {
+        return reward;
     }
 }
