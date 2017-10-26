@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.List;
 
 public class PatreonAPI {
@@ -75,8 +76,15 @@ public class PatreonAPI {
      * @throws IOException Thrown when the GET request failed
      */
     public JSONAPIDocument<List<Pledge>> fetchPageOfPledges(String campaignId, int pageSize, String pageCursor) throws IOException {
-        String url = "campaigns/" + campaignId + "/pledges?page%5Bcount%5D=" + pageSize;
-        if (pageCursor != null) url += "&page%5Bcursor%5D=" + pageCursor;
+        String url = String.format("campaigns/%s/pledges?page%%5Bcount%%5D=%s", campaignID, pageSize);
+        if (pageCursor != null) {
+            try {
+                String escapedCursor = URLEncoder.encode(cursor, "UTF-8");
+                url.concat(String.format("&page%%5Bcursor%%5D=%s", escapedCursor));
+            } catch (java.io.UnsupportedEncodingException e) {
+                System.err.println("UnsupportedEncodingException: " + e.getMessage());
+            }
+        }
         return converter.readDocumentCollection(
             getDataStream(url),
             Pledge.class
