@@ -4,11 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.jasminb.jsonapi.annotations.Relationship;
 import com.github.jasminb.jsonapi.annotations.Type;
 import com.patreon.resources.reward.Reward;
-import com.patreon.resources.shared.RelationshipsModel;
+import com.patreon.resources.shared.BaseResource;
 import com.patreon.resources.user.PatreonUser;
 
 @Type("pledge")
-public class Pledge extends RelationshipsModel {
+public class Pledge extends BaseResource {
     private int amountCents;
     private String createdAt;
     private String declinedSince;

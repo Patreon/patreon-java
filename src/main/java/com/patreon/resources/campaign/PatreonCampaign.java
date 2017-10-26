@@ -7,13 +7,13 @@ import com.github.jasminb.jsonapi.annotations.Type;
 import com.patreon.resources.goal.Goal;
 import com.patreon.resources.pledge.Pledge;
 import com.patreon.resources.reward.Reward;
-import com.patreon.resources.shared.RelationshipsModel;
+import com.patreon.resources.shared.BaseResource;
 import com.patreon.resources.user.PatreonUser;
 
 import java.util.List;
 
 @Type("campaign")
-public class PatreonCampaign extends RelationshipsModel {
+public class PatreonCampaign extends BaseResource {
     private int pledgeSum;
     private String creationName;
     private String discordServerId;

@@ -5,14 +5,9 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.github.jasminb.jsonapi.DeserializationFeature;
 import com.github.jasminb.jsonapi.JSONAPIDocument;
 import com.github.jasminb.jsonapi.ResourceConverter;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.patreon.resources.campaign.PatreonCampaign;
-import com.patreon.resources.campaign.PatreonCampaignResponse;
 import com.patreon.resources.pledge.Pledge;
-import com.patreon.resources.pledge.PledgeResponse;
 import com.patreon.resources.user.PatreonUser;
-import org.jsoup.Jsoup;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,7 +17,6 @@ import java.util.List;
 
 public class PatreonAPI {
     private final String accessToken;
-    public static final Gson gson = new GsonBuilder().serializeNulls().enableComplexMapKeySerialization().create();
     private ResourceConverter converter;
 
     /**
@@ -84,20 +78,11 @@ public class PatreonAPI {
         String url = "campaigns/" + campaignId + "/pledges?page%5Bcount%5D=" + pageSize;
         if (pageCursor != null) url += "&page%5Bcursor%5D=" + pageCursor;
         return converter.readDocumentCollection(
-                getDataStream(url),
-                Pledge.class
+            getDataStream(url),
+            Pledge.class
         );
     }
 
-    /**
-     * @param suffix The Patreon endpoint AFTER the base URL of https://api.patreon.com/oauth2/api/
-     * @return The text content of the request, which can then be deserialized
-     * @throws IOException Thrown when the GET request failed
-     */
-    private String getJson(String suffix) throws IOException {
-        return Jsoup.connect("https://api.patreon.com/oauth2/api/" + suffix)
-                .ignoreContentType(true).header("Authorization", "Bearer " + accessToken).get().body().text();
-    }
 
     private InputStream getDataStream(String suffix) {
         try {
@@ -110,9 +95,5 @@ public class PatreonAPI {
             System.out.println(e.getMessage());
         }
         return null;
-    }
-
-    public static <E> E toObject(String str, Class<E> clazz) {
-        return gson.fromJson(str, clazz);
     }
 }

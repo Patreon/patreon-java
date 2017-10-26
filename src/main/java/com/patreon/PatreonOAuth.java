@@ -1,14 +1,16 @@
 package com.patreon;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.jsoup.Jsoup;
 
 import java.io.IOException;
 
-import static com.patreon.PatreonAPI.toObject;
-
 public class PatreonOAuth {
     private final String clientID;
     private final String clientSecret;
+    private static final Gson gson = new GsonBuilder().serializeNulls().enableComplexMapKeySerialization().create();
+
 
     public PatreonOAuth(String clientID, String clientSecret) {
         this.clientID = clientID;
@@ -58,5 +60,9 @@ public class PatreonOAuth {
         public String getRefreshToken() {
             return refresh_token;
         }
+    }
+
+    private static <E> E toObject(String str, Class<E> clazz) {
+        return gson.fromJson(str, clazz);
     }
 }
