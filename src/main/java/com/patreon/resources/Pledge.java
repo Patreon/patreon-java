@@ -1,11 +1,9 @@
-package com.patreon.resources.pledge;
+package com.patreon.resources;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.jasminb.jsonapi.annotations.Relationship;
 import com.github.jasminb.jsonapi.annotations.Type;
-import com.patreon.resources.reward.Reward;
 import com.patreon.resources.shared.BaseResource;
-import com.patreon.resources.user.PatreonUser;
 
 @Type("pledge")
 public class Pledge extends BaseResource {
@@ -16,10 +14,10 @@ public class Pledge extends BaseResource {
     private int pledgeCapCents;
 
     @Relationship("creator")
-    private PatreonUser creator;
+    private User creator;
 
     @Relationship("patron")
-    private PatreonUser patron;
+    private User patron;
 
     @Relationship("reward")
     private Reward reward;
@@ -30,8 +28,8 @@ public class Pledge extends BaseResource {
         @JsonProperty("declined_since") String declined_since,
         @JsonProperty("patron_pays_fees") boolean patron_pays_fees,
         @JsonProperty("pledge_cap_cents") int pledge_cap_cents,
-        @JsonProperty("creator") PatreonUser creator,
-        @JsonProperty("patron") PatreonUser patron,
+        @JsonProperty("creator") User creator,
+        @JsonProperty("patron") User patron,
         @JsonProperty("reward") Reward reward
     ) {
         this.amountCents = amount_cents;
@@ -64,11 +62,11 @@ public class Pledge extends BaseResource {
         return pledgeCapCents;
     }
 
-    public PatreonUser getCreator() {
+    public User getCreator() {
         return creator;
     }
 
-    public PatreonUser getPatron() {
+    public User getPatron() {
         return patron;
     }
 

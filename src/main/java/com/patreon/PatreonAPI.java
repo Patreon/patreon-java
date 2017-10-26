@@ -5,9 +5,9 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.github.jasminb.jsonapi.DeserializationFeature;
 import com.github.jasminb.jsonapi.JSONAPIDocument;
 import com.github.jasminb.jsonapi.ResourceConverter;
-import com.patreon.resources.campaign.PatreonCampaign;
-import com.patreon.resources.pledge.Pledge;
-import com.patreon.resources.user.PatreonUser;
+import com.patreon.resources.Campaign;
+import com.patreon.resources.Pledge;
+import com.patreon.resources.User;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,8 +31,8 @@ public class PatreonAPI {
         objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
         this.converter = new ResourceConverter(
             objectMapper,
-            PatreonUser.class,
-            PatreonCampaign.class,
+            User.class,
+            Campaign.class,
             Pledge.class
         );
         this.converter.enableDeserializationOption(DeserializationFeature.ALLOW_UNKNOWN_INCLUSIONS);
@@ -41,13 +41,13 @@ public class PatreonAPI {
     /**
      * Get the user object of the creator
      *
-     * @return JSONAPIDocument<PatreonUser> containing all data pertaining to the current user
+     * @return JSONAPIDocument<User> containing all data pertaining to the current user
      * @throws IOException Thrown when the GET request failed
      */
-    public JSONAPIDocument<PatreonUser> fetchUser() throws IOException {
+    public JSONAPIDocument<User> fetchUser() throws IOException {
         return converter.readDocument(
             getDataStream("current_user"),
-            PatreonUser.class
+            User.class
         );
     }
 
@@ -55,13 +55,13 @@ public class PatreonAPI {
      * Get a list of campaigns the current creator is running - also contains other related data like Goals
      * Note: The first campaign data object is located at index 0 in the data list
      *
-     * @return JSONAPIDocument<List<PatreonCampaign>> containing the above-mentioned data
+     * @return JSONAPIDocument<List<Campaign>> containing the above-mentioned data
      * @throws IOException Thrown when the GET request failed
      */
-    public JSONAPIDocument<List<PatreonCampaign>> fetchCampaigns() throws IOException {
+    public JSONAPIDocument<List<Campaign>> fetchCampaigns() throws IOException {
         return converter.readDocumentCollection(
             getDataStream("current_user/campaigns?include=rewards,creator,goals"),
-            PatreonCampaign.class
+            Campaign.class
         );
     }
 

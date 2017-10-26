@@ -1,4 +1,4 @@
-package com.patreon.resources.user;
+package com.patreon.resources.shared;
 
 
 import java.util.List;

@@ -1,18 +1,17 @@
-package com.patreon.resources.user;
+package com.patreon.resources;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.jasminb.jsonapi.annotations.Relationship;
 import com.github.jasminb.jsonapi.annotations.Type;
-import com.patreon.resources.pledge.Pledge;
 import com.patreon.resources.shared.BaseResource;
+import com.patreon.resources.shared.SocialConnections;
 
 import java.util.Date;
 import java.util.List;
 
 @Type("user")
-public class PatreonUser extends BaseResource {
+public class User extends BaseResource {
     private String firstName;
     private String lastName;
     private String fullName;
@@ -38,7 +37,7 @@ public class PatreonUser extends BaseResource {
     private boolean hasPassword;
 
     @JsonCreator
-    public PatreonUser(
+    public User(
         @JsonProperty("first_name") String firstName,
         @JsonProperty("last_name") String lastName,
         @JsonProperty("full_name") String fullName,

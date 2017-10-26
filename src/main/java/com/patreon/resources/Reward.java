@@ -1,11 +1,9 @@
-package com.patreon.resources.reward;
+package com.patreon.resources;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.jasminb.jsonapi.annotations.Relationship;
 import com.github.jasminb.jsonapi.annotations.Type;
-import com.patreon.resources.campaign.PatreonCampaign;
 import com.patreon.resources.shared.BaseResource;
-import com.patreon.resources.user.PatreonUser;
 
 import java.util.List;
 
@@ -30,10 +28,10 @@ public class Reward extends BaseResource {
     private String unpublished_at;
 
     @Relationship("creator")
-    private PatreonUser creator;
+    private User creator;
 
     @Relationship("campaign")
-    private PatreonCampaign campaign;
+    private Campaign campaign;
 
     public Reward(
             @JsonProperty("amount") int amount,
@@ -53,8 +51,8 @@ public class Reward extends BaseResource {
             @JsonProperty("discord_role_ids") List<String> discord_role_ids,
             @JsonProperty("title") String title,
             @JsonProperty("unpublished_at") String unpublished_at,
-            @JsonProperty("creator") PatreonUser creator,
-            @JsonProperty("campaign") PatreonCampaign campaign
+            @JsonProperty("creator") User creator,
+            @JsonProperty("campaign") Campaign campaign
     ) {
         this.amount = amount;
         this.amount_cents = amount_cents;
@@ -133,11 +131,11 @@ public class Reward extends BaseResource {
         return unpublished_at;
     }
 
-    public PatreonUser getCreator() {
+    public User getCreator() {
         return creator;
     }
 
-    public PatreonCampaign getCampaign() {
+    public Campaign getCampaign() {
         return campaign;
     }
 

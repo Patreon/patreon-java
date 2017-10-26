@@ -1,19 +1,15 @@
-package com.patreon.resources.campaign;
+package com.patreon.resources;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.jasminb.jsonapi.annotations.Relationship;
 import com.github.jasminb.jsonapi.annotations.Type;
-import com.patreon.resources.goal.Goal;
-import com.patreon.resources.pledge.Pledge;
-import com.patreon.resources.reward.Reward;
 import com.patreon.resources.shared.BaseResource;
-import com.patreon.resources.user.PatreonUser;
 
 import java.util.List;
 
 @Type("campaign")
-public class PatreonCampaign extends BaseResource {
+public class Campaign extends BaseResource {
     private int pledgeSum;
     private String creationName;
     private String discordServerId;
@@ -45,7 +41,7 @@ public class PatreonCampaign extends BaseResource {
     private List<Pledge> pledges;
 
     @Relationship("creator")
-    private PatreonUser creator;
+    private User creator;
 
     @Relationship("rewards")
     private List<Reward> rewards;
@@ -53,7 +49,7 @@ public class PatreonCampaign extends BaseResource {
     @Relationship("goals")
     private List<Goal> goals;
 
-    public PatreonCampaign(
+    public Campaign(
         @JsonProperty("pledge_sum") int pledgeSum,
         @JsonProperty("creation_name") String creationName,
         @JsonProperty("discor_server_id") String discordServerId,
@@ -81,7 +77,7 @@ public class PatreonCampaign extends BaseResource {
         @JsonProperty("thanks_video_url") String thanksVideoUrl,
         @JsonProperty("about") String about,
         @JsonProperty("pledges") List<Pledge> pledges,
-        @JsonProperty("creator") PatreonUser creator,
+        @JsonProperty("creator") User creator,
         @JsonProperty("rewards") List<Reward> rewards,
         @JsonProperty("goals") List<Goal> goals
     ) {
@@ -225,7 +221,7 @@ public class PatreonCampaign extends BaseResource {
         return pledges;
     }
 
-    public PatreonUser getCreator() {
+    public User getCreator() {
         return creator;
     }
 

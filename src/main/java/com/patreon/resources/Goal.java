@@ -1,4 +1,4 @@
-package com.patreon.resources.goal;
+package com.patreon.resources;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.jasminb.jsonapi.annotations.Type;
