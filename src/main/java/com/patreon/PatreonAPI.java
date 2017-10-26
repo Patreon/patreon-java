@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 public class PatreonAPI {
     private final String accessToken;
@@ -76,13 +77,16 @@ public class PatreonAPI {
      * @param campaignId id for campaign to retrieve
      * @param pageSize   how many pledges to return
      * @param pageCursor ignore, put null.
-     * @return PledgeResponse containing pledges & associated data
+     * @return JSONAPIDocument<List<Pledge>> containing pledges & associated data
      * @throws IOException Thrown when the GET request failed
      */
-    public PledgeResponse getPledgesToMe(String campaignId, int pageSize, String pageCursor) throws IOException {
+    public JSONAPIDocument<List<Pledge>> fetchPageOfPledges(String campaignId, int pageSize, String pageCursor) throws IOException {
         String url = "campaigns/" + campaignId + "/pledges?page%5Bcount%5D=" + pageSize;
         if (pageCursor != null) url += "&page%5Bcursor%5D=" + pageCursor;
-        return toObject(getJson(url), PledgeResponse.class);
+        return converter.readDocumentCollection(
+                getDataStream(url),
+                Pledge.class
+        );
     }
 
     /**
