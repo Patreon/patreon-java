@@ -79,10 +79,10 @@ public class PatreonAPI {
      * @throws IOException Thrown when the GET request failed
      */
     public JSONAPIDocument<List<Pledge>> fetchPageOfPledges(String campaignId, int pageSize, String pageCursor) throws IOException {
-        String url = String.format("campaigns/%s/pledges?page%%5Bcount%%5D=%s", campaignID, pageSize);
+        String url = String.format("campaigns/%s/pledges?page%%5Bcount%%5D=%s", campaignId, pageSize);
         if (pageCursor != null) {
             try {
-                String escapedCursor = URLEncoder.encode(cursor, "UTF-8");
+                String escapedCursor = URLEncoder.encode(pageCursor, "UTF-8");
                 url.concat(String.format("&page%%5Bcursor%%5D=%s", escapedCursor));
             } catch (java.io.UnsupportedEncodingException e) {
                 System.err.println("UnsupportedEncodingException: " + e.getMessage());

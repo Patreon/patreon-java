@@ -5,14 +5,18 @@ import com.google.gson.GsonBuilder;
 import org.apache.http.client.utils.URIBuilder;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class PatreonOAuth {
     private final String clientID;
     private final String clientSecret;
     private final String redirectUri;
     private static final Gson gson = new GsonBuilder().serializeNulls().enableComplexMapKeySerialization().create();
+    private static final Logger LOG = LoggerFactory.getLogger(PatreonOAuth.class);
 
 
     public PatreonOAuth(String clientID, String clientSecret, String redirectUri) {
@@ -22,7 +26,12 @@ public class PatreonOAuth {
     }
 
     public String getAuthorizationURL() {
-        URIBuilder builder = new URIBuilder("https://www.patreon.com/oauth2/authorize");
+        URIBuilder builder = null;
+        try {
+            builder = new URIBuilder("https://www.patreon.com/oauth2/authorize");
+        } catch (URISyntaxException e) {
+            LOG.error(e.getMessage());
+        }
         builder.addParameter("response_type", "code");
         builder.addParameter("client_id", clientID);
         builder.addParameter("redirect_uri", redirectUri);
