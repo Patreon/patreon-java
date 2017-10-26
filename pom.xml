@@ -3,6 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/config</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
