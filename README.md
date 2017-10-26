@@ -13,7 +13,7 @@ Get the artifact from [Maven](http://search.maven.org/#search|ga|1|g%3A%22com.pa
 
 Step 1. Get your client_id and client_secret
 ---
-Visit the [Patreon OAuth Platform Documentation Page](https://www.patreon.com/platform)
+Visit the [Patreon Platform Page](https://www.patreon.com/platform)
 while logged in as a Patreon creator to register your client.
 
 This will provide you with a `client_id` and a `client_secret`.
@@ -56,9 +56,10 @@ if (pledges != null && pledges.size() > 0) {
 // along with any relevant user info or pledge info you want to store.
 ```
 
+
 For Patreon Developers Wishing to Release Updates
 ---
 1. Get settings.xml
 2. Get GPG keypair
 3. `mvn clean deploy -s settings.xml -P release`
-4. visit https://oss.sonatype.org/#stagingRepositories, find the latest repository, close it, then release it
+4. Visit https://oss.sonatype.org/#stagingRepositories, find the latest repository, close it, then release it
