@@ -2,8 +2,15 @@ package com.patreon.resources.campaign;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.github.jasminb.jsonapi.annotations.Relationship;
 import com.github.jasminb.jsonapi.annotations.Type;
+import com.patreon.resources.goal.Goal;
+import com.patreon.resources.pledge.Pledge;
+import com.patreon.resources.reward.Reward;
 import com.patreon.resources.shared.RelationshipsModel;
+import com.patreon.resources.user.PatreonUser;
+
+import java.util.List;
 
 @Type("campaign")
 public class PatreonCampaign extends RelationshipsModel {
@@ -34,6 +41,18 @@ public class PatreonCampaign extends RelationshipsModel {
     private String thanksVideoUrl;
     private String about;
 
+    @Relationship("pledges")
+    private List<Pledge> pledges;
+
+    @Relationship("creator")
+    private PatreonUser creator;
+
+    @Relationship("rewards")
+    private List<Reward> rewards;
+
+    @Relationship("goals")
+    private List<Goal> goals;
+
     public PatreonCampaign(
         @JsonProperty("pledge_sum") int pledgeSum,
         @JsonProperty("creation_name") String creationName,
@@ -60,7 +79,11 @@ public class PatreonCampaign extends RelationshipsModel {
         @JsonProperty("thanks_embed") String thanksEmbed,
         @JsonProperty("main_video_embed") String mainVideoEmbed,
         @JsonProperty("thanks_video_url") String thanksVideoUrl,
-        @JsonProperty("about") String about
+        @JsonProperty("about") String about,
+        @JsonProperty("pledges") List<Pledge> pledges,
+        @JsonProperty("creator") PatreonUser creator,
+        @JsonProperty("rewards") List<Reward> rewards,
+        @JsonProperty("goals") List<Goal> goals
     ) {
         this.pledgeSum = pledgeSum;
         this.creationName = creationName;
@@ -88,6 +111,10 @@ public class PatreonCampaign extends RelationshipsModel {
         this.mainVideoEmbed = mainVideoEmbed;
         this.thanksVideoUrl = thanksVideoUrl;
         this.about = about;
+        this.pledges = pledges;
+        this.creator = creator;
+        this.rewards = rewards;
+        this.goals = goals;
     }
 
     public int getPledgeSum() {
@@ -192,5 +219,21 @@ public class PatreonCampaign extends RelationshipsModel {
 
     public String getAbout() {
         return about;
+    }
+
+    public List<Pledge> getPledges() {
+        return pledges;
+    }
+
+    public PatreonUser getCreator() {
+        return creator;
+    }
+
+    public List<Reward> getRewards() {
+        return rewards;
+    }
+
+    public List<Goal> getGoals() {
+        return goals;
     }
 }

@@ -60,11 +60,14 @@ public class PatreonAPI {
      * Get a list of campaigns the current creator is running - also contains other related data like Goals
      * Note: The first campaign data object is located at index 0 in the data list
      *
-     * @return Campaign Response containing the above-mentioned data
+     * @return JSONAPIDocument<List<PatreonCampaign>> containing the above-mentioned data
      * @throws IOException Thrown when the GET request failed
      */
-    public PatreonCampaignResponse getCampaigns() throws IOException {
-        return toObject(getJson("current_user/campaigns?include=rewards,creator,goals,pledges"), PatreonCampaignResponse.class);
+    public JSONAPIDocument<List<PatreonCampaign>> fetchCampaigns() throws IOException {
+        return converter.readDocumentCollection(
+            getDataStream("current_user/campaigns?include=rewards,creator,goals"),
+            PatreonCampaign.class
+        );
     }
 
     /**
