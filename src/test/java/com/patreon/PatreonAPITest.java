@@ -1,48 +1,48 @@
 package com.patreon;
 
-import com.patreon.resources.campaign.PatreonCampaign;
-import com.patreon.resources.campaign.PatreonCampaignResponse;
-import com.patreon.resources.pledge.PledgeResponse;
-import com.patreon.resources.user.PatreonUserResponse;
+import com.github.jasminb.jsonapi.JSONAPIDocument;
+import com.patreon.PatreonAPI;
+import com.patreon.resources.Campaign;
+import com.patreon.resources.Pledge;
+import com.patreon.resources.User;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
+import java.util.List;
+
 public class PatreonAPITest extends TestCase {
-    PatreonAPI api = new PatreonAPI("a token");
+    private PatreonAPI api = new PatreonAPI("a token");
 
-    public void testGetUser() throws Exception {
-    }
-
-    public void testGetCampaigns() throws Exception {
-        PatreonCampaignResponse campaignResponse = api.getCampaigns();
-        Assert.assertEquals(13, campaignResponse.getPledges().size());
-        Assert.assertEquals(1, campaignResponse.getData().size());
-        PatreonCampaign campaign = campaignResponse.getData().get(0);
-        Assert.assertEquals("5140688", campaign.getSimpleCreator().getData().getId());
-        Assert.assertEquals("/bePatron?c=758508", campaign.getAttributes().getPledgeUrl());
-        Assert.assertEquals(false, campaign.getAttributes().isChargedImmediately());
-        Assert.assertEquals("260841592070340609", campaign.getAttributes().getDiscordServerId());
-        Assert.assertEquals("758508", campaign.getId());
-        // Assert.assertEquals(2, campaignResponse.getGoals().size()); Asked in issue
+    public void testFetchCampaigns() throws Exception {
+        JSONAPIDocument<List<Campaign>> campaignResponse = api.fetchCampaigns();
+        Assert.assertEquals(1, campaignResponse.get().size());
+        Campaign campaign = campaignResponse.get().get(0);
+        Assert.assertEquals("70261", campaign.getId());
+        Assert.assertEquals("/bePatron?c=70261", campaign.getPledgeUrl());
+        Assert.assertEquals(false, campaign.isChargedImmediately());
+        Assert.assertEquals("212633030584565760", campaign.getDiscordServerId());
+        Assert.assertEquals("32187", campaign.getCreator().getId());
+        Assert.assertEquals(3, campaign.getGoals().size());
     }
 
     public void testGetPledgesToMe() throws Exception {
-        PledgeResponse pledgeResponse = api.getPledgesToMe("758508", 10, null);
-        Assert.assertEquals(13, pledgeResponse.getMeta().getPatronCount());
-        Assert.assertEquals(11, pledgeResponse.getUsers().size());
-        pledgeResponse.getUsers().forEach(patreonUser -> p(patreonUser.getAttributes().getEmail()));
-        Assert.assertEquals(11, pledgeResponse.getPatrons().size());
-        // Assert.assertEquals(1, pledgeResponse.getCampaigns().size()); Asked
+        JSONAPIDocument<List<Pledge>> pledgeResponse = api.fetchPageOfPledges("70261", 10, null);
+        Assert.assertEquals(14, pledgeResponse.getMeta().get("count"));
+        List<Pledge> pledges = pledgeResponse.get();
+        Assert.assertEquals(10, pledges.size());
+
+        for (int i = 0; i < pledges.size(); i++) {
+            Pledge pledge = pledges.get(i);
+            Assert.assertTrue(pledge.getAmountCents() > 0);
+            User patron = pledge.getPatron();
+            Assert.assertNotNull(patron.getEmail());
+        }
     }
 
-    public void testGetMyUser() throws Exception {
-        PatreonUserResponse user = api.getMyUser();
-        Assert.assertEquals("https://www.patreon.com/api/user/5140688", user.getSelfUrl());
-        Assert.assertEquals(0, user.getData().getPledges().length);
-        Assert.assertEquals("ardent", user.getData().getAttributes().getVanity());
-    }
-
-    public static void p(Object o) {
-        System.out.println(o);
+    public void testFetchUser() throws Exception {
+        JSONAPIDocument<User> user = api.fetchUser();
+        Assert.assertEquals("https://www.patreon.com/api/user/32187", user.getLinks().getSelf().toString());
+        Assert.assertEquals(5, user.get().getPledges().size());
+        Assert.assertEquals("corgi", user.get().getVanity());
     }
 }
