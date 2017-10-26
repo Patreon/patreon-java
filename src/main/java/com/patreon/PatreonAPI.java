@@ -8,6 +8,8 @@ import com.github.jasminb.jsonapi.ResourceConverter;
 import com.patreon.resources.Campaign;
 import com.patreon.resources.Pledge;
 import com.patreon.resources.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,6 +21,7 @@ import java.util.List;
 public class PatreonAPI {
     private final String accessToken;
     private ResourceConverter converter;
+    private static final Logger LOG = LoggerFactory.getLogger(PatreonAPI.class);
 
     /**
      * Create a new instance of the Patreon API. You only need <b>one</b> of these objects unless you are using the API with multiple tokens
@@ -100,7 +103,7 @@ public class PatreonAPI {
             connection.setRequestProperty("Authorization", "Bearer ".concat(this.accessToken));
             return connection.getInputStream();
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            LOG.error(e.getMessage());
         }
         return null;
     }
