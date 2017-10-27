@@ -2,8 +2,6 @@ package com.patreon;
 
 import junit.framework.TestCase;
 
-import static com.patreon.PatreonAPITest.p;
-
 public class PatreonOAuthTest extends TestCase {
     PatreonOAuth oauth = new PatreonOAuth(
         "a client id",
@@ -11,15 +9,15 @@ public class PatreonOAuthTest extends TestCase {
         "your redirect URI"
     );
     public void testGetToken() throws Exception {
-        p(oauth.getAuthorizationURL("https://ardentbot.com"));
+        oauth.getAuthorizationURL("https://patreon-example-oauth.com");
         PatreonOAuth.TokensResponse token = oauth.getTokens("a code");
-        p(token.getAccessToken());
-        p(token.getRefreshToken());
+        token.getAccessToken();
+        token.getRefreshToken();
         PatreonOAuth.TokensResponse refreshed = oauth.refreshTokens(token.getRefreshToken());
-        p(refreshed.getAccessToken());
-        p(refreshed.getRefreshToken());
+        refreshed.getAccessToken();
+        refreshed.getRefreshToken();
         PatreonAPI api = new PatreonAPI(refreshed.getAccessToken());
-        p(api.getMyUser().getData().getAttributes().getEmail());
+        api.fetchUser().get().getEmail();
     }
 
 
