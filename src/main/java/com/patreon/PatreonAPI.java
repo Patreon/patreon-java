@@ -7,6 +7,7 @@ import com.patreon.resources.Campaign;
 import com.patreon.resources.Pledge;
 import com.patreon.resources.User;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,8 +65,12 @@ public class PatreonAPI {
      * @throws IOException Thrown when the GET request failed
      */
     public JSONAPIDocument<List<Campaign>> fetchCampaigns() throws IOException {
+        String path = new URIBuilder()
+            .setPath("current_user/campaigns")
+            .addParameter("include", "rewards,creator,goals")
+            .toString();
         return converter.readDocumentCollection(
-            getDataStream("current_user/campaigns?include=rewards,creator,goals"),
+            getDataStream(path),
             Campaign.class
         );
     }
@@ -80,18 +85,14 @@ public class PatreonAPI {
      * @throws IOException Thrown when the GET request failed
      */
     public JSONAPIDocument<List<Pledge>> fetchPageOfPledges(String campaignId, int pageSize, String pageCursor) throws IOException {
-        String url = String.format("campaigns/%s/pledges?page%%5Bcount%%5D=%s", campaignId, pageSize);
+        URIBuilder pathBuilder = new URIBuilder()
+            .setPath(String.format("campaigns/%s/pledges", campaignId))
+            .addParameter("page[count]", String.valueOf(pageSize));
         if (pageCursor != null) {
-            try {
-                String escapedCursor = URLEncoder.encode(pageCursor, "UTF-8");
-                String queryParameterPiece = String.format("&page%%5Bcursor%%5D=%s", escapedCursor);
-                url = url.concat(queryParameterPiece);
-            } catch (java.io.UnsupportedEncodingException e) {
-                LOG.error(e.getMessage());
-            }
+            pathBuilder.addParameter("page[cursor]", pageCursor);
         }
         return converter.readDocumentCollection(
-            getDataStream(url),
+            getDataStream(pathBuilder.toString()),
             Pledge.class
         );
     }
