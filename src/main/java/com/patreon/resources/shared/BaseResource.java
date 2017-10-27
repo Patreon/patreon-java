@@ -1,9 +1,12 @@
 package com.patreon.resources.shared;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Links;
 import com.github.jasminb.jsonapi.annotations.Type;
 
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BaseResource {
     @Id
     private String id;

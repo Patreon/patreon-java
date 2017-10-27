@@ -9,7 +9,6 @@ import java.util.List;
 
 @Type("reward")
 public class Reward extends BaseResource {
-    private int amount;
     private int amount_cents;
     private String created_at;
     private String description;
@@ -19,7 +18,6 @@ public class Reward extends BaseResource {
     private Integer user_limit;
     private String edited_at;
     private int patron_count;
-    private int post_count;
     private boolean published;
     private String published_at;
     private String image_url;
@@ -34,7 +32,6 @@ public class Reward extends BaseResource {
     private Campaign campaign;
 
     public Reward(
-            @JsonProperty("amount") int amount,
             @JsonProperty("amount_cents") int amount_cents,
             @JsonProperty("created_at") String created_at,
             @JsonProperty("description") String description,
@@ -44,7 +41,6 @@ public class Reward extends BaseResource {
             @JsonProperty("user_limit") Integer user_limit,
             @JsonProperty("edited_at") String edited_at,
             @JsonProperty("patron_count") int patron_count,
-            @JsonProperty("post_count") int post_count,
             @JsonProperty("published") boolean published,
             @JsonProperty("published_at") String published_at,
             @JsonProperty("image_url") String image_url,
@@ -54,7 +50,6 @@ public class Reward extends BaseResource {
             @JsonProperty("creator") User creator,
             @JsonProperty("campaign") Campaign campaign
     ) {
-        this.amount = amount;
         this.amount_cents = amount_cents;
         this.created_at = created_at;
         this.description = description;
@@ -64,7 +59,6 @@ public class Reward extends BaseResource {
         this.user_limit = user_limit;
         this.edited_at = edited_at;
         this.patron_count = patron_count;
-        this.post_count = post_count;
         this.published = published;
         this.published_at = published_at;
         this.image_url = image_url;
@@ -73,10 +67,6 @@ public class Reward extends BaseResource {
         this.unpublished_at = unpublished_at;
         this.creator = creator;
         this.campaign = campaign;
-    }
-
-    public int getAmount() {
-        return amount;
     }
 
     public int getAmountCents() {
@@ -141,10 +131,6 @@ public class Reward extends BaseResource {
 
     public int getPatronCount() {
         return patron_count;
-    }
-
-    public int getPostCount() {
-        return post_count;
     }
 
     public boolean isPublished() {
