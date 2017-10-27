@@ -13,60 +13,53 @@ Get the artifact from [Maven](http://search.maven.org/#search|ga|1|g%3A%22com.pa
 
 Step 1. Get your client_id and client_secret
 ---
-Visit the [OAuth Documentation Page](https://www.patreon.com/oauth2/documentation)
+Visit the [Patreon Platform Page](https://www.patreon.com/platform)
 while logged in as a Patreon creator to register your client.
 
 This will provide you with a `client_id` and a `client_secret`.
 
 Step 2. Use this library
 ---
+
+## For the Log In with Patreon flow
 ```java
-    import com.patreon.OAuth;
-    import com.patreon.API;
-    import org.json.JSONObject;
-    import org.json.JSONArray;
+import com.github.jasminb.jsonapi.JSONAPIDocument;
+import com.patreon.PatreonAPI;
+import com.patreon.PatreonOAuth;
+import com.patreon.PatreonOAuth;
+import com.patreon.resources.User;
+import com.patreon.resources.Pledge;
 
     ...
 
-    String clientID = null;        // Replace with your data
-    String clientSecret = null;    // Replace with your data
-    String creatorID = null;       // Replace with your data
-    String redirectURI = null;     // Replace with your data
-    String code = null;            // get from inbound HTTP request
+String clientId = null; // Get this when you set up your client
+String clientSecret = null; // Get this when you set up your client
+String redirectUri = null; // Provide this to set up your client
 
-    OAuth oauthClient = new OAuth(clientID, clientSecret);
-    JSONObject tokens = oauthClient.getTokens(code, redirectURI);
-    String accessToken = tokens.getString("access_token");
+String code = null; // Get this from the query parameter `code`
 
-    API apiClient = new API(accessToken);
-    JSONObject userResponse = apiClient.fetchUser();
-    JSONObject user = userResponse.getJSONObject("data");
-    JSONArray included = userResponse.getJSONArray("included");
-    JSONObject pledge = null;
-    JSONObject campaign = null;
-    if (included != null) {
-        for (int i = 0; i < included.length(); i++) {
-            JSONObject object = included.getJSONObject(i);
-            if (object.getString("type").equals("pledge") && object.getJSONObject("relationships").getJSONObject("creator").getJSONObject("data").getString("id").equals(creatorID)) {
-                pledge = object;
-                break;
-            }
-        }
-        for (int i = 0; i < included.length(); i++) {
-            JSONObject object = included.getJSONObject(i);
-            if (object.getString("type").equals("campaign") && object.getJSONObject("relationships").getJSONObject("creator").getJSONObject("data").getString("id").equals(creatorID)) {
-                campaign = object;
-                break;
-            }
-        }
-    }
+PatreonOAuth oauthClient = new PatreonOAuth(clientId, clientSecret, redirectUri);
+PatreonOAuth.TokensResponse tokens = oauthClient.getTokens(code);
+String accessToken = tokens.getAccessToken();
 
-    // use the user, pledge, and campaign objects as you desire
+PatreonAPI apiClient = new PatreonAPI(accessToken);
+JSONAPIDocument<User> userResponse = apiClient.fetchUser();
+User user = userResponse.get();
+Log.i(user.getFullName());
+List<Pledge> pledges = user.getPledges()
+if (pledges != null && pledges.size() > 0) {
+    Pledge pledge = pledges.get(0);
+    Log.i(pledge.getAmountCents());
+}
+// You should save the user's PatreonOAuth.TokensResponse in your database
+// (for refreshing their Patreon data whenever you like),
+// along with any relevant user info or pledge info you want to store.
 ```
+
 
 For Patreon Developers Wishing to Release Updates
 ---
 1. Get settings.xml
 2. Get GPG keypair
 3. `mvn clean deploy -s settings.xml -P release`
-4. visit https://oss.sonatype.org/#stagingRepositories find the latest repository, close it, release it
+4. Visit https://oss.sonatype.org/#stagingRepositories, find the latest repository, close it, then release it
