@@ -126,7 +126,7 @@ public class PatreonAPI {
         Set<Pledge> pledges = new HashSet<>();
         String cursor = null;
         while (true) {
-            JSONAPIDocument<List<Pledge>> pledgesPage = fetchPageOfPledges(campaignId, 5, cursor);
+            JSONAPIDocument<List<Pledge>> pledgesPage = fetchPageOfPledges(campaignId, 15, cursor);
             pledges.addAll(pledgesPage.get());
             cursor = getNextCursorFromDocument(pledgesPage);
             if (cursor == null) {
