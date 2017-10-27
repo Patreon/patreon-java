@@ -97,12 +97,12 @@ public class PatreonAPI {
         );
     }
 
-    public String getCursorFromPledgesResponse(JSONAPIDocument<List<Pledge>> pledgesResponse) {
-        Links pledgesLinks = pledgesResponse.getLinks();
-        if (pledgesLinks == null) {
+    public String getNextCursorFromDocument(JSONAPIDocument document) {
+        Links links = document.getLinks();
+        if (links == null) {
             return null;
         }
-        Link nextLink = pledgesLinks.getNext();
+        Link nextLink = links.getNext();
         if (nextLink == null) {
             return null;
         }
@@ -128,7 +128,7 @@ public class PatreonAPI {
         while (true) {
             JSONAPIDocument<List<Pledge>> pledgesPage = fetchPageOfPledges(campaignId, 5, cursor);
             pledges.addAll(pledgesPage.get());
-            cursor = getCursorFromPledgesResponse(pledgesPage);
+            cursor = getNextCursorFromDocument(pledgesPage);
             if (cursor == null) {
                 break;
             }
