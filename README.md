@@ -51,8 +51,8 @@ if (pledges != null && pledges.size() > 0) {
     Pledge pledge = pledges.get(0);
     Log.i(pledge.getAmountCents());
 }
-// You should save the user's PatreonOAuth.Token in your database
-// (for refreshing their patreon data whenever you like),
+// You should save the user's PatreonOAuth.TokensResponse in your database
+// (for refreshing their Patreon data whenever you like),
 // along with any relevant user info or pledge info you want to store.
 ```
 
