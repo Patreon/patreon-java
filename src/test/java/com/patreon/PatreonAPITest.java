@@ -39,6 +39,18 @@ public class PatreonAPITest extends TestCase {
         }
     }
 
+    public void testFetchAllPledges() throws Exception {
+        List<Pledge> pledges = api.fetchAllPledges("70261");
+        Assert.assertEquals(14, pledges.size());
+
+        for (int i = 0; i < pledges.size(); i++) {
+            Pledge pledge = pledges.get(i);
+            Assert.assertTrue(pledge.getAmountCents() > 0);
+            User patron = pledge.getPatron();
+            Assert.assertNotNull(patron.getEmail());
+        }
+    }
+
     public void testFetchUser() throws Exception {
         JSONAPIDocument<User> user = api.fetchUser();
         Assert.assertEquals("https://www.patreon.com/api/user/32187", user.getLinks().getSelf().toString());

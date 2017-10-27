@@ -2,21 +2,22 @@ package com.patreon;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.github.jasminb.jsonapi.DeserializationFeature;
-import com.github.jasminb.jsonapi.JSONAPIDocument;
-import com.github.jasminb.jsonapi.ResourceConverter;
+import com.github.jasminb.jsonapi.*;
 import com.patreon.resources.Campaign;
 import com.patreon.resources.Pledge;
 import com.patreon.resources.User;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.utils.URLEncodedUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
+import java.net.*;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class PatreonAPI {
     private final String accessToken;
@@ -83,9 +84,10 @@ public class PatreonAPI {
         if (pageCursor != null) {
             try {
                 String escapedCursor = URLEncoder.encode(pageCursor, "UTF-8");
-                url.concat(String.format("&page%%5Bcursor%%5D=%s", escapedCursor));
+                String queryParameterPiece = String.format("&page%%5Bcursor%%5D=%s", escapedCursor);
+                url = url.concat(queryParameterPiece);
             } catch (java.io.UnsupportedEncodingException e) {
-                System.err.println("UnsupportedEncodingException: " + e.getMessage());
+                LOG.error(e.getMessage());
             }
         }
         return converter.readDocumentCollection(
@@ -94,8 +96,46 @@ public class PatreonAPI {
         );
     }
 
+    public String getCursorFromPledgesResponse(JSONAPIDocument<List<Pledge>> pledgesResponse) {
+        Links pledgesLinks = pledgesResponse.getLinks();
+        if (pledgesLinks == null) {
+            return null;
+        }
+        Link nextLink = pledgesLinks.getNext();
+        if (nextLink == null) {
+            return null;
+        }
+        String nextLinkString = nextLink.toString();
+        try {
+            List<NameValuePair> queryParameters = URLEncodedUtils.parse(new URI(nextLinkString), "utf8");
+            for (NameValuePair pair : queryParameters) {
+                String name = pair.getName();
+                if (name.equals("page[cursor]")) {
+                    String cursorValue = pair.getValue();
+                    return cursorValue;
+                }
+            }
+        } catch (URISyntaxException e) {
+            LOG.error(e.getMessage());
+        }
+        return null;
+    }
 
-    private InputStream getDataStream(String suffix) {
+    public List<Pledge> fetchAllPledges(String campaignId) throws IOException {
+        Set<Pledge> pledges = new HashSet<>();
+        String cursor = null;
+        while (true) {
+            JSONAPIDocument<List<Pledge>> pledgesPage = fetchPageOfPledges(campaignId, 5, cursor);
+            pledges.addAll(pledgesPage.get());
+            cursor = getCursorFromPledgesResponse(pledgesPage);
+            if (cursor == null) {
+                break;
+            }
+        }
+        return new ArrayList<>(pledges);
+    }
+
+    private InputStream getDataStream(String suffix) throws IOException {
         try {
             String prefix = "https://api.patreon.com/oauth2/api/";
             URL url = new URL(prefix.concat(suffix));
@@ -104,7 +144,7 @@ public class PatreonAPI {
             return connection.getInputStream();
         } catch (IOException e) {
             LOG.error(e.getMessage());
+            throw e;
         }
-        return null;
     }
 }
