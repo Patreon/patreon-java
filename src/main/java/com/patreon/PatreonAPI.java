@@ -51,8 +51,12 @@ public class PatreonAPI {
      * @throws IOException Thrown when the GET request failed
      */
     public JSONAPIDocument<User> fetchUser() throws IOException {
+        String path = new URIBuilder()
+            .setPath("current_user")
+            .addParameter("include", "pledges")
+            .toString();
         return converter.readDocument(
-            getDataStream("current_user"),
+            getDataStream(path),
             User.class
         );
     }
