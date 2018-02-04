@@ -1,0 +1,1472 @@
+{
+    "data": {
+        "attributes": {
+            "about": "Heeeey booii",
+            "created": "2013-05-10T13:27:42+00:00",
+            "discord_id": null,
+            "email": "sam@ourspot.com",
+            "facebook": "https://www.facebook.com/foo",
+            "facebook_id": null,
+            "first_name": "Corgi",
+            "full_name": "Corgi Pager & Friends",
+            "gender": 0,
+            "has_password": true,
+            "image_url": "https://c10.patreonusercontent.com/3/eyJwIjoxLCJ2IjoiMSJ9/patreon-media/user/32187/d92af883a3fa4a3593fdec24a8baabb8?token-time=2145916800&token-hash=TC-rUQokZW9MvAGMwqtwHHInGXm3BnUqPCtQQYuzQvk%3D",
+            "is_deleted": false,
+            "is_email_verified": true,
+            "is_nuked": false,
+            "is_suspended": false,
+            "last_name": "Pager & Friends",
+            "social_connections": {
+                "deviantart": null,
+                "discord": null,
+                "facebook": {
+                    "scopes": [
+                        "public_profile",
+                        "user_likes"
+                    ],
+                    "user_id": "2849114461073"
+                },
+                "spotify": null,
+                "twitch": {
+                    "scopes": [
+                        "channel_read",
+                        "user_read",
+                        "channel_subscriptions",
+                        "user_subscriptions"
+                    ],
+                    "user_id": "13626948"
+                },
+                "twitter": null,
+                "youtube": null
+            },
+            "thumb_url": "https://c10.patreonusercontent.com/3/eyJoIjoxMDAsInYiOiIxIiwidyI6MTAwfQ%3D%3D/patreon-media/user/32187/d92af883a3fa4a3593fdec24a8baabb8?token-time=2145916800&token-hash=FGeBGK0gsdI10_xLCFRJqdnjUHdrPja2h45P08Am1MI%3D",
+            "twitch": "https://www.twitch.tv/foo",
+            "twitter": "",
+            "url": "https://www.patreon.com/corgi",
+            "vanity": "corgi",
+            "youtube": ""
+        },
+        "id": "32187",
+        "relationships": {
+            "pledges": {
+                "data": [
+                    {
+                        "id": "3268546",
+                        "type": "pledge"
+                    },
+                    {
+                        "id": "4641935",
+                        "type": "pledge"
+                    },
+                    {
+                        "id": "5367046",
+                        "type": "pledge"
+                    },
+                    {
+                        "id": "6110391",
+                        "type": "pledge"
+                    },
+                    {
+                        "id": "10563089",
+                        "type": "pledge"
+                    }
+                ]
+            }
+        },
+        "type": "user"
+    },
+    "included": [
+        {
+            "attributes": {
+                "amount_cents": 100,
+                "created_at": "2016-09-30T23:01:34+00:00",
+                "declined_since": null,
+                "patron_pays_fees": false,
+                "pledge_cap_cents": null
+            },
+            "id": "3268546",
+            "relationships": {
+                "address": {
+                    "data": null
+                },
+                "card": {
+                    "data": {
+                        "id": "cus_Bm8GhyqVtpWOfj",
+                        "type": "card"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/cards/cus_Bm8GhyqVtpWOfj"
+                    }
+                },
+                "creator": {
+                    "data": {
+                        "id": "36361",
+                        "type": "user"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/user/36361"
+                    }
+                },
+                "patron": {
+                    "data": {
+                        "id": "32187",
+                        "type": "user"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/user/32187"
+                    }
+                },
+                "reward": {
+                    "data": null
+                }
+            },
+            "type": "pledge"
+        },
+        {
+            "attributes": {
+                "amount_cents": 200,
+                "created_at": "2016-12-07T22:35:45+00:00",
+                "declined_since": null,
+                "patron_pays_fees": false,
+                "pledge_cap_cents": null
+            },
+            "id": "4641935",
+            "relationships": {
+                "address": {
+                    "data": null
+                },
+                "card": {
+                    "data": {
+                        "id": "cus_Bm8GhyqVtpWOfj",
+                        "type": "card"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/cards/cus_Bm8GhyqVtpWOfj"
+                    }
+                },
+                "creator": {
+                    "data": {
+                        "id": "2934426",
+                        "type": "user"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/user/2934426"
+                    }
+                },
+                "patron": {
+                    "data": {
+                        "id": "32187",
+                        "type": "user"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/user/32187"
+                    }
+                },
+                "reward": {
+                    "data": {
+                        "id": "1188921",
+                        "type": "reward"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/rewards/1188921"
+                    }
+                }
+            },
+            "type": "pledge"
+        },
+        {
+            "attributes": {
+                "amount_cents": 500,
+                "created_at": "2017-04-14T18:19:26.003255+00:00",
+                "declined_since": null,
+                "patron_pays_fees": false,
+                "pledge_cap_cents": 500
+            },
+            "id": "5367046",
+            "relationships": {
+                "address": {
+                    "data": {
+                        "id": "481681",
+                        "type": "address"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/addresses/481681"
+                    }
+                },
+                "card": {
+                    "data": {
+                        "id": "cus_Bm8GhyqVtpWOfj",
+                        "type": "card"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/cards/cus_Bm8GhyqVtpWOfj"
+                    }
+                },
+                "creator": {
+                    "data": {
+                        "id": "211112",
+                        "type": "user"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/user/211112"
+                    }
+                },
+                "patron": {
+                    "data": {
+                        "id": "32187",
+                        "type": "user"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/user/32187"
+                    }
+                },
+                "reward": {
+                    "data": {
+                        "id": "1070038",
+                        "type": "reward"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/rewards/1070038"
+                    }
+                }
+            },
+            "type": "pledge"
+        },
+        {
+            "attributes": {
+                "amount_cents": 100,
+                "created_at": "2017-05-31T21:35:43.151400+00:00",
+                "declined_since": null,
+                "patron_pays_fees": false,
+                "pledge_cap_cents": null
+            },
+            "id": "6110391",
+            "relationships": {
+                "address": {
+                    "data": null
+                },
+                "card": {
+                    "data": {
+                        "id": "cus_Bm8GhyqVtpWOfj",
+                        "type": "card"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/cards/cus_Bm8GhyqVtpWOfj"
+                    }
+                },
+                "creator": {
+                    "data": {
+                        "id": "2384716",
+                        "type": "user"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/user/2384716"
+                    }
+                },
+                "patron": {
+                    "data": {
+                        "id": "32187",
+                        "type": "user"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/user/32187"
+                    }
+                },
+                "reward": {
+                    "data": null
+                }
+            },
+            "type": "pledge"
+        },
+        {
+            "attributes": {
+                "amount_cents": 100,
+                "created_at": "2018-01-25T22:45:00.483982+00:00",
+                "declined_since": null,
+                "patron_pays_fees": false,
+                "pledge_cap_cents": 100
+            },
+            "id": "10563089",
+            "relationships": {
+                "address": {
+                    "data": null
+                },
+                "card": {
+                    "data": {
+                        "id": "cus_Bm8GhyqVtpWOfj",
+                        "type": "card"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/cards/cus_Bm8GhyqVtpWOfj"
+                    }
+                },
+                "creator": {
+                    "data": {
+                        "id": "4766302",
+                        "type": "user"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/user/4766302"
+                    }
+                },
+                "patron": {
+                    "data": {
+                        "id": "32187",
+                        "type": "user"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/user/32187"
+                    }
+                },
+                "reward": {
+                    "data": {
+                        "id": "2044993",
+                        "type": "reward"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/rewards/2044993"
+                    }
+                }
+            },
+            "type": "pledge"
+        },
+        {
+            "attributes": {
+                "card_type": "Card",
+                "created_at": "2017-11-15T23:09:03+00:00",
+                "expiration_date": "2019-01-01T00:00:00+00:00",
+                "has_a_failed_payment": false,
+                "is_verified": true,
+                "number": "3342",
+                "payment_token": "cus_Bm8GhyqVtpWOfj",
+                "payment_token_id": 7040485
+            },
+            "id": "cus_Bm8GhyqVtpWOfj",
+            "relationships": {
+                "user": {
+                    "data": {
+                        "id": "32187",
+                        "type": "user"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/user/32187"
+                    }
+                }
+            },
+            "type": "card"
+        },
+        {
+            "attributes": {
+                "about": "i'm a songwriter, performer, book-writer, blog-blogger, love-lover, rule-hater, and maker of Things, connector of dots. i believe in online music being as free as possible, unlocked, shared and spread. i believe that in order for artists to survive and create, their audiences need to step up and directly support them. \u2028honor system.\u2028 no judgment.  if you'd like to support me, this is a great place to do it. my first book, \u201cTHE ART OF ASKING\u201d is OUT NOW on paperback: www.amandapalmer.net<br>",
+                "created": "2013-06-19T17:16:49+00:00",
+                "facebook": "https://www.facebook.com/amandapalmer",
+                "first_name": "Amanda",
+                "full_name": "Amanda Palmer",
+                "gender": 0,
+                "image_url": "https://c10.patreonusercontent.com/3/eyJwIjoxLCJ2IjoiMSJ9/patreon-media/user/36361/df5d1e7e2d9a45798d106220049a2da5?token-time=2145916800&token-hash=Y72nC-M7o03l9e4ulnmVNB7VPqqL88O-FHW8dlh97vs%3D",
+                "last_name": "Palmer",
+                "thumb_url": "https://c10.patreonusercontent.com/3/eyJoIjoxMDAsInYiOiIxIiwidyI6MTAwfQ%3D%3D/patreon-media/user/36361/df5d1e7e2d9a45798d106220049a2da5?token-time=2145916800&token-hash=SX8tLtJscpXpKxsxXSBTyrB6DXKzskNw07bFfBIS37U%3D",
+                "twitch": null,
+                "twitter": "amandapalmer",
+                "url": "https://www.patreon.com/amandapalmer",
+                "vanity": "amandapalmer",
+                "youtube": "https://www.youtube.com/amandapalmer"
+            },
+            "id": "36361",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "71481",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/71481"
+                    }
+                }
+            },
+            "type": "user"
+        },
+        {
+            "attributes": {
+                "amount": 100,
+                "amount_cents": 100,
+                "created_at": "2016-12-20T18:56:07.931309+00:00",
+                "description": "sd<br>\n",
+                "discord_role_ids": null,
+                "edited_at": "2016-12-20T18:56:29.211592+00:00",
+                "image_url": null,
+                "patron_count": 1,
+                "post_count": null,
+                "published": true,
+                "published_at": "2016-12-20T18:56:07.931309+00:00",
+                "remaining": null,
+                "requires_shipping": false,
+                "title": "dssd",
+                "unpublished_at": null,
+                "url": "/bePatron?c=499077&rid=1188921",
+                "user_limit": null
+            },
+            "id": "1188921",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "499077",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/499077"
+                    }
+                }
+            },
+            "type": "reward"
+        },
+        {
+            "attributes": {
+                "about": "",
+                "created": "2016-02-25T04:48:55+00:00",
+                "facebook": null,
+                "first_name": "dogfoodz",
+                "full_name": "dogfoodz",
+                "gender": 0,
+                "image_url": "https://c8.patreon.com/2/400/2934426",
+                "last_name": "",
+                "thumb_url": "https://c8.patreon.com/2/100/2934426",
+                "twitch": null,
+                "twitter": null,
+                "url": "https://www.patreon.com/zhyliana",
+                "vanity": "zhyliana",
+                "youtube": null
+            },
+            "id": "2934426",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "499077",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/499077"
+                    }
+                }
+            },
+            "type": "user"
+        },
+        {
+            "attributes": {
+                "amount": 500,
+                "amount_cents": 500,
+                "created_at": "2016-11-20T21:30:01+00:00",
+                "description": "<ul><li>High-quality downloads (.jpg, .mp3)</li><li>Process/behind-the-scenes</li><li>Plus all previous rewards</li></ul>",
+                "discord_role_ids": null,
+                "edited_at": "2017-01-25T19:58:24.953356+00:00",
+                "image_url": null,
+                "post_count": 1,
+                "published": true,
+                "published_at": "2016-11-20T21:30:01+00:00",
+                "remaining": null,
+                "requires_shipping": true,
+                "title": "awesome reward name",
+                "unpublished_at": null,
+                "url": "/bePatron?c=99664&rid=1070038"
+            },
+            "id": "1070038",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "99664",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/99664"
+                    }
+                }
+            },
+            "type": "reward"
+        },
+        {
+            "attributes": {
+                "addressee": "Corgi Pager",
+                "city": "San Francisco",
+                "country": "US",
+                "line_1": "230 9th street ",
+                "line_2": null,
+                "postal_code": "94103",
+                "state": "CA"
+            },
+            "id": "481681",
+            "type": "address"
+        },
+        {
+            "attributes": {
+                "about": "Had mediterranean for lunch",
+                "created": "2014-06-29T03:44:13+00:00",
+                "facebook": "",
+                "first_name": "Dave",
+                "full_name": "Dave Hunt",
+                "gender": 0,
+                "image_url": "https://c10.patreonusercontent.com/3/eyJwIjoxLCJ2IjoiMSJ9/patreon-media/user/211112/8cd4e67b324b44ff8187a9c9c13e1340?token-time=2145916800&token-hash=gIV4pt9xtkRr8pyyn4JU89pOZeFiUg0JSQk8G4EOXM4%3D",
+                "last_name": "Hunt",
+                "thumb_url": "https://c10.patreonusercontent.com/3/eyJoIjoxMDAsInYiOiIxIiwidyI6MTAwfQ%3D%3D/patreon-media/user/211112/8cd4e67b324b44ff8187a9c9c13e1340?token-time=2145916800&token-hash=bFAPV-_MesCHQhZ5YIX695CXhH4hoGHXSsp57e4_M4Y%3D",
+                "twitch": "",
+                "twitter": "hentaiwriter",
+                "url": "https://www.patreon.com/davehunt",
+                "vanity": "davehunt",
+                "youtube": ""
+            },
+            "id": "211112",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "99664",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/99664"
+                    }
+                }
+            },
+            "type": "user"
+        },
+        {
+            "attributes": {
+                "about": "",
+                "created": "2015-09-28T21:39:14+00:00",
+                "facebook": null,
+                "first_name": "Alex",
+                "full_name": "Alex Trytko and Friends and Family",
+                "gender": 0,
+                "image_url": "https://c10.patreonusercontent.com/3/eyJwIjoxLCJ2IjoiMSJ9/patreon-media/user/2384716/0c463114f3d54aeab6e4ebe3ac551ea0?token-time=2145916800&token-hash=9La3lGF2IvfXDOrCeLHEpr53IOynVBWGaidOEx-uRek%3D",
+                "last_name": "Trytko and Friends and Family",
+                "thumb_url": "https://c10.patreonusercontent.com/3/eyJoIjoxMDAsInYiOiIxIiwidyI6MTAwfQ%3D%3D/patreon-media/user/2384716/0c463114f3d54aeab6e4ebe3ac551ea0?token-time=2145916800&token-hash=a0UkFz2919rFIRAk8b9VFtOw5nGgxQyQh6pKjYO0Q5k%3D",
+                "twitch": null,
+                "twitter": "",
+                "url": "https://www.patreon.com/alextrytko",
+                "vanity": "alextrytko",
+                "youtube": null
+            },
+            "id": "2384716",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "761889",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/761889"
+                    }
+                }
+            },
+            "type": "user"
+        },
+        {
+            "attributes": {
+                "amount": 100,
+                "amount_cents": 100,
+                "created_at": "2017-10-02T23:35:24.799740+00:00",
+                "description": "Wat wat",
+                "discord_role_ids": null,
+                "edited_at": "2017-10-03T00:02:56.754949+00:00",
+                "image_url": null,
+                "patron_count": 1,
+                "post_count": null,
+                "published": true,
+                "published_at": "2017-10-03T00:02:56.710754+00:00",
+                "remaining": 1,
+                "requires_shipping": false,
+                "title": "I ship u stuffz",
+                "unpublished_at": null,
+                "url": "/bePatron?c=682690&rid=2044993",
+                "user_limit": 2
+            },
+            "id": "2044993",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "682690",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/682690"
+                    }
+                }
+            },
+            "type": "reward"
+        },
+        {
+            "attributes": {
+                "about": "",
+                "created": "2017-01-03T23:15:54+00:00",
+                "facebook": null,
+                "first_name": "eboyle",
+                "full_name": "eboyle",
+                "gender": 0,
+                "image_url": "https://c10.patreonusercontent.com/3/eyJwIjoxLCJ2IjoiMSJ9/patreon-media/user/4766302/b403f4d43f9b408382893520b9971ed5?token-time=2145916800&token-hash=5TXNj5VyBR7-Y8LBt1qBb2U83RA1yN3ma2J3YufluPs%3D",
+                "last_name": "",
+                "thumb_url": "https://c10.patreonusercontent.com/3/eyJoIjoxMDAsInYiOiIxIiwidyI6MTAwfQ%3D%3D/patreon-media/user/4766302/b403f4d43f9b408382893520b9971ed5?token-time=2145916800&token-hash=ptRftR_tkPitpi7qSL9xaNpuoa-_oHC0moa2gLW3IDU%3D",
+                "twitch": null,
+                "twitter": null,
+                "url": "https://www.patreon.com/eboyle",
+                "vanity": "eboyle",
+                "youtube": null
+            },
+            "id": "4766302",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "682690",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/682690"
+                    }
+                }
+            },
+            "type": "user"
+        },
+        {
+            "attributes": {
+                "created_at": "2013-06-19T17:16:49+00:00",
+                "creation_count": 501,
+                "creation_name": "Art",
+                "discord_server_id": null,
+                "display_patron_goals": false,
+                "earnings_visibility": "public",
+                "image_small_url": "https://c10.patreonusercontent.com/3/eyJoIjoxMjgwLCJ3IjoxMjgwfQ%3D%3D/patreon-user/XGuGB7jt9FYqoPe9MT7ybJzcR8PeXMMHMRYMP5WQfSFb2DEa0o9O7EZvDoXMTYT9_large_2.png?token-time=2145916800&token-hash=4ulsfE3alw5cN67GDxo-9GpeirOI0Ls8zEtSXWUIVLY%3D",
+                "image_url": "https://c10.patreonusercontent.com/3/eyJ3IjoxOTIwfQ%3D%3D/patreon-user/XGuGB7jt9FYqoPe9MT7ybJzcR8PeXMMHMRYMP5WQfSFb2DEa0o9O7EZvDoXMTYT9_large_2.png?token-time=2145916800&token-hash=CeHMo0XCJxgXGsDVi3YvIGrumyq4T6AiF5I7KGCDV7o%3D",
+                "is_charged_immediately": false,
+                "is_monthly": false,
+                "is_nsfw": false,
+                "is_plural": false,
+                "main_video_embed": "<iframe allowfullscreen=\"\" frameborder=\"0\" height=\"480\" scrolling=\"no\" src=\"//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FPKiTTCNHdjk%3Ffeature%3Doembed&amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DPKiTTCNHdjk&amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FPKiTTCNHdjk%2Fhqdefault.jpg&amp;key=8ee8a2e6a8cc47aab1a5ee67f9a178e0&amp;type=text%2Fhtml&amp;schema=youtube\" width=\"854\"></iframe>",
+                "main_video_url": "https://www.youtube.com/watch?v=PKiTTCNHdjk",
+                "one_liner": "I am Amanda Fucking Palmer.  ",
+                "outstanding_payment_amount_cents": 100,
+                "patron_count": 10821,
+                "pay_per_name": "thing",
+                "pledge_sum": 3713019,
+                "pledge_url": "/bePatron?c=71481",
+                "published_at": "2015-03-03T16:15:06+00:00",
+                "summary": "HOLA COMRADES!<br><br>\n\nwell, here we are. the next frontier.\u00a0here i am again, asking.<br><br>it's now been over TWO YEARS (!) since i launched this patreon page and there's over 11,000 people here, supporting my weirdness, and i am perpetually in awe. and really grateful.<br><br>and now that we've kind of gotten the hang of this patreon thing, i can explain some things to all y'all that weren't so clear when we were starting out!<br><br>the video above is now a bit outdated, but it is a kind of nice before n' after, considering i had a mission and now i'm a year in....here's what i've released as paid \"Things\" so far!<br><a href=\"http://amandapalmer.net/patreon-things/\" rel=\"nofollow\">http://amandapalmer.net/patreon-things/</a><br><br>so what's patreon?\u00a0if you're just showing up here for the first time....here's the lowdown:<br><br>\n\nif you're a fan of mine and want to support me in the creation of new songs/webcasts/videos/writing/performance-art and more random, unpredictable art-things, this is the place. as you can see, the list above is pretty varied...and who knows what's next...comics? podcasts? i'm wide open. i like surprises.\u00a0 <a href=\"http://amandapalmer.tumblr.com/post/126884237426/a-round-up-of-all-my-official-patreon-content-to\" rel=\"nofollow\"><br><br></a>the feedback from the patrons gathered here has been GREAT. it's working. i read comments, we discuss, i love feedback, i am figuring this system out AS I GO, with the help of the people here.\u00a0<br><br>my backstory:<br><br>\n\ni've been struggling since i got off my label in 2008 to find the right platform for ongoing support, through which i can release constant material (and get paid).<br><br>\n\ni've gotten to know myself. as a creator, as a songwriter, and as a recording artist, i thrive on instant gratification and a direct mainline to my audience without having to go through labels, distributors, the machine, the mass media. i love making things and instantly sharing. and i know my fanbase: you're smart, kind, supportive, future-platform embracing people. <br><br>we all started learning how to trust each other with kickstarter, pledgemusic, indiegogo. i think subscription sites like patreon are a new revolution in music-release and art patronage.<br><br>what i'm doing flies in the face of most conventional approaches: i try to release pretty much ALL MY ARTISTIC CONTENT for free: the songs and videos live FREE on youtube, bandcamp, my site, wherever. <br>(in some cases, like david bowie covers, i have to charge, because bowie's publisher charges me for the use of the songs. but usually, stuff's free).<br><br>THAT IS HOW I LIKE IT. not everybody wants to buy it. that's fine. it's yours, it's everybody's, you can take it, you can share it.<br><br>\n\nbut to DO this: i need support, true patronage. those willing to be the driving engine to pay for the recording studios, the filmmakers, the office rent, the staff costs, the gas, the food, the lodging. i need a salary and a budget.\u00a0<br><br>\n\ni'm friends with jack (the CEO) and the fine folks at patreon, as i was pals (and still am) with yancey over at kickstarter. i *really* believe in the future of crowd-power and what these people and companies are doing.\u00a0it isn't making world news, because it is what it is: a quiet, underground network of artists connecting directly with their fans, bypassing the entire commercial system. this is AWESOME. <br><br>it is, in these days of negativity and tumblr outrage, the bright side of the net: it is how the web can really *save artists* in an art-economy that is floundering. AND it means YOU need to step up and support the artists you love, the political cartoonists you want to see bravely satirizing the system, the painters you want to see reflecting their realities, the musicians you want filling your hearts and your speakers, the journalists you want to see writing about the state of the world. <br><br>THIS IS HAPPENING!!!! HERE YOU ARE!!!!<br><br>\n\nalmost 25,000 of you supported my kickstarter, and i don't expect those kinds of numbers here - this is more of a commitment: though you do get to road test it if you're scared (you can pull out before you're charged at the end of any month, so it's risk-free).<br><br>\n\nmy kickstarter was a one-time deal, this is more of an ongoing commitment to me and my music and spontaneous art-making. <br><br>kickstarter was like a serious date, this is like getting married.\u00a0<br><br>\n\nmore backstory? i've been flailing (often happily, for sure) since i left my label in 2008. self-releasing and distributing vinyl &amp; CDs isn't easy. giving my music away for free online has been an adventure, but not as sustainable as i expected. you may be surprised to know that \"theatre is evil\" - even with 25,000 backers and rave reviews in the press - sold relatively few copies in stores.\u00a0<br><br>but while kickstarter is awesome for huge one-time projects, i don't want to do get repetitive and exhaust the fanbase with \"HEY I'M MAKING YET ANOTHER RECORD, PRE-ORDER HERE....AGAIN!.\"<br><br>i just want to be able to go into the studio, make music with friends, call a film director, make a video, take a few months off, write, record, and press PUBLISH when i'm done, the way i can with my blogs. bam, bam, bam. INSTANT ART.<br><br>\n\ni also don't want to have to think up clever merchandise (i know we love fuzzy posters, and t-shirts, mugs and tea-cozies....but how much Stuff is too much Stuff before we don't need any more Stuff cluttering up landfills?)<br><br>\n\ndon't get me wrong: i'm not going to give up on physical or merchandise (i mean, manufacturing my own vinyl and nudie pens brings me great joy) and i'm not going to give up on collecting my music into \"albums\".<br><br>but i know me and i'm addicted to PUTTING OUT THE THING NOW. i've seen what's happened to me when i'm able to slave all night on something and wave it around immediately the next day online or at a show. without that possibility, 8in8 (the all-night record i made with ben folds and damian kulash and neil gaiman: <a href=\"http://www.eightineight.com/band.html\" rel=\"nofollow\" target=\"_blank\">http://www.eightineight.com/band.html</a>) wouldn't have happened. and i don't think i ever would have written \"gaga, palmer, madonna\" (<a href=\"https://www.youtube.com/watch?v=9dxDREaCyjE\" rel=\"nofollow\">https://www.youtube.com/watch?v=9dxDREaCyjE</a>) if i hadn't been able to upload it directly to YouTube that night. the immediate thrills me. getting PAID to make this art instead of just doing it for kicks thrills me even more.<br><br>about money:<br><br>SOME THINGS COST A LOT OF MONEY! some of the patreon projects listed above had budgets of $15,000. and\u00a0SOME THINGS COST ALMOST NOTHING! a song like \"a mother's confession\" cost me a few thousand dollars (to pay my kind engineer for his studio and mixing time).<br><br>the idea here is that you trust me to use the ongoing budgets as i see fit. not every project will cost the same...but the more budget i have, the more fun crazy shit i can do, the more staff i can pay (and the better i can pay the staff i already have), and more i can spend on my artistic collaborators. i like feeling like a pipeline through which money can flow. it gives me great pleasure to be able to pay other artists to Do Their Things with my budgets.<br>\u00a0<br>here's the key: THIS IS A HUGE EXPERIMENT. <br><br>\n\nif you guys know me, you know i LISTEN. we're here to make this sucker work together, and we will. <br>\neven if you're a one dollar backer, i want to know what you're digging about the platform and what's bugging you. the conversation (via comments here, and on twitter and facebook, and on the live webcasts) has already been ON FIRE, and i hope to keep it that way.<br><br>every patron who's supporting me is important to this community, YOU'RE who i'm creating for, and i'm glad you found me here.<br><br>whether you're backing me for a dollar or ten dollars...THANK YOU.<br><br>ALLL THE THIIIIIIIIIIINGS!!!<br>MOAR THINGS FOREVER!!!!!!<br>let's DO THIS SHIT!!!!!!!!!!!!!!!<br><br>love,<br>\nAFP<br><br>p.s. if you're just finding out about patreon and you're like JA JA JA JA OMG, here are a few other artists/creators i suggest you look into....<br><br>neil degrasse tyson (making a startalk podcast!)\u00a0<a href=\"https://www.patreon.com/startalkradio?ty=c\" rel=\"nofollow\">https://www.patreon.com/startalkradio</a><br>geeta dayal (writing smart journalism about music and art!) <a href=\"https://www.patreon.com/geetadayal\" rel=\"nofollow\" target=\"_blank\">https://www.patreon.com/geetadayal</a><br>martin gommel (photo essays about refugees in europe!)\u00a0<a href=\"https://www.patreon.com/martingommel\" rel=\"nofollow\" target=\"_blank\">https://www.patreon.com/martingommel</a> <br><br><br>p.p.s. if you're not familiar with MY music, i've made a great primer page to acquaint you, it's called \"a walk through amandalanda\" and has streams of my biggest records and best videos:<br><br><a href=\"http://amandalanda.amandapalmer.net/\" rel=\"nofollow\" target=\"_blank\">http://amandalanda.amandapalmer.net/</a><br>\n............<br><br>THE FAQ (frequently asked questions)<br>\n\nif you have questions, please submit them on twitter, on facebook, on my blog, or here on the patron stream once you sign up.<br><br>Q: \"i have a question about your patreon, who can i contact?\"<br><br>A: reach out to patronhelp@amandapalmer.net and they will get you sorted!<br><br>Q: \"why are you charging Per Thing versus charging Per Month, like some other patreon artists?\"<br><br>A: i thought hard about charging Per Month instead of Per Thing, because patreon lets you do either, and a lot of artists are successfully charging per month. however, that makes me nervous: what if i'm traveling and touring and/or taking off time for three months in a row and don't have output to share? i'd feel guilty. i know me well enough to know that i don't work consistently: this isn't a weekly web comic, i'm a sporadic weirdo. Per Thing seemed safer. here's the way I figured it: patreon has a MONTHLY CAP, so if you want the security of only EVER paying $10 a month, because that's what your budget allows, you can CAP at $10. that way it's like paying $10 per month, WITH the added advantage that if i decide to post No Things\u00a0in a given month, you'll be charged NOTHING. so it's technically better for you, and i won't feel guilty, ever.<br><br>\n\nQ: \"but if i cap my backing at $10 a month, does that mean I won't get ALL THE THINGS? i want ALL THE THINGS!!!!!\"<br><br>\n\nA: lucky for you, i'm treating everybody equally. and also don't forget...almost nothing here is paywalled. the CONTENT goes out to the public, you guys are the backstage. you don't lose access to ANYTHING when you hit your cap. you'll still get EVERYTHING emailed to you if you're backing at the email level, and access to all streams even if your cap is $1 a month. you don't get punished for capping. <br><br>Q: \"does patreon accept paypal?\"<br><br>A: yes, paypal is accepted!<br><br>Q: \" I want to join your Patreon, but I don't have any idea how much to donate. I want to do it for about $25-35/month. You say it's donating \"per thing\" - how often do you do those \"things\" - so I can get an idea how much to donate per thing.\u00a0For example, if you do a \"thing\" every 3 months, I will donate $100 per thing.\u00a0guidelines on \"thing\" timetables... at least roughly?\" (from samaire provost on facebook)<br><br>A: well...that's really generous. the $100/month option is full right now, and i'm trying to figure out what to do about that. right now you have two options: you could just back me at $10/thing, which is the closest denomination (in general i put out about one thing a month and haven't put out 2 or 3 yet... but might!) and i'd cap your donation at $30, or $60, or $60....so you never pay more than you're happy with. OR if you're feeling more generous, you can actually \"write in\" a higher amount per thing (i.e. you can write in $20/$30/$50 at the $10 level) and that extra dough per thing, until you hit your monthly cap, is just considered generous gravy.<br>\n<br>Q: \"when are you going to put out an Actual Record I Can Touch? call me old school, but i just want to buy a simple record.\" <br><br>A: SOON! i'm workin on it. meanwhile, you can purchase one of the gazillions of physical records &amp; CDs I've released if you're super keen on touching things:<br><a href=\"http://shop.amandapalmer.net/\" rel=\"nofollow\">http://shop.amandapalmer.net/</a><br><br>Q: \"um....what if i want to just donate money to you once? this is weird.\"<br><br>A: um. that's fine. you can make a one-time donation to my site's music page here...down to the right where it says \"support my art\". thanks. (<a href=\"http://amandapalmer.net/music/\" rel=\"nofollow\" target=\"_blank\">http://amandapalmer.net/music/</a>)<br><br>Q: \"i love you. i just wanted to say that.\"<br><br>A: \"i love you too. here's a hug ((((((((((())))))))))))\"<br><br><br><br>",
+                "thanks_embed": "",
+                "thanks_msg": "HELLO MY DEARS. whether you're in for $1 or $10, THANK YOU SO MUCH for supporting me on patreon....you cannot know how much i appreciate your help here. it's an awesome system.<br><br>i post to the patreon page quite a bit (it's basically replaced my blog) and you'll be getting those posts AS emails, but make sure to click through if you want to see the live comments and comment yourself (which is always nice, and i do read 99% of them). <br>THIS IS IMPORTANT, now that you're a patron, you can CATCH UP! there's a lot you've missed, and you can now access the entire back-log of things: we built a page for exactly this reason and you can see *everything i've released as paid things right <a href=\"http://amandapalmer.net/patreon-things/\">here</a>.<br><br>if you have any PROBLEMS with your patreon account (not getting charged? getting charged too much? questions about the monthly cap? CONFUSED IN GENERAL?) you can email hayley at patronhelp@amandapalmer.net, she's here to answer any and all patreon-related questions.\u00a0<a href=\"https://www.facebook.com/groups/414049798762802/\"><br><br></a>and AS ALWAYS...you should join the golden email list to get the world-wide newsletter i send out every so often. i've had it for fifteen years and its the backbone of All Things:\u00a0<a href=\"http://amandapalmer.net/emaillist/\">http://amandapalmer.net/emaillist/</a>. sometimes it repeats a little of what is in the patreon feed, but not too much.\u00a0<br><br>OKAY...and now. TO ALL THE THINGS.<br><br>i love you,<br>amanda<br><br><br>p.s. if you're *very* new to my music/content, i made this special page of some of my best content/songs/videos, from the dresden dolls til now: it's called \"a walk through amandalanda\". it's a great place to start.<br><a href=\"http://amandalanda.amandapalmer.net/\">http://amandalanda.amandapalmer.net/</a><br><br><br><br><br>",
+                "thanks_video_url": null
+            },
+            "id": "71481",
+            "relationships": {
+                "creator": {
+                    "data": {
+                        "id": "36361",
+                        "type": "user"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/user/36361"
+                    }
+                },
+                "goals": {
+                    "data": []
+                },
+                "rewards": {
+                    "data": [
+                        {
+                            "id": "-1",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "0",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "103698",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "103699",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "103700",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "169837",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "169838",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "170781",
+                            "type": "reward"
+                        }
+                    ]
+                }
+            },
+            "type": "campaign"
+        },
+        {
+            "attributes": {
+                "created_at": "2016-09-08T18:24:19+00:00",
+                "creation_count": 5,
+                "creation_name": "thingys",
+                "discord_server_id": null,
+                "display_patron_goals": false,
+                "earnings_visibility": "public",
+                "image_small_url": null,
+                "image_url": null,
+                "is_charged_immediately": false,
+                "is_monthly": false,
+                "is_nsfw": false,
+                "is_plural": false,
+                "main_video_embed": null,
+                "main_video_url": null,
+                "one_liner": null,
+                "outstanding_payment_amount_cents": 0,
+                "patron_count": 1,
+                "pay_per_name": "thing",
+                "pledge_sum": 180,
+                "pledge_url": "/bePatron?c=499077",
+                "published_at": "2016-09-08T18:24:48+00:00",
+                "summary": "",
+                "thanks_embed": "",
+                "thanks_msg": null,
+                "thanks_video_url": null
+            },
+            "id": "499077",
+            "relationships": {
+                "creator": {
+                    "data": {
+                        "id": "2934426",
+                        "type": "user"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/user/2934426"
+                    }
+                },
+                "goals": {
+                    "data": []
+                },
+                "rewards": {
+                    "data": [
+                        {
+                            "id": "-1",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "0",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "1188921",
+                            "type": "reward"
+                        }
+                    ]
+                }
+            },
+            "type": "campaign"
+        },
+        {
+            "attributes": {
+                "created_at": "2014-06-29T03:44:13+00:00",
+                "creation_count": 12,
+                "creation_name": "Music",
+                "discord_server_id": null,
+                "display_patron_goals": false,
+                "earnings_visibility": "private",
+                "image_small_url": "https://c10.patreonusercontent.com/3/eyJoIjoxMjgwLCJ3IjoxMjgwfQ%3D%3D/patreon/fed65b47d8d1928ab3f0db58c0f1a96c.jpg?token-time=2145916800&token-hash=5CA-iYLLtQM4Rec9Z9D3ZGU0vXTHuSbxZRus7Eadla0%3D",
+                "image_url": "https://c10.patreonusercontent.com/3/eyJ3IjoxOTIwfQ%3D%3D/patreon/fed65b47d8d1928ab3f0db58c0f1a96c.jpg?token-time=2145916800&token-hash=Kn7PbI2Wabu53sL0gruD0kFPrIt9TAE6tup7qO5-g6g%3D",
+                "is_charged_immediately": false,
+                "is_monthly": false,
+                "is_nsfw": false,
+                "is_plural": false,
+                "main_video_embed": "",
+                "main_video_url": "",
+                "one_liner": "Teaching the world about posts ",
+                "outstanding_payment_amount_cents": 0,
+                "patron_count": 2,
+                "pay_per_name": "creation",
+                "pledge_url": "/bePatron?c=99664",
+                "published_at": "2016-11-30T20:35:56+00:00",
+                "summary": "Please support me on Pateron!\u00a0",
+                "thanks_embed": "",
+                "thanks_msg": "Thanks!\u00a0",
+                "thanks_video_url": null
+            },
+            "id": "99664",
+            "relationships": {
+                "creator": {
+                    "data": {
+                        "id": "211112",
+                        "type": "user"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/user/211112"
+                    }
+                },
+                "goals": {
+                    "data": [
+                        {
+                            "id": "432329",
+                            "type": "goal"
+                        }
+                    ]
+                },
+                "rewards": {
+                    "data": [
+                        {
+                            "id": "-1",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "0",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "549201",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "1070038",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "1130550",
+                            "type": "reward"
+                        }
+                    ]
+                }
+            },
+            "type": "campaign"
+        },
+        {
+            "attributes": {
+                "created_at": "2017-02-22T01:50:36+00:00",
+                "creation_count": 25,
+                "creation_name": "music",
+                "discord_server_id": null,
+                "display_patron_goals": false,
+                "earnings_visibility": "public",
+                "image_small_url": "https://c10.patreonusercontent.com/3/eyJoIjoxMjgwLCJ3IjoxMjgwfQ%3D%3D/patreon-user/Vbk98qyF95ROh4ykqFuBlABF7s6vLfwDf6agIna6oAHicSMaMjfF1_lwF9yveQek.jpeg?token-time=2145916800&token-hash=J9LOKHRv7dFKXd6h93n95m1WK2vtPXYBd4ZgyTFvYXE%3D",
+                "image_url": "https://c10.patreonusercontent.com/3/eyJ3IjoxOTIwfQ%3D%3D/patreon-user/Vbk98qyF95ROh4ykqFuBlABF7s6vLfwDf6agIna6oAHicSMaMjfF1_lwF9yveQek.jpeg?token-time=2145916800&token-hash=-eywGBoTkWQWOJFy7-VfXMamGy0RkaOEisVUPlCkcTk%3D",
+                "is_charged_immediately": false,
+                "is_monthly": false,
+                "is_nsfw": false,
+                "is_plural": false,
+                "main_video_embed": null,
+                "main_video_url": null,
+                "one_liner": null,
+                "outstanding_payment_amount_cents": 0,
+                "patron_count": 8,
+                "pay_per_name": null,
+                "pledge_sum": 720,
+                "pledge_url": "/bePatron?c=761889",
+                "published_at": "2017-02-22T01:51:12+00:00",
+                "summary": "this is a test<br><br>https://developer.android.com/reference/android/text/Html.html",
+                "thanks_embed": null,
+                "thanks_msg": null,
+                "thanks_video_url": null
+            },
+            "id": "761889",
+            "relationships": {
+                "creator": {
+                    "data": {
+                        "id": "2384716",
+                        "type": "user"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/user/2384716"
+                    }
+                },
+                "goals": {
+                    "data": []
+                },
+                "rewards": {
+                    "data": [
+                        {
+                            "id": "-1",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "0",
+                            "type": "reward"
+                        }
+                    ]
+                }
+            },
+            "type": "campaign"
+        },
+        {
+            "attributes": {
+                "created_at": "2017-01-04T18:26:34+00:00",
+                "creation_count": 7,
+                "creation_name": "lists of podcasts",
+                "discord_server_id": null,
+                "display_patron_goals": true,
+                "earnings_visibility": "public",
+                "image_small_url": "https://c10.patreonusercontent.com/3/eyJoIjoxMjgwLCJ3IjoxMjgwfQ%3D%3D/patreon-user/3sd9IoCpFqLMrFE8gMH5YKhmSXYJUtsNzWHQwVOIzUmCLN73lszMitQud2blV86M_large_2.png?token-time=2145916800&token-hash=pWugSPmBcB0sjCPIIJGqF31wl26L-BL7K3ZO-d4OZdU%3D",
+                "image_url": "https://c10.patreonusercontent.com/3/eyJ3IjoxOTIwfQ%3D%3D/patreon-user/3sd9IoCpFqLMrFE8gMH5YKhmSXYJUtsNzWHQwVOIzUmCLN73lszMitQud2blV86M_large_2.png?token-time=2145916800&token-hash=IYul8xn1FyDuZiA1j-4hyr6DJAD6gfxoJSiAz8n_8tQ%3D",
+                "is_charged_immediately": true,
+                "is_monthly": true,
+                "is_nsfw": false,
+                "is_plural": false,
+                "main_video_embed": null,
+                "main_video_url": null,
+                "one_liner": null,
+                "outstanding_payment_amount_cents": 0,
+                "patron_count": 3,
+                "pay_per_name": "month",
+                "pledge_sum": 665,
+                "pledge_url": "/bePatron?c=682690",
+                "published_at": "2017-01-04T18:31:56+00:00",
+                "summary": "I love podcasts. Presumably so do you! I'm going to curate lists of podcasts for you on a regular basis. Sweet.",
+                "thanks_embed": null,
+                "thanks_msg": "Thanks so much for supporting my idea! If you really love podcasts and you want to help even more, consider filling out this short survey:\u00a0https://goo.gl/forms/3XAVvqF5pm9hMY2Z2",
+                "thanks_video_url": null
+            },
+            "id": "682690",
+            "relationships": {
+                "creator": {
+                    "data": {
+                        "id": "4766302",
+                        "type": "user"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/user/4766302"
+                    }
+                },
+                "goals": {
+                    "data": [
+                        {
+                            "id": "664865",
+                            "type": "goal"
+                        },
+                        {
+                            "id": "691326",
+                            "type": "goal"
+                        },
+                        {
+                            "id": "691354",
+                            "type": "goal"
+                        }
+                    ]
+                },
+                "rewards": {
+                    "data": [
+                        {
+                            "id": "-1",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "0",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "2044963",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "2044993",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "1256594",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "1256602",
+                            "type": "reward"
+                        },
+                        {
+                            "id": "1752810",
+                            "type": "reward"
+                        }
+                    ]
+                }
+            },
+            "type": "campaign"
+        },
+        {
+            "attributes": {
+                "amount": 0,
+                "amount_cents": 0,
+                "created_at": null,
+                "description": "Everyone",
+                "remaining": 0,
+                "requires_shipping": false,
+                "url": null,
+                "user_limit": null
+            },
+            "id": "-1",
+            "type": "reward"
+        },
+        {
+            "attributes": {
+                "amount": 1,
+                "amount_cents": 1,
+                "created_at": null,
+                "description": "Patrons Only",
+                "remaining": 0,
+                "requires_shipping": false,
+                "url": null,
+                "user_limit": null
+            },
+            "id": "0",
+            "type": "reward"
+        },
+        {
+            "attributes": {
+                "amount": 100,
+                "amount_cents": 100,
+                "created_at": "2016-10-21T22:03:55+00:00",
+                "description": "you're supporting me, and that's huge, and plenty. thank you. you'll get my patron-only emails and access to the <strong>patron-only feed</strong>, where the community centralizes and everything gets posted and talked about. and so you know: your voice is just as important as some well-off mofo giving me $100.",
+                "discord_role_ids": null,
+                "edited_at": "2017-02-16T12:57:42.379660+00:00",
+                "image_url": null,
+                "patron_count": 4610,
+                "post_count": 1,
+                "published": true,
+                "published_at": "2016-10-21T22:03:55+00:00",
+                "remaining": null,
+                "requires_shipping": false,
+                "title": "",
+                "unpublished_at": null,
+                "url": "/bePatron?c=71481&rid=103698",
+                "user_limit": null
+            },
+            "id": "103698",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "71481",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/71481"
+                    }
+                }
+            },
+            "type": "reward"
+        },
+        {
+            "attributes": {
+                "amount": 300,
+                "amount_cents": 300,
+                "created_at": "2016-10-21T22:03:56+00:00",
+                "description": "you're supporting me even more, and you are awesome. thank you. you'll get\u00a0access to the <strong>patron-only feed,</strong>\u00a0as above, where we <strong>hang</strong>, and you'll also be <strong>DIRECTLY emailed keepable/playable/readable downloads of any content (PDFs, Mp3s, etc).</strong><br>",
+                "discord_role_ids": null,
+                "edited_at": "2017-02-16T12:57:42.714943+00:00",
+                "image_url": null,
+                "patron_count": 3760,
+                "post_count": 32,
+                "published": true,
+                "published_at": "2016-10-21T22:03:56+00:00",
+                "remaining": null,
+                "requires_shipping": false,
+                "title": "",
+                "unpublished_at": null,
+                "url": "/bePatron?c=71481&rid=103699",
+                "user_limit": null
+            },
+            "id": "103699",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "71481",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/71481"
+                    }
+                }
+            },
+            "type": "reward"
+        },
+        {
+            "attributes": {
+                "amount": 500,
+                "amount_cents": 500,
+                "created_at": "2016-10-21T22:03:56+00:00",
+                "description": "you're supporting me a lot here, person, and $5 a song (or Thing) is really generous. thank you! you'll get all of the above, plus <strong>you'll be in the \"random surprise\" group</strong>. i'll email you random surprises every once in a while, including more personal blogs that i don't want out in the public, photos and poetry that aren't for the general public. let's see what goes down. so far i've sent random little digital tidbits that seem to really delight people.<br>",
+                "discord_role_ids": null,
+                "edited_at": "2017-02-16T12:57:42.850950+00:00",
+                "image_url": null,
+                "patron_count": 2679,
+                "post_count": 24,
+                "published": true,
+                "published_at": "2016-10-21T22:03:56+00:00",
+                "remaining": null,
+                "requires_shipping": false,
+                "title": "",
+                "unpublished_at": null,
+                "url": "/bePatron?c=71481&rid=103700",
+                "user_limit": null
+            },
+            "id": "103700",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "71481",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/71481"
+                    }
+                }
+            },
+            "type": "reward"
+        },
+        {
+            "attributes": {
+                "amount": 1000,
+                "amount_cents": 1000,
+                "created_at": "2016-10-21T22:03:56+00:00",
+                "description": "this is a lot of money to spend on an artist, and you are really showing me some serious art-love here. THANK YOU. i'll try to make it worth it: you'll get all of the above, random surprises + photos and all, <strong>plus access to my patron-only webcasts</strong>\u00a0in which i'll chat/perform live with you top-tier patrons, take questions direct, talk about life, the work, and generally get jiggy. note: the patron base has voted to make these *later* available to the public, because everyone here is pretty generous. but this group gets to interact live, and you'll usually access get the archive before the public does....you'll be a members of the smaller group with whom i discuss deeper issues, business/patron strategies, and so forth. i love doing these, but not with thousandssss of people. i'll do the monthly webcast even if i haven't made any art, so you may be getting free webcasts if i'm in a funk, and we'll just talk online about how unproductive and fucking depressed i am. FUN!",
+                "discord_role_ids": null,
+                "edited_at": "2017-02-16T12:57:42.999498+00:00",
+                "image_url": null,
+                "patron_count": 1481,
+                "post_count": 25,
+                "published": true,
+                "published_at": "2016-10-21T22:03:56+00:00",
+                "remaining": null,
+                "requires_shipping": false,
+                "title": "",
+                "unpublished_at": null,
+                "url": "/bePatron?c=71481&rid=169837",
+                "user_limit": null
+            },
+            "id": "169837",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "71481",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/71481"
+                    }
+                }
+            },
+            "type": "reward"
+        },
+        {
+            "attributes": {
+                "amount": 10000,
+                "amount_cents": 10000,
+                "created_at": "2016-10-21T22:03:56+00:00",
+                "description": "(inner circle - limited to 30) - hello, angel investor. DAMN. you're awesome. you'll get\u00a0all of the above...patron-feed, random surprises, webcasting, plus i'll <strong>thank you personally</strong> via email/phone/both (and chances are, i already know you from shows or ye olde kickstarter days). i'll also<strong> send you weird postcards from weird places</strong> i wind up. (i've been having fun with this). and you'll get guestlist to any show (if i can manage it, which i almost always can. we will email.)<br>",
+                "discord_role_ids": null,
+                "edited_at": "2017-02-16T12:57:43.139049+00:00",
+                "image_url": null,
+                "patron_count": 30,
+                "post_count": 11,
+                "published": true,
+                "published_at": "2016-10-21T22:03:56+00:00",
+                "remaining": 0,
+                "requires_shipping": false,
+                "title": "",
+                "unpublished_at": null,
+                "url": "/bePatron?c=71481&rid=169838",
+                "user_limit": 30
+            },
+            "id": "169838",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "71481",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/71481"
+                    }
+                }
+            },
+            "type": "reward"
+        },
+        {
+            "attributes": {
+                "amount": 100000,
+                "amount_cents": 100000,
+                "created_at": "2016-10-21T22:03:57+00:00",
+                "description": "i'll call. we'll talk. we'll have dinner. all the things, pretty much. thank you (holy shit the end.)",
+                "discord_role_ids": null,
+                "edited_at": "2017-11-05T15:29:03.097531+00:00",
+                "image_url": null,
+                "patron_count": 1,
+                "post_count": null,
+                "published": true,
+                "published_at": "2017-11-05T15:29:03.071286+00:00",
+                "remaining": null,
+                "requires_shipping": false,
+                "title": "all the things",
+                "unpublished_at": null,
+                "url": "/bePatron?c=71481&rid=170781",
+                "user_limit": null
+            },
+            "id": "170781",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "71481",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/71481"
+                    }
+                }
+            },
+            "type": "reward"
+        },
+        {
+            "attributes": {
+                "amount": 100,
+                "amount_cents": 100,
+                "created_at": "2016-11-20T21:30:01+00:00",
+                "description": "test\u00a0",
+                "discord_role_ids": null,
+                "edited_at": "2017-01-25T19:58:24.915393+00:00",
+                "image_url": null,
+                "post_count": null,
+                "published": true,
+                "published_at": "2016-11-20T21:30:01+00:00",
+                "remaining": null,
+                "requires_shipping": true,
+                "title": "awesome reward tier",
+                "unpublished_at": null,
+                "url": "/bePatron?c=99664&rid=549201"
+            },
+            "id": "549201",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "99664",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/99664"
+                    }
+                }
+            },
+            "type": "reward"
+        },
+        {
+            "attributes": {
+                "amount": 1000,
+                "amount_cents": 1000,
+                "created_at": "2016-12-06T00:43:20+00:00",
+                "description": "<ul><li>Monthly patron-only livestream</li><li>Signed digital poster</li><li>Plus all previous rewards</li></ul>",
+                "discord_role_ids": null,
+                "edited_at": "2017-01-25T19:58:24.968217+00:00",
+                "image_url": null,
+                "post_count": 1,
+                "published": true,
+                "published_at": "2016-12-06T00:43:20+00:00",
+                "remaining": null,
+                "requires_shipping": true,
+                "title": "Special Reward",
+                "unpublished_at": null,
+                "url": "/bePatron?c=99664&rid=1130550"
+            },
+            "id": "1130550",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "99664",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/99664"
+                    }
+                }
+            },
+            "type": "reward"
+        },
+        {
+            "attributes": {
+                "completed_percentage": 100,
+                "created_at": "2016-05-20T16:31:47+00:00",
+                "description": "wefwef",
+                "reached_at": "2017-04-14T18:24:30+00:00",
+                "title": ""
+            },
+            "id": "432329",
+            "type": "goal"
+        },
+        {
+            "attributes": {
+                "amount": 100,
+                "amount_cents": 100,
+                "created_at": "2017-10-02T23:22:22.811890+00:00",
+                "description": "<ul>\n<li>I'm a little teapot</li>\n<li>Short and stout</li>\n<li>Here is my handle</li>\n<li>Here is my spout</li>\n</ul>\n<p><br></p>\n<p>VOILA!</p>",
+                "discord_role_ids": null,
+                "edited_at": "2017-10-04T20:41:13.900248+00:00",
+                "image_url": "https://c10.patreonusercontent.com/3/eyJwIjoxLCJ2IjoiMSJ9/patreon-media/reward/2044963/c297f841719f4c69bf5e860b92624a15?token-time=2145916800&token-hash=u9YrgFn8svAi7e_RSpj0VypwKIXZACO3JJNqSIjPC1s%3D",
+                "patron_count": 1,
+                "post_count": null,
+                "published": true,
+                "published_at": "2017-10-04T20:41:13.872989+00:00",
+                "remaining": 0,
+                "requires_shipping": false,
+                "title": "Goats.",
+                "unpublished_at": null,
+                "url": "/bePatron?c=682690&rid=2044963",
+                "user_limit": 1
+            },
+            "id": "2044963",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "682690",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/682690"
+                    }
+                }
+            },
+            "type": "reward"
+        },
+        {
+            "attributes": {
+                "amount": 100,
+                "amount_cents": 100,
+                "created_at": "2017-01-07T20:00:52.460325+00:00",
+                "description": "Unlock exclusive content and join my community of patrons. Thank you!\n<ul>\n<li>Access to a feed of patron-only content</li>\n<li>Connect with other patrons</li>\n<li>bam</li>\n</ul>",
+                "discord_role_ids": null,
+                "edited_at": "2017-09-19T00:32:51.052936+00:00",
+                "image_url": "https://c10.patreonusercontent.com/3/eyJwIjoxLCJ2IjoiMSJ9/patreon-media/reward/1256594/4dabb35e23a243d4aedbb5209987be90?token-time=2145916800&token-hash=ZuwVY2JIXVm6CzcvXXv473tnhdDq3Z_S4-HP9As33zE%3D",
+                "patron_count": 0,
+                "post_count": null,
+                "published": true,
+                "published_at": "2017-01-07T20:00:52.460325+00:00",
+                "remaining": null,
+                "requires_shipping": false,
+                "title": "Become A Patron",
+                "unpublished_at": null,
+                "url": "/bePatron?c=682690&rid=1256594",
+                "user_limit": null
+            },
+            "id": "1256594",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "682690",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/682690"
+                    }
+                }
+            },
+            "type": "reward"
+        },
+        {
+            "attributes": {
+                "amount": 500,
+                "amount_cents": 500,
+                "created_at": "2017-01-07T20:03:05.646579+00:00",
+                "description": "Let's make it official on social media.<ul><li>Will follow you on social media</li><li>Plus all previous rewards</li></ul>",
+                "discord_role_ids": null,
+                "edited_at": "2017-03-15T01:22:04.177399+00:00",
+                "image_url": "https://c10.patreonusercontent.com/3/eyJwIjoxLCJ2IjoiMSJ9/patreon-media/reward/1256602/fc72e6d4683343b4b0efc1bb10f1b589?token-time=2145916800&token-hash=XdFURi_k9FhQVFU4d6dszfUMk-wLThFLdlwnbfDAdWs%3D",
+                "patron_count": 1,
+                "post_count": 3,
+                "published": true,
+                "published_at": "2017-01-07T20:03:05.646579+00:00",
+                "remaining": null,
+                "requires_shipping": false,
+                "title": "Social Media Follow",
+                "unpublished_at": null,
+                "url": "/bePatron?c=682690&rid=1256602",
+                "user_limit": null
+            },
+            "id": "1256602",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "682690",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/682690"
+                    }
+                }
+            },
+            "type": "reward"
+        },
+        {
+            "attributes": {
+                "amount": 1000,
+                "amount_cents": 1000,
+                "created_at": "2017-06-09T00:34:59.835901+00:00",
+                "description": "",
+                "discord_role_ids": null,
+                "edited_at": "2017-10-03T00:03:23.091113+00:00",
+                "image_url": null,
+                "patron_count": 0,
+                "post_count": 1,
+                "published": true,
+                "published_at": "2017-10-03T00:03:23.043469+00:00",
+                "remaining": null,
+                "requires_shipping": true,
+                "title": "Get stuff!",
+                "unpublished_at": null,
+                "url": "/bePatron?c=682690&rid=1752810",
+                "user_limit": null
+            },
+            "id": "1752810",
+            "relationships": {
+                "campaign": {
+                    "data": {
+                        "id": "682690",
+                        "type": "campaign"
+                    },
+                    "links": {
+                        "related": "https://www.patreon.com/api/campaigns/682690"
+                    }
+                }
+            },
+            "type": "reward"
+        },
+        {
+            "attributes": {
+                "amount_cents": 10000,
+                "completed_percentage": 6,
+                "created_at": "2017-01-04T18:29:05+00:00",
+                "description": "I'll do it for real!",
+                "reached_at": "2017-01-05T00:41:27+00:00",
+                "title": ""
+            },
+            "id": "664865",
+            "type": "goal"
+        },
+        {
+            "attributes": {
+                "amount_cents": 100000,
+                "completed_percentage": 0,
+                "created_at": "2017-01-24T01:04:30+00:00",
+                "description": "Holy cowbells!",
+                "reached_at": null,
+                "title": ""
+            },
+            "id": "691326",
+            "type": "goal"
+        },
+        {
+            "attributes": {
+                "amount_cents": 15000,
+                "completed_percentage": 4,
+                "created_at": "2017-01-24T01:33:58+00:00",
+                "description": "another!",
+                "reached_at": null,
+                "title": ""
+            },
+            "id": "691354",
+            "type": "goal"
+        }
+    ],
+    "links": {
+        "self": "https://www.patreon.com/api/user/32187"
+    }
+}
