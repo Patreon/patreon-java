@@ -39,7 +39,7 @@ public class PatreonOAuth {
     }
 
     public TokensResponse getTokens(String code) throws IOException {
-        Connection requestInfo = Jsoup.connect("https://api.patreon.com/oauth2/token")
+        Connection requestInfo = Jsoup.connect("https://www.patreon.com/api/oauth2/tokens")
             .data("grant_type", "authorization_code")
             .data("code", code)
             .data("client_id", clientID)
@@ -51,7 +51,7 @@ public class PatreonOAuth {
     }
 
     public TokensResponse refreshTokens(String refreshToken) throws IOException {
-        Connection requestInfo = Jsoup.connect("https://api.patreon.com/oauth2/token")
+        Connection requestInfo = Jsoup.connect("https://www.patreon.com/api/oauth2/token")
             .data("grant_type", "refresh_token")
             .data("client_id", clientID)
             .data("client_secret", clientSecret)
