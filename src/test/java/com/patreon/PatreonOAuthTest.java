@@ -25,6 +25,11 @@ public class PatreonOAuthTest extends TestCase {
         "your redirect URI"
     );
 
+    public void testAuthorizationURL() throws Exception {
+        String url = oauth.getAuthorizationURL();
+        assertEquals("https://www.patreon.com/oauth2/authorize?response_type=code&client_id=a+client+id&redirect_uri=your+redirect+URI", url);
+    }
+
     public void testGetTokens() throws Exception {
         PowerMockito.mockStatic(Jsoup.class);
         PowerMockito.when(Jsoup.connect(Mockito.anyString())).
