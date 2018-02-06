@@ -7,6 +7,8 @@ import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import java.util.Calendar;
+import java.util.Date;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -17,7 +19,8 @@ public class PatreonOAuth {
     private final String redirectUri;
     private static final Gson gson = new GsonBuilder().serializeNulls().enableComplexMapKeySerialization().create();
     private static final Logger LOG = LoggerFactory.getLogger(PatreonOAuth.class);
-
+    private static final String GRANT_TYPE_AUTHORIZATION = "authorization_code";
+    private static final String GRANT_TYPE_TOKEN_REFRESH = "token_refresh";
 
     public PatreonOAuth(String clientID, String clientSecret, String redirectUri) {
         this.clientID = clientID;
@@ -39,20 +42,21 @@ public class PatreonOAuth {
     }
 
     public TokensResponse getTokens(String code) throws IOException {
-        Connection requestInfo = Jsoup.connect("https://www.patreon.com/api/oauth2/tokens")
-            .data("grant_type", "authorization_code")
+        Connection requestInfo = Jsoup.connect("https://www.patreon.com/api/oauth2/token")
+            .data("grant_type", GRANT_TYPE_AUTHORIZATION)
             .data("code", code)
             .data("client_id", clientID)
             .data("client_secret", clientSecret)
             .data("redirect_uri", redirectUri)
             .ignoreContentType(true);
         String response = requestInfo.post().body().text();
+
         return toObject(response, TokensResponse.class);
     }
 
     public TokensResponse refreshTokens(String refreshToken) throws IOException {
         Connection requestInfo = Jsoup.connect("https://www.patreon.com/api/oauth2/token")
-            .data("grant_type", "refresh_token")
+            .data("grant_type", GRANT_TYPE_TOKEN_REFRESH)
             .data("client_id", clientID)
             .data("client_secret", clientSecret)
             .data("refresh_token", refreshToken)
@@ -67,6 +71,7 @@ public class PatreonOAuth {
         private int expires_in;
         private String scope;
         private String token_type;
+        private Date expiresAt;
 
         public TokensResponse(String access_token, String refresh_token, int expires_in, String scope, String token_type) {
             this.access_token = access_token;
@@ -74,6 +79,9 @@ public class PatreonOAuth {
             this.expires_in = expires_in;
             this.scope = scope;
             this.token_type = token_type;
+            Calendar calendar = Calendar.getInstance(); // gets a calendar using the default time zone and locale.
+            calendar.add(Calendar.SECOND, expires_in);
+            this.expiresAt = calendar.getTime();
         }
 
         public String getAccessToken() {

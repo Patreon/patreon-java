@@ -1,0 +1,7 @@
+{
+    "access_token": "some access token",
+    "refresh_token": "some refresh token",
+    "expires_in": 1234,
+    "scope": "some token scopes",
+    "token_type": "Bearer"
+}
