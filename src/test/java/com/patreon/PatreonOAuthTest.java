@@ -1,22 +1,20 @@
 package com.patreon;
 
 import junit.framework.TestCase;
-import org.junit.runner.RunWith;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
-import org.jsoup.Jsoup;
+import org.apache.commons.io.Charsets;
+import org.apache.commons.io.IOUtils;
 import org.jsoup.Connection;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
+import org.jsoup.Jsoup;
 import org.jsoup.helper.HttpConnection;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.powermock.api.mockito.PowerMockito;
+import org.junit.runner.RunWith;
 import org.mockito.Mockito;
-import java.io.IOException;
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.io.Charsets;
-import junit.framework.Assert;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({Jsoup.class, Document.class, HttpConnection.class, Connection.Response.class})
@@ -49,11 +47,11 @@ public class PatreonOAuthTest extends TestCase {
             });
 
         PatreonOAuth.TokensResponse token = oauth.getTokens("a code");
-        Assert.assertEquals("some access token", token.getAccessToken());
-        Assert.assertEquals("some refresh token", token.getRefreshToken());
-        Assert.assertEquals(1234, token.getExpiresIn());
-        Assert.assertEquals("some token scopes", token.getScope());
-        Assert.assertEquals("Bearer", token.getTokenType());
+        assertEquals("some access token", token.getAccessToken());
+        assertEquals("some refresh token", token.getRefreshToken());
+        assertEquals(1234, token.getExpiresIn());
+        assertEquals("some token scopes", token.getScope());
+        assertEquals("Bearer", token.getTokenType());
     }
 
     public void testRefreshTokens() throws Exception {
@@ -78,11 +76,11 @@ public class PatreonOAuthTest extends TestCase {
             });
 
         PatreonOAuth.TokensResponse token = oauth.getTokens("a code");
-        Assert.assertEquals("some other access token", token.getAccessToken());
-        Assert.assertEquals("some other refresh token", token.getRefreshToken());
-        Assert.assertEquals(2345, token.getExpiresIn());
-        Assert.assertEquals("some other token scopes", token.getScope());
-        Assert.assertEquals("Bearer", token.getTokenType());
+        assertEquals("some other access token", token.getAccessToken());
+        assertEquals("some other refresh token", token.getRefreshToken());
+        assertEquals(2345, token.getExpiresIn());
+        assertEquals("some other token scopes", token.getScope());
+        assertEquals("Bearer", token.getTokenType());
     }
 
 
