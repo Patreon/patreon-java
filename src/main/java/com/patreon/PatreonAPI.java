@@ -51,8 +51,12 @@ public class PatreonAPI {
      * @throws IOException Thrown when the GET request failed
      */
     public JSONAPIDocument<User> fetchUser() throws IOException {
+        String path = new URIBuilder()
+            .setPath("current_user")
+            .addParameter("include", "pledges")
+            .toString();
         return converter.readDocument(
-            getDataStream("current_user"),
+            getDataStream(path),
             User.class
         );
     }
@@ -138,14 +142,27 @@ public class PatreonAPI {
 
     private InputStream getDataStream(String suffix) throws IOException {
         try {
-            String prefix = "https://api.patreon.com/oauth2/api/";
+            String prefix = "https://www.patreon.com/api/oauth2/api/";
             URL url = new URL(prefix.concat(suffix));
-            HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestProperty("Authorization", "Bearer ".concat(this.accessToken));
+            connection.setRequestProperty("User-Agent",
+                String.format(
+                    "Patreon-Java, version %s, platform %s %s",
+                    getVersion(),
+                    System.getProperty("os.name"),
+                    System.getProperty("os.version")));
             return connection.getInputStream();
         } catch (IOException e) {
             LOG.error(e.getMessage());
             throw e;
         }
+    }
+
+    private String getVersion() throws IOException {
+        InputStream resourceAsStream = this.getClass().getResourceAsStream("/version.properties");
+        java.util.Properties prop = new java.util.Properties();
+        prop.load(resourceAsStream);
+        return prop.getProperty("version");
     }
 }
