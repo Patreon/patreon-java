@@ -1,512 +1,512 @@
 {
-    "data": [
-        {
-            "attributes": {
-                "created_at": "2013-05-10T13:27:42+00:00",
-                "creation_count": 309,
-                "creation_name": "an unforgettable high school experience",
-                "discord_server_id": "212633030584565760",
-                "display_patron_goals": false,
-                "earnings_visibility": "public",
-                "image_small_url": "https://c10.patreonusercontent.com/3/eyJoIjoxMjgwLCJ3IjoxMjgwfQ%3D%3D/patreon-user/emRRwJHsX35cz1UwteV54ujLO8uwAODyupEXjGmTxGzL6lqwKy7U7l7gRyPma1YX_large_2.png?token-time=2145916800&token-hash=gS_TpFC0rUd96S9gfvz6R022cDsjHm2qx9aWurJ6Atw%3D",
-                "image_url": "https://c10.patreonusercontent.com/3/eyJ3IjoxOTIwfQ%3D%3D/patreon-user/emRRwJHsX35cz1UwteV54ujLO8uwAODyupEXjGmTxGzL6lqwKy7U7l7gRyPma1YX_large_2.png?token-time=2145916800&token-hash=AA_oIRUUrcHpqD5e_17DzB7Ho6fGNuMtsfiaaKBzMos%3D",
-                "is_charged_immediately": false,
-                "is_monthly": false,
-                "is_nsfw": true,
-                "is_plural": true,
-                "main_video_embed": "",
-                "main_video_url": "",
-                "one_liner": "We're just some people trying to help artists make money and migrate from PHP to PYTHON while supporting an existing user base and their daily transactions",
-                "outstanding_payment_amount_cents": 0,
-                "patron_count": 11,
-                "pay_per_name": "creation",
-                "pledge_sum": 1254,
-                "pledge_url": "/bePatron?c=70261",
-                "published_at": "2016-09-10T22:25:16+00:00",
-                "summary": "<img src=\"http://s33.postimg.org/86d2ab33j/about_banner.png\"><br><h3>In my <em>small </em>country school I was very popular and the top student. Easily the most beautiful corgi in my grade, possibly my entire school. Most certainly in my class.\u00a0</h3><br>Since moving to a city I have encountered many challenges. The students at my school are much smarter, much faster, and can jump much much higher over the vault box. Indeed, it is my greatest shame. <span style=\"color: rgb(192, 80, 77);\"></span><span style=\"background-color: rgb(242, 220, 219);\"><span style=\"color: rgb(192, 80, 77);\">The vault box</span></span>.<br><br><img src=\"http://s33.postimg.org/4ekvvc5f3/vault_box_injustice.png\"><br><em>As you can see from this graphic, the vault box is an unjust physical education examination for a corgi. </em><strong><em>However</em></strong><em>, it is not in my nature to simply give up. I dream of setting the school record for highest vault jump and I will work very hard to achieve this dream.<br><br></em>With your help I hope to overcome my obstacles and achieve my dreams.<br><br><ol><li>Become the model student of my new school</li><li>Achieve the highest jump over the vault box.</li><li>Senpai notices me</li></ol>\n<br>In exchange you will receive many benefits:<br><ul><li>Digest of corgi news curated from\u00a0<a href=\"https://vine.co/tags/corgi\" rel=\"nofollow\">vine and other sources</a>.</li><li>A corgi's perspective of world events on my\u00a0<a href=\"http://twitter.com/a-corgi-dreams\" rel=\"nofollow\">twitter</a>.</li><li>...and much much more.</li></ul><br>\n<img src=\"http://media-cache-ec0.pinimg.com/736x/4d/35/bf/4d35bf1aa2a2240b06485809083f44de.jpg\"><br><br>no nofollow <a href=\"https://www.patreon.com/peterhollens\">https://www.patreon.com/peterhollens</a><br>yes nofollow\u00a0<a href=\"https://www.youtube.com/user/peterhollens\" rel=\"nofollow\">https://www.youtube.com/user/peterhollens</a>",
-                "thanks_embed": "",
-                "thanks_msg": "Hello<br>\n<br>\n<strong>You Are Not Alone</strong><br>\n<br>\nWe Will Fix All The Bugs\n<br>\n<br>\n<img src=\"http://i.imgur.com/NHgBO1t.jpg\">\n<ul>\n\t<li>Bugs Bugs Bugs</li>\n\t<li>I am just a doge</li>\n</ul>",
-                "thanks_video_url": "https://youtu.be/cyIeT_U4De4"
-            },
-            "id": "70261",
-            "relationships": {
-                "creator": {
-                    "data": {
-                        "id": "32187",
-                        "type": "user"
-                    },
-                    "links": {
-                        "related": "https://www.patreon.com/api/user/32187"
-                    }
-                },
-                "goals": {
-                    "data": [
-                        {
-                            "id": "443028",
-                            "type": "goal"
-                        },
-                        {
-                            "id": "443029",
-                            "type": "goal"
-                        },
-                        {
-                            "id": "443100",
-                            "type": "goal"
-                        }
-                    ]
-                },
-                "rewards": {
-                    "data": [
-                        {
-                            "id": "-1",
-                            "type": "reward"
-                        },
-                        {
-                            "id": "0",
-                            "type": "reward"
-                        },
-                        {
-                            "id": "1408001",
-                            "type": "reward"
-                        },
-                        {
-                            "id": "563244",
-                            "type": "reward"
-                        },
-                        {
-                            "id": "1385705",
-                            "type": "reward"
-                        },
-                        {
-                            "id": "563315",
-                            "type": "reward"
-                        },
-                        {
-                            "id": "1062816",
-                            "type": "reward"
-                        },
-                        {
-                            "id": "976979",
-                            "type": "reward"
-                        },
-                        {
-                            "id": "1385731",
-                            "type": "reward"
-                        },
-                        {
-                            "id": "1057802",
-                            "type": "reward"
-                        }
-                    ]
-                }
-            },
-            "type": "campaign"
-        }
-    ],
-    "included": [
-        {
-            "attributes": {
-                "about": "Heeeey booii",
-                "created": "2013-05-10T13:27:42+00:00",
-                "discord_id": null,
-                "email": "sam@ourspot.com",
-                "facebook": "https://www.facebook.com/foo",
-                "facebook_id": null,
-                "first_name": "Corgi",
-                "full_name": "Corgi Pager & Friends",
-                "gender": 0,
-                "has_password": true,
-                "image_url": "https://c10.patreonusercontent.com/3/eyJwIjoxLCJ2IjoiMSJ9/patreon-media/user/32187/d92af883a3fa4a3593fdec24a8baabb8?token-time=2145916800&token-hash=TC-rUQokZW9MvAGMwqtwHHInGXm3BnUqPCtQQYuzQvk%3D",
-                "is_deleted": false,
-                "is_email_verified": true,
-                "is_nuked": false,
-                "is_suspended": false,
-                "last_name": "Pager & Friends",
-                "social_connections": {
-                    "deviantart": null,
-                    "discord": null,
-                    "facebook": {
-                        "scopes": [
-                            "user_likes",
-                            "public_profile"
-                        ],
-                        "user_id": "2849114461073"
-                    },
-                    "spotify": null,
-                    "twitch": {
-                        "scopes": [
-                            "channel_subscriptions",
-                            "channel_read",
-                            "user_subscriptions",
-                            "user_read"
-                        ],
-                        "user_id": "13626948"
-                    },
-                    "twitter": null,
-                    "youtube": null
-                },
-                "thumb_url": "https://c10.patreonusercontent.com/3/eyJoIjoxMDAsInYiOiIxIiwidyI6MTAwfQ%3D%3D/patreon-media/user/32187/d92af883a3fa4a3593fdec24a8baabb8?token-time=2145916800&token-hash=FGeBGK0gsdI10_xLCFRJqdnjUHdrPja2h45P08Am1MI%3D",
-                "twitch": "https://www.twitch.tv/foo",
-                "twitter": "",
-                "url": "https://www.patreon.com/corgi",
-                "vanity": "corgi",
-                "youtube": ""
-            },
+  "data": [
+    {
+      "attributes": {
+        "created_at": "2013-05-10T13:27:42+00:00",
+        "creation_count": 309,
+        "creation_name": "an unforgettable high school experience",
+        "discord_server_id": "212633030584565760",
+        "display_patron_goals": false,
+        "earnings_visibility": "public",
+        "image_small_url": "https://c10.patreonusercontent.com/3/eyJoIjoxMjgwLCJ3IjoxMjgwfQ%3D%3D/patreon-user/emRRwJHsX35cz1UwteV54ujLO8uwAODyupEXjGmTxGzL6lqwKy7U7l7gRyPma1YX_large_2.png?token-time=2145916800&token-hash=gS_TpFC0rUd96S9gfvz6R022cDsjHm2qx9aWurJ6Atw%3D",
+        "image_url": "https://c10.patreonusercontent.com/3/eyJ3IjoxOTIwfQ%3D%3D/patreon-user/emRRwJHsX35cz1UwteV54ujLO8uwAODyupEXjGmTxGzL6lqwKy7U7l7gRyPma1YX_large_2.png?token-time=2145916800&token-hash=AA_oIRUUrcHpqD5e_17DzB7Ho6fGNuMtsfiaaKBzMos%3D",
+        "is_charged_immediately": false,
+        "is_monthly": false,
+        "is_nsfw": true,
+        "is_plural": true,
+        "main_video_embed": "",
+        "main_video_url": "",
+        "one_liner": "We're just some people trying to help artists make money and migrate from PHP to PYTHON while supporting an existing user base and their daily transactions",
+        "outstanding_payment_amount_cents": 0,
+        "patron_count": 11,
+        "pay_per_name": "creation",
+        "pledge_sum": 1254,
+        "pledge_url": "/bePatron?c=70261",
+        "published_at": "2016-09-10T22:25:16+00:00",
+        "summary": "<img src=\"http://s33.postimg.org/86d2ab33j/about_banner.png\"><br><h3>In my <em>small </em>country school I was very popular and the top student. Easily the most beautiful corgi in my grade, possibly my entire school. Most certainly in my class.\u00a0</h3><br>Since moving to a city I have encountered many challenges. The students at my school are much smarter, much faster, and can jump much much higher over the vault box. Indeed, it is my greatest shame. <span style=\"color: rgb(192, 80, 77);\"></span><span style=\"background-color: rgb(242, 220, 219);\"><span style=\"color: rgb(192, 80, 77);\">The vault box</span></span>.<br><br><img src=\"http://s33.postimg.org/4ekvvc5f3/vault_box_injustice.png\"><br><em>As you can see from this graphic, the vault box is an unjust physical education examination for a corgi. </em><strong><em>However</em></strong><em>, it is not in my nature to simply give up. I dream of setting the school record for highest vault jump and I will work very hard to achieve this dream.<br><br></em>With your help I hope to overcome my obstacles and achieve my dreams.<br><br><ol><li>Become the model student of my new school</li><li>Achieve the highest jump over the vault box.</li><li>Senpai notices me</li></ol>\n<br>In exchange you will receive many benefits:<br><ul><li>Digest of corgi news curated from\u00a0<a href=\"https://vine.co/tags/corgi\" rel=\"nofollow\">vine and other sources</a>.</li><li>A corgi's perspective of world events on my\u00a0<a href=\"http://twitter.com/a-corgi-dreams\" rel=\"nofollow\">twitter</a>.</li><li>...and much much more.</li></ul><br>\n<img src=\"http://media-cache-ec0.pinimg.com/736x/4d/35/bf/4d35bf1aa2a2240b06485809083f44de.jpg\"><br><br>no nofollow <a href=\"https://www.patreon.com/peterhollens\">https://www.patreon.com/peterhollens</a><br>yes nofollow\u00a0<a href=\"https://www.youtube.com/user/peterhollens\" rel=\"nofollow\">https://www.youtube.com/user/peterhollens</a>",
+        "thanks_embed": "",
+        "thanks_msg": "Hello<br>\n<br>\n<strong>You Are Not Alone</strong><br>\n<br>\nWe Will Fix All The Bugs\n<br>\n<br>\n<img src=\"http://i.imgur.com/NHgBO1t.jpg\">\n<ul>\n\t<li>Bugs Bugs Bugs</li>\n\t<li>I am just a doge</li>\n</ul>",
+        "thanks_video_url": "https://youtu.be/cyIeT_U4De4"
+      },
+      "id": "70261",
+      "relationships": {
+        "creator": {
+          "data": {
             "id": "32187",
-            "relationships": {
-                "campaign": {
-                    "data": {
-                        "id": "70261",
-                        "type": "campaign"
-                    },
-                    "links": {
-                        "related": "https://www.patreon.com/api/campaigns/70261"
-                    }
-                }
-            },
             "type": "user"
+          },
+          "links": {
+            "related": "https://www.patreon.com/api/user/32187"
+          }
         },
-        {
-            "attributes": {
-                "amount": 0,
-                "amount_cents": 0,
-                "created_at": null,
-                "description": "Everyone",
-                "remaining": 0,
-                "requires_shipping": false,
-                "url": null,
-                "user_limit": null
+        "goals": {
+          "data": [
+            {
+              "id": "443028",
+              "type": "goal"
             },
-            "id": "-1",
-            "type": "reward"
+            {
+              "id": "443029",
+              "type": "goal"
+            },
+            {
+              "id": "443100",
+              "type": "goal"
+            }
+          ]
         },
-        {
-            "attributes": {
-                "amount": 1,
-                "amount_cents": 1,
-                "created_at": null,
-                "description": "Patrons Only",
-                "remaining": 0,
-                "requires_shipping": false,
-                "url": null,
-                "user_limit": null
+        "rewards": {
+          "data": [
+            {
+              "id": "-1",
+              "type": "reward"
             },
-            "id": "0",
-            "type": "reward"
-        },
-        {
-            "attributes": {
-                "amount": 100,
-                "amount_cents": 100,
-                "created_at": "2017-02-15T19:54:50.018468+00:00",
-                "description": "Get a patron-only perspective.\n<p><br></p>\n<p><a href=\"https://www.google.com/wonkavite\" rel=\"nofollow noopener\" target=\"_blank\">https://www.google.com/wonkavite</a></p>\n<p><br>\n<strong>Includes</strong></p>\n<p><br>\nItem 1<br>\n\u2022 Item 2</p>\n<ul>\n<li>Behind-the-scenes pics and videos</li>\n<li>Inherited item</li>\n<li>Patron-only polls</li>\n<li>Sparkle Dust</li>\n</ul>",
-                "discord_role_ids": [
-                    "215204880011231233"
-                ],
-                "edited_at": "2017-12-04T23:46:34.270961+00:00",
-                "image_url": "https://c10.patreonusercontent.com/3/eyJwIjoxLCJ2IjoiMSJ9/patreon-media/reward/1408001/c7b8423af732423f855646dc389670d0?token-time=2145916800&token-hash=UxGHQ4QsZ_wA1JHKSm34kIbuRHe-UzeSmFR2hB3worE%3D",
-                "patron_count": 3,
-                "post_count": 21,
-                "published": false,
-                "published_at": null,
-                "remaining": null,
-                "requires_shipping": true,
-                "title": "Behind The Scene, but neil",
-                "unpublished_at": "2017-11-29T22:19:17.102667+00:00",
-                "url": "/bePatron?c=70261&rid=1408001",
-                "user_limit": null
+            {
+              "id": "0",
+              "type": "reward"
             },
-            "id": "1408001",
-            "relationships": {
-                "campaign": {
-                    "data": {
-                        "id": "70261",
-                        "type": "campaign"
-                    },
-                    "links": {
-                        "related": "https://www.patreon.com/api/campaigns/70261"
-                    }
-                }
+            {
+              "id": "1408001",
+              "type": "reward"
             },
-            "type": "reward"
-        },
-        {
-            "attributes": {
-                "amount": 100,
-                "amount_cents": 100,
-                "created_at": "2016-11-21T22:31:11+00:00",
-                "description": "<img src=\"http://s33.postimg.org/mag6tm4bz/level_1.png\">I am so honored that you should choose to support a simple corgi in pursuit of a simple dream. Thanks so much for starting on this journey with me....<br>\n<br>\n<br><br><strong>Includes</strong><ul><li>Inherited item</li></ul>",
-                "discord_role_ids": null,
-                "edited_at": "2017-12-04T23:46:41.398657+00:00",
-                "image_url": null,
-                "patron_count": 1,
-                "post_count": 21,
-                "published": true,
-                "published_at": "2017-12-04T23:46:41.378030+00:00",
-                "remaining": null,
-                "requires_shipping": false,
-                "title": "Some patrons here",
-                "unpublished_at": null,
-                "url": "/bePatron?c=70261&rid=563244",
-                "user_limit": null
+            {
+              "id": "563244",
+              "type": "reward"
             },
-            "id": "563244",
-            "relationships": {
-                "campaign": {
-                    "data": {
-                        "id": "70261",
-                        "type": "campaign"
-                    },
-                    "links": {
-                        "related": "https://www.patreon.com/api/campaigns/70261"
-                    }
-                }
+            {
+              "id": "1385705",
+              "type": "reward"
             },
-            "type": "reward"
-        },
-        {
-            "attributes": {
-                "amount": 200,
-                "amount_cents": 200,
-                "created_at": "2017-02-08T18:06:45.708277+00:00",
-                "description": "Google handgout and lets chat about our next episode",
-                "discord_role_ids": null,
-                "edited_at": "2017-12-04T23:46:48.451490+00:00",
-                "image_url": null,
-                "patron_count": 0,
-                "post_count": null,
-                "published": true,
-                "published_at": "2017-12-04T23:46:48.419242+00:00",
-                "remaining": 15,
-                "requires_shipping": true,
-                "title": "Help me write my next podcast",
-                "unpublished_at": null,
-                "url": "/bePatron?c=70261&rid=1385705",
-                "user_limit": 15
+            {
+              "id": "563315",
+              "type": "reward"
             },
-            "id": "1385705",
-            "relationships": {
-                "campaign": {
-                    "data": {
-                        "id": "70261",
-                        "type": "campaign"
-                    },
-                    "links": {
-                        "related": "https://www.patreon.com/api/campaigns/70261"
-                    }
-                }
+            {
+              "id": "1062816",
+              "type": "reward"
             },
-            "type": "reward"
-        },
-        {
-            "attributes": {
-                "amount": 500,
-                "amount_cents": 500,
-                "created_at": "2016-11-21T22:31:11+00:00",
-                "description": "<img src=\"http://s33.postimg.org/mg8am49db/level_2.png\"><br>A corgi needs two things in order to survive: love and desserts. At the parfait level you will help me purchase desserts at a very popular caf\u00e9 where I will be more likely to be noticed....<br>",
-                "discord_role_ids": null,
-                "edited_at": "2017-11-29T22:18:01.211742+00:00",
-                "image_url": null,
-                "patron_count": 0,
-                "post_count": 2,
-                "published": true,
-                "published_at": "2017-11-29T22:18:01.124391+00:00",
-                "remaining": null,
-                "requires_shipping": false,
-                "title": "BROKEN IMAGE",
-                "unpublished_at": null,
-                "url": "/bePatron?c=70261&rid=563315",
-                "user_limit": null
+            {
+              "id": "976979",
+              "type": "reward"
             },
-            "id": "563315",
-            "relationships": {
-                "campaign": {
-                    "data": {
-                        "id": "70261",
-                        "type": "campaign"
-                    },
-                    "links": {
-                        "related": "https://www.patreon.com/api/campaigns/70261"
-                    }
-                }
+            {
+              "id": "1385731",
+              "type": "reward"
             },
-            "type": "reward"
-        },
-        {
-            "attributes": {
-                "amount": 1000,
-                "amount_cents": 1000,
-                "created_at": "2016-11-21T22:31:11+00:00",
-                "description": "<ul>\n<li>Personalized song/video message</li>\n<li>Plus all previous rewards\u00a0</li>\n</ul>",
-                "discord_role_ids": [
-                    "258315221066579968"
-                ],
-                "edited_at": "2017-12-06T22:58:00.164069+00:00",
-                "image_url": null,
-                "patron_count": 0,
-                "post_count": null,
-                "published": true,
-                "published_at": "2017-12-06T22:58:00.144545+00:00",
-                "remaining": 2,
-                "requires_shipping": true,
-                "title": "NEW",
-                "unpublished_at": null,
-                "url": "/bePatron?c=70261&rid=1062816",
-                "user_limit": 2
-            },
-            "id": "1062816",
-            "relationships": {
-                "campaign": {
-                    "data": {
-                        "id": "70261",
-                        "type": "campaign"
-                    },
-                    "links": {
-                        "related": "https://www.patreon.com/api/campaigns/70261"
-                    }
-                }
-            },
-            "type": "reward"
-        },
-        {
-            "attributes": {
-                "amount": 1400,
-                "amount_cents": 1400,
-                "created_at": "2016-11-21T22:31:11+00:00",
-                "description": "<ul><li>Personalized song/video message</li><li>Plus all previous rewards</li></ul>",
-                "discord_role_ids": null,
-                "edited_at": "2017-12-04T23:44:44.449085+00:00",
-                "image_url": null,
-                "patron_count": 0,
-                "post_count": 5,
-                "published": false,
-                "published_at": null,
-                "remaining": null,
-                "requires_shipping": false,
-                "title": "a",
-                "unpublished_at": "2016-12-05T20:14:59+00:00",
-                "url": "/bePatron?c=70261&rid=976979",
-                "user_limit": null
-            },
-            "id": "976979",
-            "relationships": {
-                "campaign": {
-                    "data": {
-                        "id": "70261",
-                        "type": "campaign"
-                    },
-                    "links": {
-                        "related": "https://www.patreon.com/api/campaigns/70261"
-                    }
-                }
-            },
-            "type": "reward"
-        },
-        {
-            "attributes": {
-                "amount": 2000,
-                "amount_cents": 2000,
-                "created_at": "2017-02-08T18:08:46.129090+00:00",
-                "description": "Learn more about how I play.<ul><li>See my strategies</li><li>Tutorials</li><li>Plus all previous rewards</li></ul>",
-                "discord_role_ids": [
-                    "215204880011231233"
-                ],
-                "edited_at": "2017-12-04T23:44:53.599041+00:00",
-                "image_url": "https://c10.patreonusercontent.com/3/eyJwIjoxLCJ2IjoiMSJ9/patreon-media/reward/1385731/59d7caf21a894b0290d3f24796da2aa4?token-time=2145916800&token-hash=fVKHIu_D6eK_PtntSiYJSK_z0jdtMJbpMTHym7oFMR4%3D",
-                "patron_count": 0,
-                "post_count": 9,
-                "published": true,
-                "published_at": "2017-12-04T23:44:53.571145+00:00",
-                "remaining": null,
-                "requires_shipping": false,
-                "title": "vidjastrats",
-                "unpublished_at": null,
-                "url": "/bePatron?c=70261&rid=1385731",
-                "user_limit": null
-            },
-            "id": "1385731",
-            "relationships": {
-                "campaign": {
-                    "data": {
-                        "id": "70261",
-                        "type": "campaign"
-                    },
-                    "links": {
-                        "related": "https://www.patreon.com/api/campaigns/70261"
-                    }
-                }
-            },
-            "type": "reward"
-        },
-        {
-            "attributes": {
-                "amount": 2000,
-                "amount_cents": 2000,
-                "created_at": "2016-11-21T22:31:11+00:00",
-                "description": "<ul><li>Early downloads of all releases</li><li>Your name in the credits of my videos</li><li>Plus all previous rewards</li></ul>",
-                "discord_role_ids": null,
-                "edited_at": "2017-11-29T22:33:15.231726+00:00",
-                "image_url": null,
-                "patron_count": 0,
-                "post_count": 9,
-                "published": false,
-                "published_at": null,
-                "remaining": null,
-                "requires_shipping": false,
-                "title": "Konalicious",
-                "unpublished_at": "2017-11-29T22:33:15.231726+00:00",
-                "url": "/bePatron?c=70261&rid=1057802",
-                "user_limit": null
-            },
-            "id": "1057802",
-            "relationships": {
-                "campaign": {
-                    "data": {
-                        "id": "70261",
-                        "type": "campaign"
-                    },
-                    "links": {
-                        "related": "https://www.patreon.com/api/campaigns/70261"
-                    }
-                }
-            },
-            "type": "reward"
-        },
-        {
-            "attributes": {
-                "amount_cents": 150000,
-                "completed_percentage": 0,
-                "created_at": "2016-06-01T20:14:10+00:00",
-                "description": "Get senpai to notice me...",
-                "reached_at": null,
-                "title": ""
-            },
-            "id": "443028",
-            "type": "goal"
-        },
-        {
-            "attributes": {
-                "amount_cents": 200000,
-                "completed_percentage": 0,
-                "created_at": "2016-06-01T20:15:20+00:00",
-                "description": "<strong><em>Two</em></strong> senpais.",
-                "reached_at": null,
-                "title": ""
-            },
-            "id": "443029",
-            "type": "goal"
-        },
-        {
-            "attributes": {
-                "amount_cents": 300000,
-                "completed_percentage": 0,
-                "created_at": "2016-06-01T21:20:27+00:00",
-                "description": "I will be able to hire a coach to help my overcome the highly unjust vault box. This coach will have a special focus on helping vertically challenged dogs jump very <em>remarkable</em> heights. Sometimes <strong>olympic</strong> heights.",
-                "reached_at": null,
-                "title": ""
-            },
-            "id": "443100",
-            "type": "goal"
+            {
+              "id": "1057802",
+              "type": "reward"
+            }
+          ]
         }
-    ]
+      },
+      "type": "campaign"
+    }
+  ],
+  "included": [
+    {
+      "attributes": {
+        "about": "Heeeey booii",
+        "created": "2013-05-10T13:27:42+00:00",
+        "discord_id": null,
+        "email": "sam@ourspot.com",
+        "facebook": "https://www.facebook.com/foo",
+        "facebook_id": null,
+        "first_name": "Corgi",
+        "full_name": "Corgi Pager & Friends",
+        "gender": 0,
+        "has_password": true,
+        "image_url": "https://c10.patreonusercontent.com/3/eyJwIjoxLCJ2IjoiMSJ9/patreon-media/user/32187/d92af883a3fa4a3593fdec24a8baabb8?token-time=2145916800&token-hash=TC-rUQokZW9MvAGMwqtwHHInGXm3BnUqPCtQQYuzQvk%3D",
+        "is_deleted": false,
+        "is_email_verified": true,
+        "is_nuked": false,
+        "is_suspended": false,
+        "last_name": "Pager & Friends",
+        "social_connections": {
+          "deviantart": null,
+          "discord": null,
+          "facebook": {
+            "scopes": [
+              "user_likes",
+              "public_profile"
+            ],
+            "user_id": "2849114461073"
+          },
+          "spotify": null,
+          "twitch": {
+            "scopes": [
+              "channel_subscriptions",
+              "channel_read",
+              "user_subscriptions",
+              "user_read"
+            ],
+            "user_id": "13626948"
+          },
+          "twitter": null,
+          "youtube": null
+        },
+        "thumb_url": "https://c10.patreonusercontent.com/3/eyJoIjoxMDAsInYiOiIxIiwidyI6MTAwfQ%3D%3D/patreon-media/user/32187/d92af883a3fa4a3593fdec24a8baabb8?token-time=2145916800&token-hash=FGeBGK0gsdI10_xLCFRJqdnjUHdrPja2h45P08Am1MI%3D",
+        "twitch": "https://www.twitch.tv/foo",
+        "twitter": "",
+        "url": "https://www.patreon.com/corgi",
+        "vanity": "corgi",
+        "youtube": ""
+      },
+      "id": "32187",
+      "relationships": {
+        "campaign": {
+          "data": {
+            "id": "70261",
+            "type": "campaign"
+          },
+          "links": {
+            "related": "https://www.patreon.com/api/campaigns/70261"
+          }
+        }
+      },
+      "type": "user"
+    },
+    {
+      "attributes": {
+        "amount": 0,
+        "amount_cents": 0,
+        "created_at": null,
+        "description": "Everyone",
+        "remaining": 0,
+        "requires_shipping": false,
+        "url": null,
+        "user_limit": null
+      },
+      "id": "-1",
+      "type": "reward"
+    },
+    {
+      "attributes": {
+        "amount": 1,
+        "amount_cents": 1,
+        "created_at": null,
+        "description": "Patrons Only",
+        "remaining": 0,
+        "requires_shipping": false,
+        "url": null,
+        "user_limit": null
+      },
+      "id": "0",
+      "type": "reward"
+    },
+    {
+      "attributes": {
+        "amount": 100,
+        "amount_cents": 100,
+        "created_at": "2017-02-15T19:54:50.018468+00:00",
+        "description": "Get a patron-only perspective.\n<p><br></p>\n<p><a href=\"https://www.google.com/wonkavite\" rel=\"nofollow noopener\" target=\"_blank\">https://www.google.com/wonkavite</a></p>\n<p><br>\n<strong>Includes</strong></p>\n<p><br>\nItem 1<br>\n\u2022 Item 2</p>\n<ul>\n<li>Behind-the-scenes pics and videos</li>\n<li>Inherited item</li>\n<li>Patron-only polls</li>\n<li>Sparkle Dust</li>\n</ul>",
+        "discord_role_ids": [
+          "215204880011231233"
+        ],
+        "edited_at": "2017-12-04T23:46:34.270961+00:00",
+        "image_url": "https://c10.patreonusercontent.com/3/eyJwIjoxLCJ2IjoiMSJ9/patreon-media/reward/1408001/c7b8423af732423f855646dc389670d0?token-time=2145916800&token-hash=UxGHQ4QsZ_wA1JHKSm34kIbuRHe-UzeSmFR2hB3worE%3D",
+        "patron_count": 3,
+        "post_count": 21,
+        "published": false,
+        "published_at": null,
+        "remaining": null,
+        "requires_shipping": true,
+        "title": "Behind The Scene, but neil",
+        "unpublished_at": "2017-11-29T22:19:17.102667+00:00",
+        "url": "/bePatron?c=70261&rid=1408001",
+        "user_limit": null
+      },
+      "id": "1408001",
+      "relationships": {
+        "campaign": {
+          "data": {
+            "id": "70261",
+            "type": "campaign"
+          },
+          "links": {
+            "related": "https://www.patreon.com/api/campaigns/70261"
+          }
+        }
+      },
+      "type": "reward"
+    },
+    {
+      "attributes": {
+        "amount": 100,
+        "amount_cents": 100,
+        "created_at": "2016-11-21T22:31:11+00:00",
+        "description": "<img src=\"http://s33.postimg.org/mag6tm4bz/level_1.png\">I am so honored that you should choose to support a simple corgi in pursuit of a simple dream. Thanks so much for starting on this journey with me....<br>\n<br>\n<br><br><strong>Includes</strong><ul><li>Inherited item</li></ul>",
+        "discord_role_ids": null,
+        "edited_at": "2017-12-04T23:46:41.398657+00:00",
+        "image_url": null,
+        "patron_count": 1,
+        "post_count": 21,
+        "published": true,
+        "published_at": "2017-12-04T23:46:41.378030+00:00",
+        "remaining": null,
+        "requires_shipping": false,
+        "title": "Some patrons here",
+        "unpublished_at": null,
+        "url": "/bePatron?c=70261&rid=563244",
+        "user_limit": null
+      },
+      "id": "563244",
+      "relationships": {
+        "campaign": {
+          "data": {
+            "id": "70261",
+            "type": "campaign"
+          },
+          "links": {
+            "related": "https://www.patreon.com/api/campaigns/70261"
+          }
+        }
+      },
+      "type": "reward"
+    },
+    {
+      "attributes": {
+        "amount": 200,
+        "amount_cents": 200,
+        "created_at": "2017-02-08T18:06:45.708277+00:00",
+        "description": "Google handgout and lets chat about our next episode",
+        "discord_role_ids": null,
+        "edited_at": "2017-12-04T23:46:48.451490+00:00",
+        "image_url": null,
+        "patron_count": 0,
+        "post_count": null,
+        "published": true,
+        "published_at": "2017-12-04T23:46:48.419242+00:00",
+        "remaining": 15,
+        "requires_shipping": true,
+        "title": "Help me write my next podcast",
+        "unpublished_at": null,
+        "url": "/bePatron?c=70261&rid=1385705",
+        "user_limit": 15
+      },
+      "id": "1385705",
+      "relationships": {
+        "campaign": {
+          "data": {
+            "id": "70261",
+            "type": "campaign"
+          },
+          "links": {
+            "related": "https://www.patreon.com/api/campaigns/70261"
+          }
+        }
+      },
+      "type": "reward"
+    },
+    {
+      "attributes": {
+        "amount": 500,
+        "amount_cents": 500,
+        "created_at": "2016-11-21T22:31:11+00:00",
+        "description": "<img src=\"http://s33.postimg.org/mg8am49db/level_2.png\"><br>A corgi needs two things in order to survive: love and desserts. At the parfait level you will help me purchase desserts at a very popular caf\u00e9 where I will be more likely to be noticed....<br>",
+        "discord_role_ids": null,
+        "edited_at": "2017-11-29T22:18:01.211742+00:00",
+        "image_url": null,
+        "patron_count": 0,
+        "post_count": 2,
+        "published": true,
+        "published_at": "2017-11-29T22:18:01.124391+00:00",
+        "remaining": null,
+        "requires_shipping": false,
+        "title": "BROKEN IMAGE",
+        "unpublished_at": null,
+        "url": "/bePatron?c=70261&rid=563315",
+        "user_limit": null
+      },
+      "id": "563315",
+      "relationships": {
+        "campaign": {
+          "data": {
+            "id": "70261",
+            "type": "campaign"
+          },
+          "links": {
+            "related": "https://www.patreon.com/api/campaigns/70261"
+          }
+        }
+      },
+      "type": "reward"
+    },
+    {
+      "attributes": {
+        "amount": 1000,
+        "amount_cents": 1000,
+        "created_at": "2016-11-21T22:31:11+00:00",
+        "description": "<ul>\n<li>Personalized song/video message</li>\n<li>Plus all previous rewards\u00a0</li>\n</ul>",
+        "discord_role_ids": [
+          "258315221066579968"
+        ],
+        "edited_at": "2017-12-06T22:58:00.164069+00:00",
+        "image_url": null,
+        "patron_count": 0,
+        "post_count": null,
+        "published": true,
+        "published_at": "2017-12-06T22:58:00.144545+00:00",
+        "remaining": 2,
+        "requires_shipping": true,
+        "title": "NEW",
+        "unpublished_at": null,
+        "url": "/bePatron?c=70261&rid=1062816",
+        "user_limit": 2
+      },
+      "id": "1062816",
+      "relationships": {
+        "campaign": {
+          "data": {
+            "id": "70261",
+            "type": "campaign"
+          },
+          "links": {
+            "related": "https://www.patreon.com/api/campaigns/70261"
+          }
+        }
+      },
+      "type": "reward"
+    },
+    {
+      "attributes": {
+        "amount": 1400,
+        "amount_cents": 1400,
+        "created_at": "2016-11-21T22:31:11+00:00",
+        "description": "<ul><li>Personalized song/video message</li><li>Plus all previous rewards</li></ul>",
+        "discord_role_ids": null,
+        "edited_at": "2017-12-04T23:44:44.449085+00:00",
+        "image_url": null,
+        "patron_count": 0,
+        "post_count": 5,
+        "published": false,
+        "published_at": null,
+        "remaining": null,
+        "requires_shipping": false,
+        "title": "a",
+        "unpublished_at": "2016-12-05T20:14:59+00:00",
+        "url": "/bePatron?c=70261&rid=976979",
+        "user_limit": null
+      },
+      "id": "976979",
+      "relationships": {
+        "campaign": {
+          "data": {
+            "id": "70261",
+            "type": "campaign"
+          },
+          "links": {
+            "related": "https://www.patreon.com/api/campaigns/70261"
+          }
+        }
+      },
+      "type": "reward"
+    },
+    {
+      "attributes": {
+        "amount": 2000,
+        "amount_cents": 2000,
+        "created_at": "2017-02-08T18:08:46.129090+00:00",
+        "description": "Learn more about how I play.<ul><li>See my strategies</li><li>Tutorials</li><li>Plus all previous rewards</li></ul>",
+        "discord_role_ids": [
+          "215204880011231233"
+        ],
+        "edited_at": "2017-12-04T23:44:53.599041+00:00",
+        "image_url": "https://c10.patreonusercontent.com/3/eyJwIjoxLCJ2IjoiMSJ9/patreon-media/reward/1385731/59d7caf21a894b0290d3f24796da2aa4?token-time=2145916800&token-hash=fVKHIu_D6eK_PtntSiYJSK_z0jdtMJbpMTHym7oFMR4%3D",
+        "patron_count": 0,
+        "post_count": 9,
+        "published": true,
+        "published_at": "2017-12-04T23:44:53.571145+00:00",
+        "remaining": null,
+        "requires_shipping": false,
+        "title": "vidjastrats",
+        "unpublished_at": null,
+        "url": "/bePatron?c=70261&rid=1385731",
+        "user_limit": null
+      },
+      "id": "1385731",
+      "relationships": {
+        "campaign": {
+          "data": {
+            "id": "70261",
+            "type": "campaign"
+          },
+          "links": {
+            "related": "https://www.patreon.com/api/campaigns/70261"
+          }
+        }
+      },
+      "type": "reward"
+    },
+    {
+      "attributes": {
+        "amount": 2000,
+        "amount_cents": 2000,
+        "created_at": "2016-11-21T22:31:11+00:00",
+        "description": "<ul><li>Early downloads of all releases</li><li>Your name in the credits of my videos</li><li>Plus all previous rewards</li></ul>",
+        "discord_role_ids": null,
+        "edited_at": "2017-11-29T22:33:15.231726+00:00",
+        "image_url": null,
+        "patron_count": 0,
+        "post_count": 9,
+        "published": false,
+        "published_at": null,
+        "remaining": null,
+        "requires_shipping": false,
+        "title": "Konalicious",
+        "unpublished_at": "2017-11-29T22:33:15.231726+00:00",
+        "url": "/bePatron?c=70261&rid=1057802",
+        "user_limit": null
+      },
+      "id": "1057802",
+      "relationships": {
+        "campaign": {
+          "data": {
+            "id": "70261",
+            "type": "campaign"
+          },
+          "links": {
+            "related": "https://www.patreon.com/api/campaigns/70261"
+          }
+        }
+      },
+      "type": "reward"
+    },
+    {
+      "attributes": {
+        "amount_cents": 150000,
+        "completed_percentage": 0,
+        "created_at": "2016-06-01T20:14:10+00:00",
+        "description": "Get senpai to notice me...",
+        "reached_at": null,
+        "title": ""
+      },
+      "id": "443028",
+      "type": "goal"
+    },
+    {
+      "attributes": {
+        "amount_cents": 200000,
+        "completed_percentage": 0,
+        "created_at": "2016-06-01T20:15:20+00:00",
+        "description": "<strong><em>Two</em></strong> senpais.",
+        "reached_at": null,
+        "title": ""
+      },
+      "id": "443029",
+      "type": "goal"
+    },
+    {
+      "attributes": {
+        "amount_cents": 300000,
+        "completed_percentage": 0,
+        "created_at": "2016-06-01T21:20:27+00:00",
+        "description": "I will be able to hire a coach to help my overcome the highly unjust vault box. This coach will have a special focus on helping vertically challenged dogs jump very <em>remarkable</em> heights. Sometimes <strong>olympic</strong> heights.",
+        "reached_at": null,
+        "title": ""
+      },
+      "id": "443100",
+      "type": "goal"
+    }
+  ]
 }
