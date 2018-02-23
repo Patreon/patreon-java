@@ -24,6 +24,36 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-plugin</artifactId>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.plexus</groupId>
+                        <artifactId>plexus-utils</artifactId>
+                        <version>2.1</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-gitexe</artifactId>
+                        <version>1.2</version>
+                    </dependency>
+                </dependencies>
+                <version>1.0</version>
+                <configuration>
+                    <tag>test</tag>
+                    <connectionType>connection</connectionType>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>tag</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>tag</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -52,7 +82,7 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git@github.com:Patreon/patreon-java.git</connection>
+        <connection>scm:git:https://github.com/Patreon/patreon-java.git</connection>
         <developerConnection>scm:git:git@github.com:Patreon/patreon-java.git</developerConnection>
         <url>git@github.com:Patreon/patreon-java.git</url>
     </scm>
