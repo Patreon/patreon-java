@@ -50,7 +50,7 @@ public class PatreonAPI {
   /**
    * Get the user object of the creator
    *
-   * @return JSONAPIDocument<User> containing all data pertaining to the current user
+   * @return the current user
    * @throws IOException Thrown when the GET request failed
    */
   public JSONAPIDocument<User> fetchUser() throws IOException {
@@ -68,7 +68,7 @@ public class PatreonAPI {
    * Get a list of campaigns the current creator is running - also contains other related data like Goals
    * Note: The first campaign data object is located at index 0 in the data list
    *
-   * @return JSONAPIDocument<List<Campaign>> containing the above-mentioned data
+   * @return the list of campaigns
    * @throws IOException Thrown when the GET request failed
    */
   public JSONAPIDocument<List<Campaign>> fetchCampaigns() throws IOException {
@@ -88,7 +88,7 @@ public class PatreonAPI {
    * @param campaignId id for campaign to retrieve
    * @param pageSize   how many pledges to return
    * @param pageCursor ignore, put null.
-   * @return JSONAPIDocument<List<Pledge>> containing pledges & associated data
+   * @return the page of pledges
    * @throws IOException Thrown when the GET request failed
    */
   public JSONAPIDocument<List<Pledge>> fetchPageOfPledges(String campaignId, int pageSize, String pageCursor) throws IOException {
