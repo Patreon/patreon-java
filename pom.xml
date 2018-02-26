@@ -41,7 +41,7 @@
                 </dependencies>
                 <version>1.0</version>
                 <configuration>
-                    <tag>test</tag>
+                    <tag>v${project.version}</tag>
                     <connectionType>connection</connectionType>
                 </configuration>
                 <executions>
@@ -208,4 +208,18 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+
 </project>
