@@ -2,11 +2,11 @@
 Interact with the Patreon API via OAuth.
 
 Get the artifact from [Maven](http://search.maven.org/#search|ga|1|g%3A%22com.patreon%22%20AND%20a%3A%22patreon%22)
-```
+```xml
 <dependency>
-    <groupId>com.patreon</groupId>
-    <artifactId>patreon</artifactId>
-    <version>0.2.0</version>
+    <groupId>com.patreon</groupId>
+    <artifactId>patreon</artifactId>
+    <version>0.3.0</version>
 </dependency>
 ```
 
