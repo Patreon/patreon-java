@@ -6,6 +6,7 @@ import com.github.jasminb.jsonapi.*;
 import com.patreon.resources.Campaign;
 import com.patreon.resources.Pledge;
 import com.patreon.resources.User;
+import com.patreon.resources.shared.BaseResource;
 import com.patreon.resources.shared.Field;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URIBuilder;
@@ -22,6 +23,10 @@ import java.net.URL;
 import java.util.*;
 
 public class PatreonAPI {
+  /**
+   * The base URI for requests to the patreon API. This may be overridden (e.g. for testing) by passing
+   * -Dpatreon.rest.uri="https://my.other.server.com" as jvm arguments
+   */
   public static final String BASE_URI = System.getProperty("patreon.rest.uri", "https://www.patreon.com");
 
   private static final Logger LOG = LoggerFactory.getLogger(PatreonAPI.class);
@@ -29,9 +34,12 @@ public class PatreonAPI {
   private ResourceConverter converter;
 
   /**
-   * Create a new instance of the Patreon API. You only need <b>one</b> of these objects unless you are using the API with multiple tokens
+   * Create a new instance of the Patreon API. You only need <b>one</b> of these objects unless you are using the API
+   * with multiple tokens
    *
-   * @param accessToken The "Creator's Access Token" found on <a href="https://www.patreon.com/platform/documentation/clients">the patreon client page</a> <b>OR</b> OAuth access token
+   * @param accessToken The "Creator's Access Token" found on
+   *                    <a href="https://www.patreon.com/platform/documentation/clients">the patreon client page</a>
+   *                    <b>OR</b> OAuth access token
    */
   public PatreonAPI(String accessToken) {
     this.accessToken = accessToken;
@@ -60,7 +68,7 @@ public class PatreonAPI {
   /**
    * Get the user object of the creator
    *
-   * @param optionalFields A list of optional fields to request, or null.  See {@link User}
+   * @param optionalFields A list of optional fields to request, or null.  See {@link User.UserField}
    * @return the current user
    * @throws IOException Thrown when the GET request failed
    */
@@ -71,7 +79,7 @@ public class PatreonAPI {
     if (optionalFields != null) {
       Set<User.UserField> optionalAndDefaultFields = new HashSet<>(optionalFields);
       optionalAndDefaultFields.addAll(User.UserField.getDefaultFields());
-      addOptionalFieldsParam(pathBuilder, "user", optionalAndDefaultFields);
+      addFieldsParam(pathBuilder, User.class, optionalAndDefaultFields);
     }
 
     return converter.readDocument(
@@ -103,7 +111,8 @@ public class PatreonAPI {
    *
    * @param campaignId id for campaign to retrieve
    * @param pageSize   how many pledges to return
-   * @param pageCursor ignore, put null.
+   * @param pageCursor A cursor retreived from a previous API call, or null for the initial page.
+   *                   See {@link #getNextCursorFromDocument(JSONAPIDocument)}
    * @return the page of pledges
    * @throws IOException Thrown when the GET request failed
    */
@@ -116,8 +125,9 @@ public class PatreonAPI {
    *
    * @param campaignId id for campaign to retrieve
    * @param pageSize   how many pledges to return
-   * @param pageCursor ignore, put null.
-   * @param optionalFields A list of optional fields to return.  See {@link Pledge} for valid values.
+   * @param pageCursor A cursor retreived from a previous API call, or null for the initial page.
+   *                   See {@link #getNextCursorFromDocument(JSONAPIDocument)}
+   * @param optionalFields A list of optional fields to return.  See {@link Pledge.PledgeField}
    * @return the page of pledges
    * @throws IOException Thrown when the GET request failed
    */
@@ -131,7 +141,7 @@ public class PatreonAPI {
     if (optionalFields != null) {
       Set<Pledge.PledgeField> optionalAndDefaultFields = new HashSet<>(optionalFields);
       optionalAndDefaultFields.addAll(Pledge.PledgeField.getDefaultFields());
-      addOptionalFieldsParam(pathBuilder, "pledge", optionalAndDefaultFields);
+      addFieldsParam(pathBuilder, Pledge.class, optionalAndDefaultFields);
     }
     return converter.readDocumentCollection(
       getDataStream(pathBuilder.toString()),
@@ -203,16 +213,27 @@ public class PatreonAPI {
     return prop.getProperty("version");
   }
 
-  private URIBuilder addOptionalFieldsParam(URIBuilder builder, String type, Collection<? extends Field> fields) {
+  /**
+   * Add fields[type]=fieldName,fieldName,fieldName as a query parameter to the request represented by builder
+   * @param builder A URIBuilder building a request to the API
+   * @param type A BaseResource annotated with {@link com.github.jasminb.jsonapi.annotations.Type}
+   * @param fields A list of fields to include.  Only fields in this list will be retrieved in the query
+   * @return builder
+   */
+  private URIBuilder addFieldsParam(URIBuilder builder, Class<? extends BaseResource> type, Collection<? extends Field> fields) {
     List<String> fieldNames = new ArrayList<>();
     for (Field f : fields) {
       fieldNames.add(f.getPropertyName());
     }
-    builder.addParameter("fields[" + type + "]", join(fieldNames));
+    String typeStr = BaseResource.getType(type);
+    builder.addParameter("fields[" + typeStr + "]", join(fieldNames));
 
     return builder;
   }
 
+  /**
+   * Join a collection of strings with commas as separators.
+   */
   private String join(Collection<? extends CharSequence> items) {
     if (items == null) {
       return null;

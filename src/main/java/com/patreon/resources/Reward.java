@@ -4,11 +4,61 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.jasminb.jsonapi.annotations.Relationship;
 import com.github.jasminb.jsonapi.annotations.Type;
 import com.patreon.resources.shared.BaseResource;
+import com.patreon.resources.shared.Field;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Type("reward")
 public class Reward extends BaseResource {
+  
+  public enum RewardField implements Field {
+    AmountCents("amount_cents", true),
+    CreatedAt("created_at", true),
+    Description("description", true),
+    Remaining("remaining", true),
+    RequiresShipping("requires_shipping", true),
+    Url("url", true),
+    UserLimit("user_limit", true),
+    EditedAt("edited_at", true),
+    PatronCount("patron_count", true),
+    Published("published", true),
+    PublishedAt("published_at", true),
+    ImageUrl("image_url", true),
+    DiscordRoleIds("discord_role_ids", true),
+    Title("title", true),
+    UnpublishedAt("unpublished_at", true),;
+
+    private final String propertyName;
+    private final boolean isDefault;
+
+    RewardField(String propertyName, boolean isDefault) {
+      this.propertyName = propertyName;
+      this.isDefault = isDefault;
+    }
+
+    public static Collection<RewardField> getDefaultFields() {
+      List<RewardField> fs = new ArrayList<>();
+      for (RewardField f : values()) {
+        if (f.isDefault()) {
+          fs.add(f);
+        }
+      }
+      return fs;
+    }
+
+    @Override
+    public String getPropertyName() {
+      return this.propertyName;
+    }
+
+    @Override
+    public boolean isDefault() {
+      return this.isDefault;
+    }
+  }
+
   private int amount_cents;
   private String created_at;
   private String description;

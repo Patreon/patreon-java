@@ -9,8 +9,6 @@ insert_final_newline = true
 charset = utf-8
 indent_style = space
 
-# Matches multiple files with brace expansion notation
-# Set default charset
 [*.java]
 indent_size = 2
 
