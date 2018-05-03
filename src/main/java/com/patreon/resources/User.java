@@ -5,13 +5,77 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.jasminb.jsonapi.annotations.Relationship;
 import com.github.jasminb.jsonapi.annotations.Type;
 import com.patreon.resources.shared.BaseResource;
+import com.patreon.resources.shared.Field;
 import com.patreon.resources.shared.SocialConnections;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
 @Type("user")
 public class User extends BaseResource {
+
+  /**
+   * Metadata about fields in User
+   */
+  public enum UserField implements Field {
+    FullName("full_name", true),
+    DiscordId("discord_id", true),
+    Twitch("twitch", true),
+    Vanity("vanity", true),
+    Email("email", true),
+    About("about", true),
+    FacebookId("facebook_id", true),
+    ImageUrl("image_url", true),
+    ThumbUrl("thumb_url", true),
+    Youtube("youtube", true),
+    Twitter("twitter", true),
+    Facebook("facebook", true),
+    Created("created", true),
+    Url("url", true),
+    SocialConnections("social_connections", true),
+    IsEmailVerified("is_email_verified", true),
+    LikeCount("like_count", false),
+    CommentCount("comment_count", false),
+      ;
+
+    /**
+     * The field's name from the API in JSON
+     */
+    public final String propertyName;
+
+    /**
+     * Whether the field is included by default
+     */
+    public final boolean isDefault;
+
+    UserField(String propertyName, boolean isDefault) {
+      this.propertyName = propertyName;
+      this.isDefault = isDefault;
+    }
+
+    public static Collection<UserField> getDefaultFields() {
+      List<UserField> ret = new ArrayList<>();
+      for (UserField f : values()) {
+        if (f.isDefault) {
+          ret.add(f);
+        }
+      }
+      return ret;
+    }
+
+    @Override
+    public String getPropertyName() {
+      return this.propertyName;
+    }
+
+    @Override
+    public boolean isDefault() {
+      return this.isDefault;
+    }
+  }
+
   private String fullName;
   private String discordId;
   private String twitch;
@@ -28,6 +92,11 @@ public class User extends BaseResource {
   private String url;
   private SocialConnections socialConnections;
   private boolean isEmailVerified;
+
+  //Optional properties
+  private Integer likeCount;
+  private Integer commentCount;
+
   @Relationship("pledges")
   private List<Pledge> pledges;
 
@@ -49,6 +118,8 @@ public class User extends BaseResource {
                @JsonProperty("url") String url,
                @JsonProperty("social_connections") SocialConnections socialConnections,
                @JsonProperty("is_email_verified") boolean isEmailVerified,
+               @JsonProperty("like_count") Integer like_count,
+               @JsonProperty("comment_count") Integer comment_count,
                @JsonProperty("pledges") List<Pledge> pledges
   ) {
     this.fullName = fullName;
@@ -67,6 +138,8 @@ public class User extends BaseResource {
     this.url = url;
     this.socialConnections = socialConnections;
     this.isEmailVerified = isEmailVerified;
+    this.likeCount = like_count;
+    this.commentCount = comment_count;
     this.pledges = pledges;
   }
 
@@ -134,6 +207,19 @@ public class User extends BaseResource {
     return isEmailVerified;
   }
 
+  /**
+   * @return The number of likes of for this user, or null if this field wasn't requested
+   */
+  public Integer getLikeCount() {
+    return likeCount;
+  }
+
+  /**
+   * @return The number of comments for this user, or null if the field wasn't requested
+   */
+  public Integer getCommentCount() {
+    return commentCount;
+  }
 
   public List<Pledge> getPledges() {
     return pledges;

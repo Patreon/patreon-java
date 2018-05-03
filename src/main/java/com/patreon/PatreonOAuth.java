@@ -14,6 +14,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class PatreonOAuth {
+
   private static final Gson gson = new GsonBuilder().serializeNulls().enableComplexMapKeySerialization().create();
   private static final Logger LOG = LoggerFactory.getLogger(PatreonOAuth.class);
   private static final String GRANT_TYPE_AUTHORIZATION = "authorization_code";
@@ -35,7 +36,7 @@ public class PatreonOAuth {
   public String getAuthorizationURL() {
     URIBuilder builder = null;
     try {
-      builder = new URIBuilder("https://www.patreon.com/oauth2/authorize");
+      builder = new URIBuilder(PatreonAPI.BASE_URI + "/oauth2/authorize");
     } catch (URISyntaxException e) {
       LOG.error(e.getMessage());
     }
@@ -46,7 +47,7 @@ public class PatreonOAuth {
   }
 
   public TokensResponse getTokens(String code) throws IOException {
-    Connection requestInfo = Jsoup.connect("https://www.patreon.com/api/oauth2/token")
+    Connection requestInfo = Jsoup.connect(PatreonAPI.BASE_URI + "/api/oauth2/token")
                                .data("grant_type", GRANT_TYPE_AUTHORIZATION)
                                .data("code", code)
                                .data("client_id", clientID)
@@ -59,7 +60,7 @@ public class PatreonOAuth {
   }
 
   public TokensResponse refreshTokens(String refreshToken) throws IOException {
-    Connection requestInfo = Jsoup.connect("https://www.patreon.com/api/oauth2/token")
+    Connection requestInfo = Jsoup.connect(PatreonAPI.BASE_URI + "/api/oauth2/token")
                                .data("grant_type", GRANT_TYPE_TOKEN_REFRESH)
                                .data("client_id", clientID)
                                .data("client_secret", clientSecret)

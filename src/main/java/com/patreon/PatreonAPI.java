@@ -6,6 +6,7 @@ import com.github.jasminb.jsonapi.*;
 import com.patreon.resources.Campaign;
 import com.patreon.resources.Pledge;
 import com.patreon.resources.User;
+import com.patreon.resources.shared.Field;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.client.utils.URLEncodedUtils;
@@ -18,12 +19,11 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class PatreonAPI {
+  public static final String BASE_URI = System.getProperty("patreon.rest.uri", "https://www.patreon.com");
+
   private static final Logger LOG = LoggerFactory.getLogger(PatreonAPI.class);
   private final String accessToken;
   private ResourceConverter converter;
@@ -54,12 +54,28 @@ public class PatreonAPI {
    * @throws IOException Thrown when the GET request failed
    */
   public JSONAPIDocument<User> fetchUser() throws IOException {
-    String path = new URIBuilder()
+    return fetchUser(null);
+  }
+
+  /**
+   * Get the user object of the creator
+   *
+   * @param optionalFields A list of optional fields to request, or null.  See {@link User}
+   * @return the current user
+   * @throws IOException Thrown when the GET request failed
+   */
+  public JSONAPIDocument<User> fetchUser(Collection<User.UserField> optionalFields) throws IOException {
+    URIBuilder pathBuilder = new URIBuilder()
                     .setPath("current_user")
-                    .addParameter("include", "pledges")
-                    .toString();
+                    .addParameter("include", "pledges");
+    if (optionalFields != null) {
+      Set<User.UserField> optionalAndDefaultFields = new HashSet<>(optionalFields);
+      optionalAndDefaultFields.addAll(User.UserField.getDefaultFields());
+      addOptionalFieldsParam(pathBuilder, "user", optionalAndDefaultFields);
+    }
+
     return converter.readDocument(
-      getDataStream(path),
+      getDataStream(pathBuilder.toString()),
       User.class
     );
   }
@@ -92,11 +108,30 @@ public class PatreonAPI {
    * @throws IOException Thrown when the GET request failed
    */
   public JSONAPIDocument<List<Pledge>> fetchPageOfPledges(String campaignId, int pageSize, String pageCursor) throws IOException {
+    return fetchPageOfPledges(campaignId, pageSize, pageCursor, null);
+  }
+
+  /**
+   * Retrieve pledges for the specified campaign
+   *
+   * @param campaignId id for campaign to retrieve
+   * @param pageSize   how many pledges to return
+   * @param pageCursor ignore, put null.
+   * @param optionalFields A list of optional fields to return.  See {@link Pledge} for valid values.
+   * @return the page of pledges
+   * @throws IOException Thrown when the GET request failed
+   */
+  public JSONAPIDocument<List<Pledge>> fetchPageOfPledges(String campaignId, int pageSize, String pageCursor, Collection<Pledge.PledgeField> optionalFields) throws IOException {
     URIBuilder pathBuilder = new URIBuilder()
                                .setPath(String.format("campaigns/%s/pledges", campaignId))
                                .addParameter("page[count]", String.valueOf(pageSize));
     if (pageCursor != null) {
       pathBuilder.addParameter("page[cursor]", pageCursor);
+    }
+    if (optionalFields != null) {
+      Set<Pledge.PledgeField> optionalAndDefaultFields = new HashSet<>(optionalFields);
+      optionalAndDefaultFields.addAll(Pledge.PledgeField.getDefaultFields());
+      addOptionalFieldsParam(pathBuilder, "pledge", optionalAndDefaultFields);
     }
     return converter.readDocumentCollection(
       getDataStream(pathBuilder.toString()),
@@ -119,8 +154,7 @@ public class PatreonAPI {
       for (NameValuePair pair : queryParameters) {
         String name = pair.getName();
         if (name.equals("page[cursor]")) {
-          String cursorValue = pair.getValue();
-          return cursorValue;
+          return pair.getValue();
         }
       }
     } catch (URISyntaxException e) {
@@ -145,7 +179,7 @@ public class PatreonAPI {
 
   private InputStream getDataStream(String suffix) throws IOException {
     try {
-      String prefix = "https://www.patreon.com/api/oauth2/api/";
+      String prefix = BASE_URI + "/api/oauth2/api/";
       URL url = new URL(prefix.concat(suffix));
       HttpURLConnection connection = (HttpURLConnection) url.openConnection();
       connection.setRequestProperty("Authorization", "Bearer ".concat(this.accessToken));
@@ -167,5 +201,34 @@ public class PatreonAPI {
     java.util.Properties prop = new java.util.Properties();
     prop.load(resourceAsStream);
     return prop.getProperty("version");
+  }
+
+  private URIBuilder addOptionalFieldsParam(URIBuilder builder, String type, Collection<? extends Field> fields) {
+    List<String> fieldNames = new ArrayList<>();
+    for (Field f : fields) {
+      fieldNames.add(f.getPropertyName());
+    }
+    builder.addParameter("fields[" + type + "]", join(fieldNames));
+
+    return builder;
+  }
+
+  private String join(Collection<? extends CharSequence> items) {
+    if (items == null) {
+      return null;
+    }
+
+    StringBuilder sb = new StringBuilder();
+    boolean first = true;
+    for (CharSequence item : items) {
+      if (first) {
+        first = false;
+      } else {
+        sb.append(",");
+      }
+      sb.append(item);
+    }
+
+    return sb.toString();
   }
 }

@@ -5,11 +5,17 @@ import com.patreon.resources.Campaign;
 import com.patreon.resources.Pledge;
 import com.patreon.resources.User;
 import junit.framework.TestCase;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.utils.URLEncodedUtils;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Matchers;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
+import java.nio.charset.Charset;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.Matchers.anyString;
@@ -79,8 +85,67 @@ public class PatreonAPITest extends TestCase {
     ).when(api, "getDataStream", anyString());
 
     JSONAPIDocument<User> user = api.fetchUser();
+    PowerMockito.verifyPrivate(api).invoke("getDataStream", Matchers.eq("current_user?include=pledges"));
     assertEquals("https://www.patreon.com/api/user/32187", user.getLinks().getSelf().toString());
     assertEquals(5, user.get().getPledges().size());
     assertEquals("corgi", user.get().getVanity());
+    assertNull(user.get().getLikeCount());
+    assertNull(user.get().getCommentCount());
+  }
+
+  public void testFetchUserOptionalFields() throws Exception {
+    PowerMockito.doReturn(
+      PatreonAPITest.class.getResourceAsStream("/api/current_user_optional_fields.json")
+    ).when(api, "getDataStream", anyString());
+
+    JSONAPIDocument<User> user = api.fetchUser(Arrays.asList(User.UserField.LikeCount));
+
+
+    ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
+    PowerMockito.verifyPrivate(api).invoke("getDataStream", captor.capture());
+
+    String arg = captor.getValue();
+    assertTrue(arg.startsWith("current_user?"));
+
+    //Extract and decode the query params from the URL
+    List<NameValuePair> parsed = URLEncodedUtils.parse(arg.substring(arg.indexOf('?') + 1), Charset.forName("UTF-8"));
+    assertEquals(2, parsed.size());
+    NameValuePair first = parsed.get(0);
+    assertEquals("include", first.getName());
+    assertEquals("pledges", first.getValue());
+
+    NameValuePair second = parsed.get(1);
+    assertEquals("fields[user]", second.getName());
+
+    //sort fields from call, compare to sorted list of fields.
+    String[] fieldNames = second.getValue().split(",");
+    Arrays.sort(fieldNames);
+
+
+    assertEquals(Arrays.asList(
+      "about",
+      "created",
+      "discord_id",
+      "email",
+      "facebook",
+      "facebook_id",
+      "full_name",
+      "image_url",
+      "is_email_verified",
+      "like_count",
+      "social_connections",
+      "thumb_url",
+      "twitch",
+      "twitter",
+      "url",
+      "vanity",
+      "youtube"), Arrays.asList(fieldNames));
+
+    assertEquals("https://www.patreon.com/api/user/32187", user.getLinks().getSelf().toString());
+    assertEquals(5, user.get().getPledges().size());
+    assertEquals("corgi", user.get().getVanity());
+    assertEquals(Integer.valueOf(5), user.get().getLikeCount());
+    assertNull(user.get().getCommentCount());
+
   }
 }
