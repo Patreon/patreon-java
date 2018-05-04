@@ -6,6 +6,7 @@ These fields will be null on the retrieved resource object unless specifically r
 and whether they're retrieved by default.
 * Added `.editorconfig`
 * Support for specifying an alternate API endpoint, for testing.
+* Java version is now 1.8
 
 ##Fixed
 * Improvements to javadoc
