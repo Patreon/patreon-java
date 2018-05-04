@@ -5,11 +5,69 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.jasminb.jsonapi.annotations.Relationship;
 import com.github.jasminb.jsonapi.annotations.Type;
 import com.patreon.resources.shared.BaseResource;
+import com.patreon.resources.shared.Field;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Type("campaign")
 public class Campaign extends BaseResource {
+  
+  public enum CampaignField implements Field {
+    PledgeSum("pledge_sum", true),
+    CreationName("creation_name", true),
+    DiscordServerId("discor_server_id", true),
+    CreatedAt("created_at", true),
+    IsPlural("is_plural", true),
+    MainVideoUrl("main_video_url", true),
+    IsNsfw("is_nsfw", true),
+    IsMonthly("is_monthly", true),
+    PublishedAt("published_at", true),
+    EarningsVisibility("earnings_visibility", true),
+    OutstandingPaymentAmountCents("outstanding_payment_amount_cents", true),
+    ImageSmallUrl("image_small_url", true),
+    Summary("summary", true),
+    ThanksMsg("thanks_msg", true),
+    ImageUrl("image_url", true),
+    CreationCount("creation_count", true),
+    OneLiner("one_liner", true),
+    IsChargedImmediately("is_charged_immediately", true),
+    PatronCount("patron_count", true),
+    DisplayPatronGoals("display_patron_goals", true),
+    PledgeUrl("pledge_url", true),
+    PayPerName("pay_per_name", true),
+    ThanksEmbed("thanks_embed", true),
+    MainVideoEmbed("main_video_embed", true),
+    ThanksVideoUrl("thanks_video_url", true),
+    About("about", true),
+    ;
+
+    private final String propertyName;
+    private final boolean isDefault;
+
+    CampaignField(String propertyName, boolean isDefault) {
+      this.propertyName = propertyName;
+      this.isDefault = isDefault;
+    }
+
+    public static Collection<CampaignField> getDefaultFields() {
+      return Arrays.stream(values()).filter(Field::isDefault).collect(Collectors.toList());
+    }
+
+    @Override
+    public String getPropertyName() {
+      return this.propertyName;
+    }
+
+    @Override
+    public boolean isDefault() {
+      return this.isDefault;
+    }
+  }
+
   private int pledgeSum;
   private String creationName;
   private String createdAt;

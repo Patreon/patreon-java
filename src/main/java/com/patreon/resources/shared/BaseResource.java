@@ -11,8 +11,6 @@ public class BaseResource {
   @Id
   private String id;
 
-  private String type;
-
   @Links
   private com.github.jasminb.jsonapi.Links links;
 
@@ -20,9 +18,17 @@ public class BaseResource {
     return id;
   }
 
+  public static String getType(Class<? extends BaseResource> resourceClass) {
+    Type type = resourceClass.getAnnotation(Type.class);
+    if (type != null) {
+      return type.value();
+    } else {
+      return null;
+    }
+  }
+
   public String getType() {
-    Type type = this.getClass().getAnnotation(Type.class);
-    return type.value();
+    return getType(this.getClass());
   }
 
   public com.github.jasminb.jsonapi.Links getLinks() {
