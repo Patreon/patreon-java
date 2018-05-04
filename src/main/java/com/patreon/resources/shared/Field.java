@@ -4,5 +4,4 @@ public interface Field {
   String getPropertyName();
 
   boolean isDefault();
-
 }

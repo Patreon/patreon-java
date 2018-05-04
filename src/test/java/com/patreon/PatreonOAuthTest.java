@@ -16,6 +16,8 @@ import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
+import java.nio.charset.Charset;
+
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({Jsoup.class, Document.class, HttpConnection.class, Connection.Response.class})
 public class PatreonOAuthTest extends TestCase {
@@ -33,14 +35,13 @@ public class PatreonOAuthTest extends TestCase {
   public void testGetTokens() throws Exception {
     PowerMockito.mockStatic(Jsoup.class);
     PowerMockito.when(Jsoup.connect(Mockito.anyString())).
-                                                           thenAnswer(new Answer<Connection>() {
-                                                             public Connection answer(InvocationOnMock invocation) throws Throwable {
+                                                           thenAnswer((invocation) ->  {
                                                                Connection conn = PowerMockito.spy((Connection) invocation.callRealMethod());
 
                                                                Element element = PowerMockito.mock(Element.class);
                                                                Document document = PowerMockito.mock(Document.class);
                                                                PowerMockito.when(document.body()).thenReturn(element);
-                                                               PowerMockito.when(element.text()).thenReturn(IOUtils.toString(PatreonOAuthTest.class.getResourceAsStream("/oauth/get_tokens.json"), Charsets.UTF_8));
+                                                               PowerMockito.when(element.text()).thenReturn(IOUtils.toString(PatreonOAuthTest.class.getResourceAsStream("/oauth/get_tokens.json"), Charset.forName("UTF-8")));
                                                                PowerMockito.doReturn(document).when(conn, "post");
 
                                                                Connection.Response response = PowerMockito.mock(Connection.Response.class);
@@ -48,7 +49,6 @@ public class PatreonOAuthTest extends TestCase {
 
                                                                PowerMockito.doReturn(response).when(conn, "execute");
                                                                return conn;
-                                                             }
                                                            });
 
     PatreonOAuth.TokensResponse token = oauth.getTokens("a code");
@@ -62,14 +62,13 @@ public class PatreonOAuthTest extends TestCase {
   public void testRefreshTokens() throws Exception {
     PowerMockito.mockStatic(Jsoup.class);
     PowerMockito.when(Jsoup.connect(Mockito.anyString())).
-                                                           thenAnswer(new Answer<Connection>() {
-                                                             public Connection answer(InvocationOnMock invocation) throws Throwable {
+                                                           thenAnswer( (invocation) -> {
                                                                Connection conn = PowerMockito.spy((Connection) invocation.callRealMethod());
 
                                                                Element element = PowerMockito.mock(Element.class);
                                                                Document document = PowerMockito.mock(Document.class);
                                                                PowerMockito.when(document.body()).thenReturn(element);
-                                                               PowerMockito.when(element.text()).thenReturn(IOUtils.toString(PatreonOAuthTest.class.getResourceAsStream("/oauth/refresh_tokens.json"), Charsets.UTF_8));
+                                                               PowerMockito.when(element.text()).thenReturn(IOUtils.toString(PatreonOAuthTest.class.getResourceAsStream("/oauth/refresh_tokens.json"), Charset.forName("UTF-8")));
                                                                PowerMockito.doReturn(document).when(conn, "post");
 
                                                                Connection.Response response = PowerMockito.mock(Connection.Response.class);
@@ -77,7 +76,6 @@ public class PatreonOAuthTest extends TestCase {
 
                                                                PowerMockito.doReturn(response).when(conn, "execute");
                                                                return conn;
-                                                             }
                                                            });
 
     PatreonOAuth.TokensResponse token = oauth.getTokens("a code");

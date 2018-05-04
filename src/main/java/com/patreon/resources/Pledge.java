@@ -7,8 +7,10 @@ import com.patreon.resources.shared.BaseResource;
 import com.patreon.resources.shared.Field;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Type("pledge")
 public class Pledge extends BaseResource {
@@ -33,15 +35,8 @@ public class Pledge extends BaseResource {
     }
 
     public static Collection<PledgeField> getDefaultFields() {
-      List<PledgeField> ret = new ArrayList<>();
-      for (PledgeField f : values()) {
-        if (f.isDefault) {
-          ret.add(f);
-        }
-      }
-      return ret;
+      return Arrays.stream(values()).filter(Field::isDefault).collect(Collectors.toList());
     }
-
 
     @Override
     public String getPropertyName() {

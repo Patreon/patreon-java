@@ -3,36 +3,41 @@ package com.patreon;
 import com.github.jasminb.jsonapi.JSONAPIDocument;
 import com.patreon.resources.Campaign;
 import com.patreon.resources.Pledge;
+import com.patreon.resources.RequestUtil;
 import com.patreon.resources.User;
 import junit.framework.TestCase;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
-import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Matchers;
+import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.nio.charset.Charset;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.Matchers.anyString;
+import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
-@RunWith(PowerMockRunner.class)
-@PrepareForTest(PatreonAPI.class)
 public class PatreonAPITest extends TestCase {
+  private static final String MOCK_TOKEN = "some token";
   private PatreonAPI api;
+  private RequestUtil requestUtil;
 
   @Override
   public void setUp() {
-    api = PowerMockito.spy(new PatreonAPI("some token"));
+    requestUtil = mock(RequestUtil.class);
+    api = Mockito.spy(new PatreonAPI(MOCK_TOKEN, requestUtil));
   }
 
   public void testFetchCampaigns() throws Exception {
-    PowerMockito.doReturn(PatreonAPITest.class.getResourceAsStream("/api/campaigns.json"))
-      .when(api, "getDataStream", anyString());
+    when(requestUtil.request(anyString(), eq(MOCK_TOKEN)))
+      .thenReturn(PatreonAPITest.class.getResourceAsStream("/api/campaigns.json"));
 
     JSONAPIDocument<List<Campaign>> campaignResponse = api.fetchCampaigns();
     assertEquals(1, campaignResponse.get().size());
@@ -46,16 +51,15 @@ public class PatreonAPITest extends TestCase {
   }
 
   public void testGetPledgesToMe() throws Exception {
-    PowerMockito.doReturn(PatreonAPITest.class.getResourceAsStream("/api/campaign_pledges.json"))
-      .when(api, "getDataStream", anyString());
+    when(requestUtil.request(anyString(), eq(MOCK_TOKEN)))
+      .thenReturn(PatreonAPITest.class.getResourceAsStream("/api/campaign_pledges.json"));
 
     JSONAPIDocument<List<Pledge>> pledgeResponse = api.fetchPageOfPledges("70261", 10, null);
     assertEquals(12, pledgeResponse.getMeta().get("count"));
     List<Pledge> pledges = pledgeResponse.get();
     assertEquals(10, pledges.size());
 
-    for (int i = 0; i < pledges.size(); i++) {
-      Pledge pledge = pledges.get(i);
+    for (Pledge pledge : pledges) {
       assertTrue(pledge.getAmountCents() > 0);
       User patron = pledge.getPatron();
       assertNotNull(patron.getEmail());
@@ -63,16 +67,15 @@ public class PatreonAPITest extends TestCase {
   }
 
   public void testFetchAllPledges() throws Exception {
-    PowerMockito.doReturn(
+    when(requestUtil.request(anyString(), eq(MOCK_TOKEN))).thenReturn(
       PatreonAPITest.class.getResourceAsStream("/api/campaign_pledges_page_1.json"),
       PatreonAPITest.class.getResourceAsStream("/api/campaign_pledges_page_2.json")
-    ).when(api, "getDataStream", anyString());
+    );
 
     List<Pledge> pledges = api.fetchAllPledges("70261");
     assertEquals(11, pledges.size());
 
-    for (int i = 0; i < pledges.size(); i++) {
-      Pledge pledge = pledges.get(i);
+    for (Pledge pledge : pledges) {
       assertTrue(pledge.getAmountCents() > 0);
       User patron = pledge.getPatron();
       assertNotNull(patron.getEmail());
@@ -80,12 +83,13 @@ public class PatreonAPITest extends TestCase {
   }
 
   public void testFetchUser() throws Exception {
-    PowerMockito.doReturn(
+    when(requestUtil.request(anyString(), eq(MOCK_TOKEN))).thenReturn(
       PatreonAPITest.class.getResourceAsStream("/api/current_user.json")
-    ).when(api, "getDataStream", anyString());
+    );
 
     JSONAPIDocument<User> user = api.fetchUser();
-    PowerMockito.verifyPrivate(api).invoke("getDataStream", Matchers.eq("current_user?include=pledges"));
+
+    verify(requestUtil).request(eq("current_user?include=pledges"), eq(MOCK_TOKEN));
     assertEquals("https://www.patreon.com/api/user/32187", user.getLinks().getSelf().toString());
     assertEquals(5, user.get().getPledges().size());
     assertEquals("corgi", user.get().getVanity());
@@ -94,15 +98,15 @@ public class PatreonAPITest extends TestCase {
   }
 
   public void testFetchUserOptionalFields() throws Exception {
-    PowerMockito.doReturn(
+    when(requestUtil.request(anyString(), eq(MOCK_TOKEN))).thenReturn(
       PatreonAPITest.class.getResourceAsStream("/api/current_user_optional_fields.json")
-    ).when(api, "getDataStream", anyString());
+    );
 
-    JSONAPIDocument<User> user = api.fetchUser(Arrays.asList(User.UserField.LikeCount));
+    JSONAPIDocument<User> user = api.fetchUser(Collections.singletonList(User.UserField.LikeCount));
 
 
     ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
-    PowerMockito.verifyPrivate(api).invoke("getDataStream", captor.capture());
+    verify(requestUtil).request(captor.capture(), eq(MOCK_TOKEN));
 
     String arg = captor.getValue();
     assertTrue(arg.startsWith("current_user?"));

@@ -6,8 +6,10 @@ import com.patreon.resources.shared.BaseResource;
 import com.patreon.resources.shared.Field;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Type("goal")
 public class Goal extends BaseResource {
@@ -30,13 +32,7 @@ public class Goal extends BaseResource {
     }
 
     public static Collection<GoalField> getDefaultFields() {
-      List<GoalField> fs = new ArrayList<>();
-      for (GoalField f : values()) {
-        if (f.isDefault()) {
-          fs.add(f);
-        }
-      }
-      return fs;
+      return Arrays.stream(values()).filter(Field::isDefault).collect(Collectors.toList());
     }
 
     @Override

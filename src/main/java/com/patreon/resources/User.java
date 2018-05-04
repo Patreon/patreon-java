@@ -8,10 +8,11 @@ import com.patreon.resources.shared.BaseResource;
 import com.patreon.resources.shared.Field;
 import com.patreon.resources.shared.SocialConnections;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Type("user")
 public class User extends BaseResource {
@@ -55,16 +56,6 @@ public class User extends BaseResource {
       this.isDefault = isDefault;
     }
 
-    public static Collection<UserField> getDefaultFields() {
-      List<UserField> ret = new ArrayList<>();
-      for (UserField f : values()) {
-        if (f.isDefault) {
-          ret.add(f);
-        }
-      }
-      return ret;
-    }
-
     @Override
     public String getPropertyName() {
       return this.propertyName;
@@ -74,6 +65,11 @@ public class User extends BaseResource {
     public boolean isDefault() {
       return this.isDefault;
     }
+
+    public static Collection<UserField> getDefaultFields() {
+      return Arrays.stream(values()).filter(Field::isDefault).collect(Collectors.toList());
+    }
+
   }
 
   private String fullName;
@@ -118,8 +114,8 @@ public class User extends BaseResource {
                @JsonProperty("url") String url,
                @JsonProperty("social_connections") SocialConnections socialConnections,
                @JsonProperty("is_email_verified") boolean isEmailVerified,
-               @JsonProperty("like_count") Integer like_count,
-               @JsonProperty("comment_count") Integer comment_count,
+               @JsonProperty("like_count") Integer likeCount,
+               @JsonProperty("comment_count") Integer commentCount,
                @JsonProperty("pledges") List<Pledge> pledges
   ) {
     this.fullName = fullName;
@@ -138,8 +134,8 @@ public class User extends BaseResource {
     this.url = url;
     this.socialConnections = socialConnections;
     this.isEmailVerified = isEmailVerified;
-    this.likeCount = like_count;
-    this.commentCount = comment_count;
+    this.likeCount = likeCount;
+    this.commentCount = commentCount;
     this.pledges = pledges;
   }
 

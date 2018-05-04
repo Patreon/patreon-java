@@ -1,12 +1,14 @@
 # patreon-java
 Interact with the Patreon API via OAuth.
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.patreon/patreon/badge.svg)]
+
 Get the artifact from [Maven](http://search.maven.org/#search|ga|1|g%3A%22com.patreon%22%20AND%20a%3A%22patreon%22)
 ```xml
 <dependency>
     <groupId>com.patreon</groupId>
     <artifactId>patreon</artifactId>
-    <version>0.3.0</version>
+    <version>0.4.0</version>
 </dependency>
 ```
 
@@ -40,6 +42,7 @@ String code = null; // Get this from the query parameter `code`
 
 PatreonOAuth oauthClient = new PatreonOAuth(clientId, clientSecret, redirectUri);
 PatreonOAuth.TokensResponse tokens = oauthClient.getTokens(code);
+//Store the refresh TokensResponse in your data store
 String accessToken = tokens.getAccessToken();
 
 PatreonAPI apiClient = new PatreonAPI(accessToken);
@@ -55,11 +58,3 @@ if (pledges != null && pledges.size() > 0) {
 // (for refreshing their Patreon data whenever you like),
 // along with any relevant user info or pledge info you want to store.
 ```
-
-
-For Patreon Developers Wishing to Release Updates
----
-1. Get settings.xml
-2. Get GPG keypair
-3. `mvn clean deploy -s settings.xml -P release`
-4. Visit https://oss.sonatype.org/#stagingRepositories, find the latest repository, close it, then release it

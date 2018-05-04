@@ -7,8 +7,10 @@ import com.patreon.resources.shared.BaseResource;
 import com.patreon.resources.shared.Field;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Type("reward")
 public class Reward extends BaseResource {
@@ -39,13 +41,7 @@ public class Reward extends BaseResource {
     }
 
     public static Collection<RewardField> getDefaultFields() {
-      List<RewardField> fs = new ArrayList<>();
-      for (RewardField f : values()) {
-        if (f.isDefault()) {
-          fs.add(f);
-        }
-      }
-      return fs;
+      return Arrays.stream(values()).filter(Field::isDefault).collect(Collectors.toList());
     }
 
     @Override

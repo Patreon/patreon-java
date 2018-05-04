@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.github.jasminb.jsonapi.*;
 import com.patreon.resources.Campaign;
 import com.patreon.resources.Pledge;
+import com.patreon.resources.RequestUtil;
 import com.patreon.resources.User;
 import com.patreon.resources.shared.BaseResource;
 import com.patreon.resources.shared.Field;
@@ -16,10 +17,8 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.*;
 
 public class PatreonAPI {
@@ -31,6 +30,7 @@ public class PatreonAPI {
 
   private static final Logger LOG = LoggerFactory.getLogger(PatreonAPI.class);
   private final String accessToken;
+  private final RequestUtil requestUtil;
   private ResourceConverter converter;
 
   /**
@@ -42,15 +42,23 @@ public class PatreonAPI {
    *                    <b>OR</b> OAuth access token
    */
   public PatreonAPI(String accessToken) {
+    this(accessToken, new RequestUtil());
+  }
+
+  /**
+   * For use in test.
+   */
+  PatreonAPI(String accessToken, RequestUtil requestUtil) {
     this.accessToken = accessToken;
+    this.requestUtil = requestUtil;
 
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
     this.converter = new ResourceConverter(
-                                            objectMapper,
-                                            User.class,
-                                            Campaign.class,
-                                            Pledge.class
+      objectMapper,
+      User.class,
+      Campaign.class,
+      Pledge.class
     );
     this.converter.enableDeserializationOption(DeserializationFeature.ALLOW_UNKNOWN_INCLUSIONS);
   }
@@ -187,30 +195,9 @@ public class PatreonAPI {
     return new ArrayList<>(pledges);
   }
 
-  private InputStream getDataStream(String suffix) throws IOException {
-    try {
-      String prefix = BASE_URI + "/api/oauth2/api/";
-      URL url = new URL(prefix.concat(suffix));
-      HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-      connection.setRequestProperty("Authorization", "Bearer ".concat(this.accessToken));
-      connection.setRequestProperty("User-Agent",
-        String.format(
-          "Patreon-Java, version %s, platform %s %s",
-          getVersion(),
-          System.getProperty("os.name"),
-          System.getProperty("os.version")));
-      return connection.getInputStream();
-    } catch (IOException e) {
-      LOG.error(e.getMessage());
-      throw e;
-    }
-  }
 
-  private String getVersion() throws IOException {
-    InputStream resourceAsStream = this.getClass().getResourceAsStream("/version.properties");
-    java.util.Properties prop = new java.util.Properties();
-    prop.load(resourceAsStream);
-    return prop.getProperty("version");
+  private InputStream getDataStream(String suffix) throws IOException {
+    return this.requestUtil.request(suffix, this.accessToken);
   }
 
   /**
@@ -226,30 +213,9 @@ public class PatreonAPI {
       fieldNames.add(f.getPropertyName());
     }
     String typeStr = BaseResource.getType(type);
-    builder.addParameter("fields[" + typeStr + "]", join(fieldNames));
+    builder.addParameter("fields[" + typeStr + "]", String.join(",", fieldNames));
 
     return builder;
   }
 
-  /**
-   * Join a collection of strings with commas as separators.
-   */
-  private String join(Collection<? extends CharSequence> items) {
-    if (items == null) {
-      return null;
-    }
-
-    StringBuilder sb = new StringBuilder();
-    boolean first = true;
-    for (CharSequence item : items) {
-      if (first) {
-        first = false;
-      } else {
-        sb.append(",");
-      }
-      sb.append(item);
-    }
-
-    return sb.toString();
-  }
 }

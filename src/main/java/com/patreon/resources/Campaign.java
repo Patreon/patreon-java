@@ -8,8 +8,10 @@ import com.patreon.resources.shared.BaseResource;
 import com.patreon.resources.shared.Field;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Type("campaign")
 public class Campaign extends BaseResource {
@@ -52,13 +54,7 @@ public class Campaign extends BaseResource {
     }
 
     public static Collection<CampaignField> getDefaultFields() {
-      List<CampaignField> fs = new ArrayList<>();
-      for (CampaignField f : values()) {
-        if (f.isDefault()) {
-          fs.add(f);
-        }
-      }
-      return fs;
+      return Arrays.stream(values()).filter(Field::isDefault).collect(Collectors.toList());
     }
 
     @Override
@@ -71,6 +67,7 @@ public class Campaign extends BaseResource {
       return this.isDefault;
     }
   }
+
   private int pledgeSum;
   private String creationName;
   private String createdAt;
