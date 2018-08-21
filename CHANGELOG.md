@@ -1,3 +1,10 @@
+# 0.4.1
+## Added
+* User.SocialConnection now has a "url" field
+
+## Fixed
+* Previously, if User.SocialConnection returned a non-null "url" field, it would cause an error.
+
 # 0.4.0
 ## Added
 * Support for requesting optional fields from API objects which have them (Pledge, User).

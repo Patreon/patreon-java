@@ -43,6 +43,7 @@ public class SocialConnections {
   public static class UserIdObject {
     private String user_id;
     private List<String> scopes;
+    private String url;
 
     public String getUser_id() {
       return user_id;
@@ -51,5 +52,7 @@ public class SocialConnections {
     public List<String> getScopes() {
       return scopes;
     }
+
+    public String getUrl() {return url;}
   }
 }

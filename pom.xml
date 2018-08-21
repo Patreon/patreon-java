@@ -68,7 +68,7 @@
 
     <groupId>com.patreon</groupId>
     <artifactId>patreon</artifactId>
-    <version>0.4.0</version>
+    <version>0.4.1</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Interact with the Patreon API via OAuth</description>
@@ -85,6 +85,12 @@
         <developer>
             <name>David Kettler</name>
             <email>david@patreon.com</email>
+            <organization>Patreon</organization>
+            <organizationUrl>http://www.patreon.com</organizationUrl>
+        </developer>
+        <developer>
+            <name>Evan Moses</name>
+            <email>emoses@patreon.com</email>
             <organization>Patreon</organization>
             <organizationUrl>http://www.patreon.com</organizationUrl>
         </developer>

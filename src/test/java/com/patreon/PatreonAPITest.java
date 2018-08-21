@@ -148,6 +148,7 @@ public class PatreonAPITest extends TestCase {
     assertEquals("https://www.patreon.com/api/user/32187", user.getLinks().getSelf().toString());
     assertEquals(5, user.get().getPledges().size());
     assertEquals("corgi", user.get().getVanity());
+    assertEquals("https://facebook.com/corgi", user.get().getSocialConnections().getFacebook().getUrl());
     assertEquals(Integer.valueOf(5), user.get().getLikeCount());
     assertNull(user.get().getCommentCount());
 
