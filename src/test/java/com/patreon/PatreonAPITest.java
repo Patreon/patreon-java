@@ -153,4 +153,15 @@ public class PatreonAPITest extends TestCase {
     assertNull(user.get().getCommentCount());
 
   }
+
+  public void testFetchUserUnknownProperties() throws Exception {
+
+    when(requestUtil.request(anyString(), eq(MOCK_TOKEN))).thenReturn(
+      PatreonAPITest.class.getResourceAsStream("/api/current_user_unknown_properties.json")
+    );
+
+    JSONAPIDocument<User> user = api.fetchUser();
+    verify(requestUtil).request(eq("current_user?include=pledges"), eq(MOCK_TOKEN));
+    assertEquals("https://www.patreon.com/api/user/32187", user.getLinks().getSelf().toString());
+  }
 }
