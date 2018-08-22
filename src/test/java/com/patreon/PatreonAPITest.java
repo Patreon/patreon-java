@@ -148,8 +148,20 @@ public class PatreonAPITest extends TestCase {
     assertEquals("https://www.patreon.com/api/user/32187", user.getLinks().getSelf().toString());
     assertEquals(5, user.get().getPledges().size());
     assertEquals("corgi", user.get().getVanity());
+    assertEquals("https://facebook.com/corgi", user.get().getSocialConnections().getFacebook().getUrl());
     assertEquals(Integer.valueOf(5), user.get().getLikeCount());
     assertNull(user.get().getCommentCount());
 
+  }
+
+  public void testFetchUserUnknownProperties() throws Exception {
+
+    when(requestUtil.request(anyString(), eq(MOCK_TOKEN))).thenReturn(
+      PatreonAPITest.class.getResourceAsStream("/api/current_user_unknown_properties.json")
+    );
+
+    JSONAPIDocument<User> user = api.fetchUser();
+    verify(requestUtil).request(eq("current_user?include=pledges"), eq(MOCK_TOKEN));
+    assertEquals("https://www.patreon.com/api/user/32187", user.getLinks().getSelf().toString());
   }
 }

@@ -54,6 +54,7 @@ public class PatreonAPI {
 
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
+    objectMapper.configure(com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     this.converter = new ResourceConverter(
       objectMapper,
       User.class,
