@@ -18,7 +18,7 @@ public class PatreonOAuth {
   private static final Gson gson = new GsonBuilder().serializeNulls().enableComplexMapKeySerialization().create();
   private static final Logger LOG = LoggerFactory.getLogger(PatreonOAuth.class);
   private static final String GRANT_TYPE_AUTHORIZATION = "authorization_code";
-  private static final String GRANT_TYPE_TOKEN_REFRESH = "token_refresh";
+  private static final String GRANT_TYPE_TOKEN_REFRESH = "refresh_token";
   private final String clientID;
   private final String clientSecret;
   private final String redirectUri;
