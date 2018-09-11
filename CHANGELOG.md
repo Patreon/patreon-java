@@ -1,3 +1,7 @@
+# 0.4.2
+## Fixed
+* GRANT_TYPE_TOKEN_REFRESH now has the correct value
+
 # 0.4.1
 ## Added
 * User.SocialConnection now has a "url" field
@@ -15,6 +19,6 @@ and whether they're retrieved by default.
 * Support for specifying an alternate API endpoint, for testing.
 * Java version is now 1.8
 
-##Fixed
+## Fixed
 * Improvements to javadoc
 
