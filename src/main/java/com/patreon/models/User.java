@@ -139,7 +139,7 @@ public class User extends BaseResource {
   }
 
   public String getDiscordId() {
-    return socialConnections.getDiscord() != null ? socialConnections.getDiscord().getUser_id() : null;
+    return socialConnections.getDiscord() != null ? socialConnections.getDiscord().getUserId() : null;
   }
 
   public String getTwitch() {
