@@ -1,4 +1,4 @@
-package com.patreon.resources.shared;
+package com.patreon.models.shared;
 
 public interface Field {
   String getPropertyName();

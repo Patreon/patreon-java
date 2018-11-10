@@ -1,4 +1,4 @@
-package com.patreon.resources;
+package com.patreon.models;
 
 import java.io.IOException;
 import java.io.InputStream;

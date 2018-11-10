@@ -1,4 +1,4 @@
-package com.patreon.resources.shared;
+package com.patreon.models.shared;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.github.jasminb.jsonapi.annotations.Id;

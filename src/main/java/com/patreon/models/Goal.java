@@ -1,9 +1,9 @@
-package com.patreon.resources;
+package com.patreon.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.jasminb.jsonapi.annotations.Type;
-import com.patreon.resources.shared.BaseResource;
-import com.patreon.resources.shared.Field;
+import com.patreon.models.shared.BaseResource;
+import com.patreon.models.shared.Field;
 
 import java.util.ArrayList;
 import java.util.Arrays;
