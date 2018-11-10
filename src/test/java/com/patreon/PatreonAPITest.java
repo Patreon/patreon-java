@@ -3,7 +3,6 @@ package com.patreon;
 import com.github.jasminb.jsonapi.JSONAPIDocument;
 import com.patreon.models.Campaign;
 import com.patreon.models.Pledge;
-import com.patreon.models.RequestUtil;
 import com.patreon.models.User;
 import junit.framework.TestCase;
 import org.apache.http.NameValuePair;

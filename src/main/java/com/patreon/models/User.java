@@ -37,8 +37,7 @@ public class User extends BaseResource {
     SocialConnections("social_connections", true),
     IsEmailVerified("is_email_verified", true),
     LikeCount("like_count", false),
-    CommentCount("comment_count", false),
-      ;
+    CommentCount("comment_count", false);
 
     /**
      * The field's name from the API in JSON
@@ -96,24 +95,24 @@ public class User extends BaseResource {
 
   @JsonCreator
   public User(
-               @JsonProperty("full_name") String fullName,
-               @JsonProperty("twitch") String twitch,
-               @JsonProperty("vanity") String vanity,
-               @JsonProperty("email") String email,
-               @JsonProperty("about") String about,
-               @JsonProperty("facebook_id") String facebookId,
-               @JsonProperty("image_url") String imageUrl,
-               @JsonProperty("thumb_url") String thumbUrl,
-               @JsonProperty("youtube") String youtube,
-               @JsonProperty("twitter") String twitter,
-               @JsonProperty("facebook") String facebook,
-               @JsonProperty("created") Date created,
-               @JsonProperty("url") String url,
-               @JsonProperty("social_connections") SocialConnections socialConnections,
-               @JsonProperty("is_email_verified") boolean isEmailVerified,
-               @JsonProperty("like_count") Integer likeCount,
-               @JsonProperty("comment_count") Integer commentCount,
-               @JsonProperty("pledges") List<Pledge> pledges
+    @JsonProperty("full_name") String fullName,
+    @JsonProperty("twitch") String twitch,
+    @JsonProperty("vanity") String vanity,
+    @JsonProperty("email") String email,
+    @JsonProperty("about") String about,
+    @JsonProperty("facebook_id") String facebookId,
+    @JsonProperty("image_url") String imageUrl,
+    @JsonProperty("thumb_url") String thumbUrl,
+    @JsonProperty("youtube") String youtube,
+    @JsonProperty("twitter") String twitter,
+    @JsonProperty("facebook") String facebook,
+    @JsonProperty("created") Date created,
+    @JsonProperty("url") String url,
+    @JsonProperty("social_connections") SocialConnections socialConnections,
+    @JsonProperty("is_email_verified") boolean isEmailVerified,
+    @JsonProperty("like_count") Integer likeCount,
+    @JsonProperty("comment_count") Integer commentCount,
+    @JsonProperty("pledges") List<Pledge> pledges
   ) {
     this.fullName = fullName;
     this.twitch = twitch;

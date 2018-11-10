@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.github.jasminb.jsonapi.*;
 import com.patreon.models.Campaign;
 import com.patreon.models.Pledge;
-import com.patreon.models.RequestUtil;
 import com.patreon.models.User;
 import com.patreon.models.shared.BaseResource;
 import com.patreon.models.shared.Field;
@@ -26,8 +25,7 @@ public class PatreonAPI {
    * The base URI for requests to the patreon API. This may be overridden (e.g. for testing) by passing
    * -Dpatreon.rest.uri="https://my.other.server.com" as jvm arguments
    */
-  public static final String BASE_URI = System.getProperty("patreon.rest.uri", "https://www.patreon.com");
-
+  static final String BASE_URI = System.getProperty("patreon.rest.uri", "https://www.patreon.com");
   private static final Logger LOG = LoggerFactory.getLogger(PatreonAPI.class);
   private final String accessToken;
   private final RequestUtil requestUtil;
@@ -83,8 +81,8 @@ public class PatreonAPI {
    */
   public JSONAPIDocument<User> fetchUser(Collection<User.UserField> optionalFields) throws IOException {
     URIBuilder pathBuilder = new URIBuilder()
-                    .setPath("current_user")
-                    .addParameter("include", "pledges");
+      .setPath("current_user")
+      .addParameter("include", "pledges");
     if (optionalFields != null) {
       Set<User.UserField> optionalAndDefaultFields = new HashSet<>(optionalFields);
       optionalAndDefaultFields.addAll(User.UserField.getDefaultFields());
@@ -106,9 +104,9 @@ public class PatreonAPI {
    */
   public JSONAPIDocument<List<Campaign>> fetchCampaigns() throws IOException {
     String path = new URIBuilder()
-                    .setPath("current_user/campaigns")
-                    .addParameter("include", "rewards,creator,goals")
-                    .toString();
+      .setPath("current_user/campaigns")
+      .addParameter("include", "rewards,creator,goals")
+      .toString();
     return converter.readDocumentCollection(
       getDataStream(path),
       Campaign.class
@@ -132,18 +130,18 @@ public class PatreonAPI {
   /**
    * Retrieve pledges for the specified campaign
    *
-   * @param campaignId id for campaign to retrieve
-   * @param pageSize   how many pledges to return
-   * @param pageCursor A cursor retreived from a previous API call, or null for the initial page.
-   *                   See {@link #getNextCursorFromDocument(JSONAPIDocument)}
+   * @param campaignId     id for campaign to retrieve
+   * @param pageSize       how many pledges to return
+   * @param pageCursor     A cursor retreived from a previous API call, or null for the initial page.
+   *                       See {@link #getNextCursorFromDocument(JSONAPIDocument)}
    * @param optionalFields A list of optional fields to return.  See {@link Pledge.PledgeField}
    * @return the page of pledges
    * @throws IOException Thrown when the GET request failed
    */
   public JSONAPIDocument<List<Pledge>> fetchPageOfPledges(String campaignId, int pageSize, String pageCursor, Collection<Pledge.PledgeField> optionalFields) throws IOException {
     URIBuilder pathBuilder = new URIBuilder()
-                               .setPath(String.format("campaigns/%s/pledges", campaignId))
-                               .addParameter("page[count]", String.valueOf(pageSize));
+      .setPath(String.format("campaigns/%s/pledges", campaignId))
+      .addParameter("page[count]", String.valueOf(pageSize));
     if (pageCursor != null) {
       pathBuilder.addParameter("page[cursor]", pageCursor);
     }
@@ -158,18 +156,12 @@ public class PatreonAPI {
     );
   }
 
-  public String getNextCursorFromDocument(JSONAPIDocument document) {
+  private String getNextCursorFromDocument(JSONAPIDocument document) {
     Links links = document.getLinks();
-    if (links == null) {
-      return null;
-    }
+    if (links == null || links.getNext() == null) return null;
     Link nextLink = links.getNext();
-    if (nextLink == null) {
-      return null;
-    }
-    String nextLinkString = nextLink.toString();
     try {
-      List<NameValuePair> queryParameters = URLEncodedUtils.parse(new URI(nextLinkString), "utf8");
+      List<NameValuePair> queryParameters = URLEncodedUtils.parse(new URI(nextLink.toString()), "utf8");
       for (NameValuePair pair : queryParameters) {
         String name = pair.getName();
         if (name.equals("page[cursor]")) {
@@ -185,14 +177,11 @@ public class PatreonAPI {
   public List<Pledge> fetchAllPledges(String campaignId) throws IOException {
     Set<Pledge> pledges = new HashSet<>();
     String cursor = null;
-    while (true) {
+    do {
       JSONAPIDocument<List<Pledge>> pledgesPage = fetchPageOfPledges(campaignId, 15, cursor);
       pledges.addAll(pledgesPage.get());
       cursor = getNextCursorFromDocument(pledgesPage);
-      if (cursor == null) {
-        break;
-      }
-    }
+    } while (cursor != null);
     return new ArrayList<>(pledges);
   }
 
@@ -203,20 +192,16 @@ public class PatreonAPI {
 
   /**
    * Add fields[type]=fieldName,fieldName,fieldName as a query parameter to the request represented by builder
+   *
    * @param builder A URIBuilder building a request to the API
-   * @param type A BaseResource annotated with {@link com.github.jasminb.jsonapi.annotations.Type}
-   * @param fields A list of fields to include.  Only fields in this list will be retrieved in the query
-   * @return builder
+   * @param type    A BaseResource annotated with {@link com.github.jasminb.jsonapi.annotations.Type}
+   * @param fields  A list of fields to include.  Only fields in this list will be retrieved in the query
    */
-  private URIBuilder addFieldsParam(URIBuilder builder, Class<? extends BaseResource> type, Collection<? extends Field> fields) {
+  private void addFieldsParam(URIBuilder builder, Class<? extends BaseResource> type, Collection<? extends Field> fields) {
     List<String> fieldNames = new ArrayList<>();
-    for (Field f : fields) {
-      fieldNames.add(f.getPropertyName());
-    }
+    for (Field f : fields) fieldNames.add(f.getPropertyName());
+
     String typeStr = BaseResource.getType(type);
     builder.addParameter("fields[" + typeStr + "]", String.join(",", fieldNames));
-
-    return builder;
   }
-
 }

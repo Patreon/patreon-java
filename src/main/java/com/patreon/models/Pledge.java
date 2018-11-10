@@ -6,15 +6,13 @@ import com.github.jasminb.jsonapi.annotations.Type;
 import com.patreon.models.shared.BaseResource;
 import com.patreon.models.shared.Field;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import java.util.stream.Collectors;
 
 @Type("pledge")
 public class Pledge extends BaseResource {
-  
+
   public enum PledgeField implements Field {
     AmountCents("amount_cents", true),
     CreatedAt("created_at", true),
@@ -23,8 +21,7 @@ public class Pledge extends BaseResource {
     PledgeCapCents("pledge_cap_cents", true),
     TotalHistoricalAmountCents("total_historical_amount_cents", false),
     IsPaused("is_paused", false),
-    HasShippingAddress("has_shipping_address", false),
-    ;
+    HasShippingAddress("has_shipping_address", false);
 
     private final String propertyName;
     private final boolean isDefault;
@@ -70,17 +67,17 @@ public class Pledge extends BaseResource {
   private Reward reward;
 
   public Pledge(
-                 @JsonProperty("amount_cents") int amount_cents,
-                 @JsonProperty("created_at") String created_at,
-                 @JsonProperty("declined_since") String declined_since,
-                 @JsonProperty("patron_pays_fees") boolean patron_pays_fees,
-                 @JsonProperty("pledge_cap_cents") int pledge_cap_cents,
-                 @JsonProperty("total_historical_amount_cents") Integer total_historical_amount_cents,
-                 @JsonProperty("is_paused") Boolean is_paused,
-                 @JsonProperty("has_shipping_address") Boolean has_shipping_address,
-                 @JsonProperty("creator") User creator,
-                 @JsonProperty("patron") User patron,
-                 @JsonProperty("reward") Reward reward
+    @JsonProperty("amount_cents") int amount_cents,
+    @JsonProperty("created_at") String created_at,
+    @JsonProperty("declined_since") String declined_since,
+    @JsonProperty("patron_pays_fees") boolean patron_pays_fees,
+    @JsonProperty("pledge_cap_cents") int pledge_cap_cents,
+    @JsonProperty("total_historical_amount_cents") Integer total_historical_amount_cents,
+    @JsonProperty("is_paused") Boolean is_paused,
+    @JsonProperty("has_shipping_address") Boolean has_shipping_address,
+    @JsonProperty("creator") User creator,
+    @JsonProperty("patron") User patron,
+    @JsonProperty("reward") Reward reward
   ) {
     this.amountCents = amount_cents;
     this.createdAt = created_at;

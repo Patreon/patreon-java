@@ -1,13 +1,11 @@
 package com.patreon.models;
 
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.jasminb.jsonapi.annotations.Relationship;
 import com.github.jasminb.jsonapi.annotations.Type;
 import com.patreon.models.shared.BaseResource;
 import com.patreon.models.shared.Field;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -15,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Type("campaign")
 public class Campaign extends BaseResource {
-  
+
   public enum CampaignField implements Field {
     PledgeSum("pledge_sum", true),
     CreationName("creation_name", true),
@@ -42,8 +40,7 @@ public class Campaign extends BaseResource {
     ThanksEmbed("thanks_embed", true),
     MainVideoEmbed("main_video_embed", true),
     ThanksVideoUrl("thanks_video_url", true),
-    About("about", true),
-    ;
+    About("about", true);
 
     private final String propertyName;
     private final boolean isDefault;
@@ -108,36 +105,36 @@ public class Campaign extends BaseResource {
   private List<Goal> goals;
 
   public Campaign(
-                   @JsonProperty("pledge_sum") int pledgeSum,
-                   @JsonProperty("creation_name") String creationName,
-                   @JsonProperty("discor_server_id") String discordServerId,
-                   @JsonProperty("created_at") String createdAt,
-                   @JsonProperty("is_plural") boolean isPlural,
-                   @JsonProperty("main_video_url") String mainVideoUrl,
-                   @JsonProperty("is_nsfw") boolean isNsfw,
-                   @JsonProperty("is_monthly") boolean isMonthly,
-                   @JsonProperty("published_at") String publishedAt,
-                   @JsonProperty("earnings_visibility") String earningsVisibility,
-                   @JsonProperty("outstanding_payment_amount_cents") int outstandingPaymentAmountCents,
-                   @JsonProperty("image_small_url") String imageSmallUrl,
-                   @JsonProperty("summary") String summary,
-                   @JsonProperty("thanks_msg") String thanksMsg,
-                   @JsonProperty("image_url") String imageUrl,
-                   @JsonProperty("creation_count") int creationCount,
-                   @JsonProperty("one_liner") String oneLiner,
-                   @JsonProperty("is_charged_immediately") boolean isChargedImmediately,
-                   @JsonProperty("patron_count") int patronCount,
-                   @JsonProperty("display_patron_goals") boolean displayPatronGoals,
-                   @JsonProperty("pledge_url") String pledgeUrl,
-                   @JsonProperty("pay_per_name") String payPerName,
-                   @JsonProperty("thanks_embed") String thanksEmbed,
-                   @JsonProperty("main_video_embed") String mainVideoEmbed,
-                   @JsonProperty("thanks_video_url") String thanksVideoUrl,
-                   @JsonProperty("about") String about,
-                   @JsonProperty("pledges") List<Pledge> pledges,
-                   @JsonProperty("creator") User creator,
-                   @JsonProperty("rewards") List<Reward> rewards,
-                   @JsonProperty("goals") List<Goal> goals
+    @JsonProperty("pledge_sum") int pledgeSum,
+    @JsonProperty("creation_name") String creationName,
+    @JsonProperty("discor_server_id") String discordServerId,
+    @JsonProperty("created_at") String createdAt,
+    @JsonProperty("is_plural") boolean isPlural,
+    @JsonProperty("main_video_url") String mainVideoUrl,
+    @JsonProperty("is_nsfw") boolean isNsfw,
+    @JsonProperty("is_monthly") boolean isMonthly,
+    @JsonProperty("published_at") String publishedAt,
+    @JsonProperty("earnings_visibility") String earningsVisibility,
+    @JsonProperty("outstanding_payment_amount_cents") int outstandingPaymentAmountCents,
+    @JsonProperty("image_small_url") String imageSmallUrl,
+    @JsonProperty("summary") String summary,
+    @JsonProperty("thanks_msg") String thanksMsg,
+    @JsonProperty("image_url") String imageUrl,
+    @JsonProperty("creation_count") int creationCount,
+    @JsonProperty("one_liner") String oneLiner,
+    @JsonProperty("is_charged_immediately") boolean isChargedImmediately,
+    @JsonProperty("patron_count") int patronCount,
+    @JsonProperty("display_patron_goals") boolean displayPatronGoals,
+    @JsonProperty("pledge_url") String pledgeUrl,
+    @JsonProperty("pay_per_name") String payPerName,
+    @JsonProperty("thanks_embed") String thanksEmbed,
+    @JsonProperty("main_video_embed") String mainVideoEmbed,
+    @JsonProperty("thanks_video_url") String thanksVideoUrl,
+    @JsonProperty("about") String about,
+    @JsonProperty("pledges") List<Pledge> pledges,
+    @JsonProperty("creator") User creator,
+    @JsonProperty("rewards") List<Reward> rewards,
+    @JsonProperty("goals") List<Goal> goals
   ) {
     this.pledgeSum = pledgeSum;
     this.creationName = creationName;

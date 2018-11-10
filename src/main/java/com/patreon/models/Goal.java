@@ -5,23 +5,20 @@ import com.github.jasminb.jsonapi.annotations.Type;
 import com.patreon.models.shared.BaseResource;
 import com.patreon.models.shared.Field;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import java.util.stream.Collectors;
 
 @Type("goal")
 public class Goal extends BaseResource {
-  
+
   public enum GoalField implements Field {
     AmountCents("amount_cents", true),
     CompletedPercentage("completed_percentage", true),
     CreatedAt("created_at", true),
     Description("description", true),
     ReachedAt("reached_at", true),
-    Title("title", true),
-    ;
+    Title("title", true);
 
     private final String propertyName;
     private final boolean isDefault;
@@ -54,12 +51,12 @@ public class Goal extends BaseResource {
   private String title;
 
   public Goal(
-               @JsonProperty("amount_cents") int amount_cents,
-               @JsonProperty("completed_percentage") int completed_percentage,
-               @JsonProperty("created_at") String created_at,
-               @JsonProperty("description") String description,
-               @JsonProperty("reached_at") String reached_at,
-               @JsonProperty("title") String title
+    @JsonProperty("amount_cents") int amount_cents,
+    @JsonProperty("completed_percentage") int completed_percentage,
+    @JsonProperty("created_at") String created_at,
+    @JsonProperty("description") String description,
+    @JsonProperty("reached_at") String reached_at,
+    @JsonProperty("title") String title
   ) {
     this.amount_cents = amount_cents;
     this.completed_percentage = completed_percentage;

@@ -1,6 +1,5 @@
 package com.patreon.models.shared;
 
-
 import java.util.List;
 
 public class SocialConnections {

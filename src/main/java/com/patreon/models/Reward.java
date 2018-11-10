@@ -6,7 +6,6 @@ import com.github.jasminb.jsonapi.annotations.Type;
 import com.patreon.models.shared.BaseResource;
 import com.patreon.models.shared.Field;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Type("reward")
 public class Reward extends BaseResource {
-  
+
   public enum RewardField implements Field {
     AmountCents("amount_cents", true),
     CreatedAt("created_at", true),
@@ -30,7 +29,7 @@ public class Reward extends BaseResource {
     ImageUrl("image_url", true),
     DiscordRoleIds("discord_role_ids", true),
     Title("title", true),
-    UnpublishedAt("unpublished_at", true),;
+    UnpublishedAt("unpublished_at", true);
 
     private final String propertyName;
     private final boolean isDefault;
@@ -78,23 +77,23 @@ public class Reward extends BaseResource {
   private Campaign campaign;
 
   public Reward(
-                 @JsonProperty("amount_cents") int amount_cents,
-                 @JsonProperty("created_at") String created_at,
-                 @JsonProperty("description") String description,
-                 @JsonProperty("remaining") float remaining,
-                 @JsonProperty("requires_shipping") boolean requires_shipping,
-                 @JsonProperty("url") String url,
-                 @JsonProperty("user_limit") Integer user_limit,
-                 @JsonProperty("edited_at") String edited_at,
-                 @JsonProperty("patron_count") int patron_count,
-                 @JsonProperty("published") boolean published,
-                 @JsonProperty("published_at") String published_at,
-                 @JsonProperty("image_url") String image_url,
-                 @JsonProperty("discord_role_ids") List<String> discord_role_ids,
-                 @JsonProperty("title") String title,
-                 @JsonProperty("unpublished_at") String unpublished_at,
-                 @JsonProperty("creator") User creator,
-                 @JsonProperty("campaign") Campaign campaign
+    @JsonProperty("amount_cents") int amount_cents,
+    @JsonProperty("created_at") String created_at,
+    @JsonProperty("description") String description,
+    @JsonProperty("remaining") float remaining,
+    @JsonProperty("requires_shipping") boolean requires_shipping,
+    @JsonProperty("url") String url,
+    @JsonProperty("user_limit") Integer user_limit,
+    @JsonProperty("edited_at") String edited_at,
+    @JsonProperty("patron_count") int patron_count,
+    @JsonProperty("published") boolean published,
+    @JsonProperty("published_at") String published_at,
+    @JsonProperty("image_url") String image_url,
+    @JsonProperty("discord_role_ids") List<String> discord_role_ids,
+    @JsonProperty("title") String title,
+    @JsonProperty("unpublished_at") String unpublished_at,
+    @JsonProperty("creator") User creator,
+    @JsonProperty("campaign") Campaign campaign
   ) {
     this.amount_cents = amount_cents;
     this.created_at = created_at;
