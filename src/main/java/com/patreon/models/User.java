@@ -22,7 +22,6 @@ public class User extends BaseResource {
    */
   public enum UserField implements Field {
     FullName("full_name", true),
-    DiscordId("discord_id", true),
     Twitch("twitch", true),
     Vanity("vanity", true),
     Email("email", true),
@@ -39,7 +38,7 @@ public class User extends BaseResource {
     IsEmailVerified("is_email_verified", true),
     LikeCount("like_count", false),
     CommentCount("comment_count", false),
-      ;
+    ;
 
     /**
      * The field's name from the API in JSON
@@ -73,7 +72,6 @@ public class User extends BaseResource {
   }
 
   private String fullName;
-  private String discordId;
   private String twitch;
   private String vanity;
   private String email;
@@ -98,28 +96,26 @@ public class User extends BaseResource {
 
   @JsonCreator
   public User(
-               @JsonProperty("full_name") String fullName,
-               @JsonProperty("discord_id") String discordId,
-               @JsonProperty("twitch") String twitch,
-               @JsonProperty("vanity") String vanity,
-               @JsonProperty("email") String email,
-               @JsonProperty("about") String about,
-               @JsonProperty("facebook_id") String facebookId,
-               @JsonProperty("image_url") String imageUrl,
-               @JsonProperty("thumb_url") String thumbUrl,
-               @JsonProperty("youtube") String youtube,
-               @JsonProperty("twitter") String twitter,
-               @JsonProperty("facebook") String facebook,
-               @JsonProperty("created") Date created,
-               @JsonProperty("url") String url,
-               @JsonProperty("social_connections") SocialConnections socialConnections,
-               @JsonProperty("is_email_verified") boolean isEmailVerified,
-               @JsonProperty("like_count") Integer likeCount,
-               @JsonProperty("comment_count") Integer commentCount,
-               @JsonProperty("pledges") List<Pledge> pledges
+    @JsonProperty("full_name") String fullName,
+    @JsonProperty("twitch") String twitch,
+    @JsonProperty("vanity") String vanity,
+    @JsonProperty("email") String email,
+    @JsonProperty("about") String about,
+    @JsonProperty("facebook_id") String facebookId,
+    @JsonProperty("image_url") String imageUrl,
+    @JsonProperty("thumb_url") String thumbUrl,
+    @JsonProperty("youtube") String youtube,
+    @JsonProperty("twitter") String twitter,
+    @JsonProperty("facebook") String facebook,
+    @JsonProperty("created") Date created,
+    @JsonProperty("url") String url,
+    @JsonProperty("social_connections") SocialConnections socialConnections,
+    @JsonProperty("is_email_verified") boolean isEmailVerified,
+    @JsonProperty("like_count") Integer likeCount,
+    @JsonProperty("comment_count") Integer commentCount,
+    @JsonProperty("pledges") List<Pledge> pledges
   ) {
     this.fullName = fullName;
-    this.discordId = discordId;
     this.twitch = twitch;
     this.vanity = vanity;
     this.email = email;
@@ -144,7 +140,7 @@ public class User extends BaseResource {
   }
 
   public String getDiscordId() {
-    return discordId;
+    return socialConnections.getDiscord() != null ? socialConnections.getDiscord().getUser_id() : null;
   }
 
   public String getTwitch() {

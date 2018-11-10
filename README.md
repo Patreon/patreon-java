@@ -3,13 +3,21 @@ Interact with the Patreon API via OAuth.
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.patreon/patreon/badge.svg)]
 
-Get the artifact from [Maven](http://search.maven.org/#search|ga|1|g%3A%22com.patreon%22%20AND%20a%3A%22patreon%22)
+Get the artifact from [Maven Central](http://search.maven.org/#search|ga|1|g%3A%22com.patreon%22%20AND%20a%3A%22patreon%22)
+
+
+Maven:
 ```xml
 <dependency>
     <groupId>com.patreon</groupId>
     <artifactId>patreon</artifactId>
     <version>0.4.2</version>
 </dependency>
+```
+
+Gradle:
+```groovy
+compile group: 'com.patreon', name: 'patreon', version: '0.4.2'
 ```
 
 
