@@ -9,9 +9,7 @@ import junit.framework.TestCase;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Matchers;
 import org.mockito.Mockito;
-import org.powermock.api.mockito.PowerMockito;
 
 import java.nio.charset.Charset;
 import java.util.Arrays;
@@ -20,9 +18,7 @@ import java.util.List;
 
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class PatreonAPITest extends TestCase {
   private static final String MOCK_TOKEN = "some token";
