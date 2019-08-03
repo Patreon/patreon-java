@@ -18,7 +18,7 @@ import java.nio.charset.Charset;
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({Jsoup.class, Document.class, HttpConnection.class, Connection.Response.class})
 public class PatreonOAuthTest extends TestCase {
-  PatreonOAuth oauth = new PatreonOAuth(
+  private PatreonOAuth oauth = new PatreonOAuth(
                                          "a client id",
                                          "your secret",
                                          "your redirect URI"
