@@ -24,7 +24,7 @@ public class PatreonOAuthTest extends TestCase {
                                          "your redirect URI"
   );
 
-  public void testAuthorizationURL() throws Exception {
+  public void testAuthorizationURL() {
     String url = oauth.getAuthorizationURL();
     assertEquals("https://www.patreon.com/oauth2/authorize?response_type=code&client_id=a+client+id&redirect_uri=your+redirect+URI", url);
   }
