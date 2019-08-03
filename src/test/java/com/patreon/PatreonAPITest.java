@@ -40,7 +40,7 @@ public class PatreonAPITest extends TestCase {
     Campaign campaign = campaignResponse.get().get(0);
     assertEquals("70261", campaign.getId());
     assertEquals("/bePatron?c=70261", campaign.getPledgeUrl());
-    assertEquals(false, campaign.isChargedImmediately());
+    assertFalse(campaign.isChargedImmediately());
     assertEquals("212633030584565760", campaign.getDiscordServerId());
     assertEquals("32187", campaign.getCreator().getId());
     assertEquals(3, campaign.getGoals().size());
