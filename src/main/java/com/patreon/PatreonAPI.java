@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.Proxy;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.*;
@@ -32,6 +33,7 @@ public class PatreonAPI {
   private final String accessToken;
   private final RequestUtil requestUtil;
   private ResourceConverter converter;
+  private final Proxy proxy;
 
   /**
    * Create a new instance of the Patreon API. You only need <b>one</b> of these objects unless you are using the API
@@ -45,12 +47,24 @@ public class PatreonAPI {
     this(accessToken, new RequestUtil());
   }
 
+  public PatreonAPI(String accessToken, Proxy proxy) {
+    this(accessToken, new RequestUtil(), proxy);
+  }
+
   /**
    * For use in test.
    */
   PatreonAPI(String accessToken, RequestUtil requestUtil) {
+    this(accessToken, requestUtil, null);
+  }
+
+  /**
+   * For use in test.
+   */
+  PatreonAPI(String accessToken, RequestUtil requestUtil, Proxy proxy) {
     this.accessToken = accessToken;
     this.requestUtil = requestUtil;
+    this.proxy = proxy;
 
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
@@ -198,7 +212,7 @@ public class PatreonAPI {
 
 
   private InputStream getDataStream(String suffix) throws IOException {
-    return this.requestUtil.request(suffix, this.accessToken);
+    return this.requestUtil.request(suffix, this.accessToken, this.proxy);
   }
 
   /**
