@@ -1,3 +1,7 @@
+# 0.4.3
+## Fixed
+* URL concatenation on the different versions of the JDK and upstream projects' dependencies
+
 # 0.4.2
 ## Fixed
 * GRANT_TYPE_TOKEN_REFRESH now has the correct value
