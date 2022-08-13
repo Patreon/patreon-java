@@ -6,7 +6,7 @@ Interact with the Patreon API via OAuth.
 Get the artifact from [Maven](http://search.maven.org/#search|ga|1|g%3A%22com.patreon%22%20AND%20a%3A%22patreon%22)
 ```xml
 <dependency>
-    <groupId>me.calmabiding</groupId>
+    <groupId>com.patreon</groupId>
     <artifactId>patreon</artifactId>
     <version>0.5.0</version>
 </dependency>
