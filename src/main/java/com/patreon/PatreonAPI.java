@@ -91,8 +91,9 @@ public class PatreonAPI {
       addFieldsParam(pathBuilder, User.class, optionalAndDefaultFields);
     }
 
+    final String suffix = pathBuilder.toString();
     return converter.readDocument(
-      getDataStream(pathBuilder.toString()),
+      getDataStream(suffix),
       User.class
     );
   }
