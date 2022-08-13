@@ -76,7 +76,7 @@ and https://issues.apache.org/jira/browse/SUREFIRE-1588 -->
         </plugins>
     </build>
 
-    <groupId>me.calmabiding</groupId>
+    <groupId>com.patreon</groupId>
     <artifactId>patreon</artifactId>
     <version>0.5.0</version>
 
