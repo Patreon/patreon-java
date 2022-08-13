@@ -78,7 +78,7 @@ and https://issues.apache.org/jira/browse/SUREFIRE-1588 -->
 
     <groupId>com.patreon</groupId>
     <artifactId>patreon</artifactId>
-    <version>0.5.0</version>
+    <version>0.4.3</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Interact with the Patreon API via OAuth</description>

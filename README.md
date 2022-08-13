@@ -8,7 +8,7 @@ Get the artifact from [Maven](http://search.maven.org/#search|ga|1|g%3A%22com.pa
 <dependency>
     <groupId>com.patreon</groupId>
     <artifactId>patreon</artifactId>
-    <version>0.5.0</version>
+    <version>0.4.3</version>
 </dependency>
 ```
 
