@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.*;
@@ -183,10 +184,24 @@ public class PatreonAPI {
   }
 
   public List<Pledge> fetchAllPledges(String campaignId) throws IOException {
+    return fetchAllPledges(campaignId, false);
+  }
+  /**
+   * Retrieve all pledges for the specified campaign
+   *
+   * @param campaignId id for campaign to retrieve
+   * @return the list of pledges
+   * @throws IOException Thrown when the GET request failed
+   */
+  public List<Pledge> fetchAllPledges(String campaignId, boolean full) throws IOException {
     Set<Pledge> pledges = new HashSet<>();
     String cursor = null;
+    Collection<Pledge.PledgeField> fields = null;
+    if (full){
+      fields = Pledge.PledgeField.getAllFields();
+    }
     while (true) {
-      JSONAPIDocument<List<Pledge>> pledgesPage = fetchPageOfPledges(campaignId, 15, cursor);
+      JSONAPIDocument<List<Pledge>> pledgesPage = fetchPageOfPledges(campaignId, 15, cursor, fields);
       pledges.addAll(pledgesPage.get());
       cursor = getNextCursorFromDocument(pledgesPage);
       if (cursor == null) {
