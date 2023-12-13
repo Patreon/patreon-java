@@ -9,6 +9,7 @@ import com.patreon.resources.v1.RequestUtil;
 import com.patreon.resources.v1.User;
 import com.patreon.resources.shared.BaseResource;
 import com.patreon.resources.shared.Field;
+import com.patreon.resources.v2.UserV2;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.client.utils.URLEncodedUtils;
@@ -58,10 +59,22 @@ public class PatreonAPI {
     this.converter = new ResourceConverter(
       objectMapper,
       User.class,
+      UserV2.class,
       Campaign.class,
       Pledge.class
     );
     this.converter.enableDeserializationOption(DeserializationFeature.ALLOW_UNKNOWN_INCLUSIONS);
+  }
+
+  public JSONAPIDocument<UserV2> fetchIdentity() throws IOException {
+    URIBuilder pathBuilder = new URIBuilder()
+      .setPath("v2/identity");
+    Collection<UserV2.UserField> fields = UserV2.UserField.getDefaultFields();
+    addFieldsParam(pathBuilder, UserV2.class, fields);
+    return converter.readDocument(
+      getDataStream(pathBuilder.toString()),
+      UserV2.class
+    );
   }
 
   /**
@@ -83,7 +96,7 @@ public class PatreonAPI {
    */
   public JSONAPIDocument<User> fetchUser(Collection<User.UserField> optionalFields) throws IOException {
     URIBuilder pathBuilder = new URIBuilder()
-                    .setPath("current_user")
+                    .setPath("api/current_user")
                     .addParameter("include", "pledges");
     if (optionalFields != null) {
       Set<User.UserField> optionalAndDefaultFields = new HashSet<>(optionalFields);
@@ -106,7 +119,7 @@ public class PatreonAPI {
    */
   public JSONAPIDocument<List<Campaign>> fetchCampaigns() throws IOException {
     String path = new URIBuilder()
-                    .setPath("current_user/campaigns")
+                    .setPath("api/current_user/campaigns")
                     .addParameter("include", "rewards,creator,goals")
                     .toString();
     return converter.readDocumentCollection(
@@ -142,7 +155,7 @@ public class PatreonAPI {
    */
   public JSONAPIDocument<List<Pledge>> fetchPageOfPledges(String campaignId, int pageSize, String pageCursor, Collection<Pledge.PledgeField> optionalFields) throws IOException {
     URIBuilder pathBuilder = new URIBuilder()
-                               .setPath(String.format("campaigns/%s/pledges", campaignId))
+                               .setPath(String.format("api/campaigns/%s/pledges", campaignId))
                                .addParameter("page[count]", String.valueOf(pageSize));
     if (pageCursor != null) {
       pathBuilder.addParameter("page[cursor]", pageCursor);
