@@ -1,4 +1,4 @@
-package com.patreon.resources;
+package com.patreon.resources.v1;
 
 import java.io.IOException;
 import java.io.InputStream;
