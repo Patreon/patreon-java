@@ -2,12 +2,15 @@ package com.patreon.resources.v2;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.github.jasminb.jsonapi.annotations.Relationship;
 import com.github.jasminb.jsonapi.annotations.Type;
 import com.patreon.resources.shared.BaseResource;
 import com.patreon.resources.shared.Field;
+import com.patreon.resources.v1.Pledge;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Type("user")
@@ -74,6 +77,9 @@ public class UserV2 extends BaseResource {
   private String thumb_url;
   private String url;
 
+  @Relationship("campaign")
+  private CampaignV2 campaign;
+
   @JsonCreator
   public UserV2(
     @JsonProperty("about") String about,
@@ -88,7 +94,8 @@ public class UserV2 extends BaseResource {
     @JsonProperty("last_name") String last_name,
     @JsonProperty("like_count") int like_count,
     @JsonProperty("thumb_url") String thumb_url,
-    @JsonProperty("url") String url
+    @JsonProperty("url") String url,
+    @JsonProperty("campaign") CampaignV2 campaign
   ) {
     this.about = about;
     this.can_see_nsfw = can_see_nsfw;
@@ -103,6 +110,7 @@ public class UserV2 extends BaseResource {
     this.like_count = like_count;
     this.thumb_url = thumb_url;
     this.url = url;
+    this.campaign = campaign;
   }
 
   public String getAbout() {
@@ -156,5 +164,7 @@ public class UserV2 extends BaseResource {
   public String getUrl() {
     return url;
   }
-
+  public CampaignV2 getCampaign() {
+    return campaign;
+  }
 }

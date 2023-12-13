@@ -9,6 +9,7 @@ import com.patreon.resources.v1.RequestUtil;
 import com.patreon.resources.v1.User;
 import com.patreon.resources.shared.BaseResource;
 import com.patreon.resources.shared.Field;
+import com.patreon.resources.v2.CampaignV2;
 import com.patreon.resources.v2.UserV2;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URIBuilder;
@@ -61,6 +62,7 @@ public class PatreonAPI {
       User.class,
       UserV2.class,
       Campaign.class,
+      CampaignV2.class,
       Pledge.class
     );
     this.converter.enableDeserializationOption(DeserializationFeature.ALLOW_UNKNOWN_INCLUSIONS);
@@ -68,9 +70,10 @@ public class PatreonAPI {
 
   public JSONAPIDocument<UserV2> fetchIdentity() throws IOException {
     URIBuilder pathBuilder = new URIBuilder()
-      .setPath("v2/identity");
-    Collection<UserV2.UserField> fields = UserV2.UserField.getDefaultFields();
-    addFieldsParam(pathBuilder, UserV2.class, fields);
+      .setPath("v2/identity")
+      .addParameter("include", "campaign");
+    addFieldsParam(pathBuilder, UserV2.class, UserV2.UserField.getDefaultFields());
+    addFieldsParam(pathBuilder, CampaignV2.class, CampaignV2.CampaignField.getDefaultFields());
     return converter.readDocument(
       getDataStream(pathBuilder.toString()),
       UserV2.class
