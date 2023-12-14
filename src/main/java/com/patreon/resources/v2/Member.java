@@ -9,6 +9,7 @@ import com.patreon.resources.shared.Field;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Type("member")
@@ -81,6 +82,9 @@ public class Member extends BaseResource {
   @Relationship("user")
   private UserV2 user;
 
+  @Relationship("currently_entitled_tiers")
+  private List<Tier> currently_entitled_tiers;
+
   @JsonCreator
   public Member(
     @JsonProperty ("campaign_lifetime_support_cents") int campaign_lifetime_support_cents,
@@ -98,7 +102,8 @@ public class Member extends BaseResource {
     @JsonProperty ("pledge_relationship_start") String pledge_relationship_start,
     @JsonProperty ("will_pay_amount_cents") int will_pay_amount_cents,
     @JsonProperty("campaign") CampaignV2 campaign,
-    @JsonProperty("user") UserV2 user
+    @JsonProperty("user") UserV2 user,
+    @JsonProperty("currently_entitled_tiers") List<Tier> currently_entitled_tiers
   ) {
     this.campaign_lifetime_support_cents = campaign_lifetime_support_cents;
     this.currently_entitled_amount_cents = currently_entitled_amount_cents;
@@ -116,6 +121,7 @@ public class Member extends BaseResource {
     this.will_pay_amount_cents = will_pay_amount_cents;
     this.campaign = campaign;
     this.user = user;
+    this.currently_entitled_tiers = currently_entitled_tiers;
   }
 
   public int getCampaignLifetimeSupportCents() {
@@ -180,5 +186,9 @@ public class Member extends BaseResource {
 
   public UserV2 getUser() {
     return user;
+  }
+
+  public List<Tier> getCurrentlyEntitledTiers() {
+    return currently_entitled_tiers;
   }
 }

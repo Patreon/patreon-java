@@ -11,6 +11,7 @@ import com.patreon.resources.v1.RequestUtil;
 import com.patreon.resources.v1.User;
 import com.patreon.resources.v2.CampaignV2;
 import com.patreon.resources.v2.Member;
+import com.patreon.resources.v2.Tier;
 import com.patreon.resources.v2.UserV2;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URIBuilder;
@@ -65,7 +66,8 @@ public class PatreonAPI {
       Campaign.class,
       Member.class,
       CampaignV2.class,
-      Pledge.class
+      Pledge.class,
+      Tier.class
     );
     this.converter.enableDeserializationOption(DeserializationFeature.ALLOW_UNKNOWN_INCLUSIONS);
   }
@@ -83,12 +85,18 @@ public class PatreonAPI {
   }
 
   public JSONAPIDocument<List<Member>> v2FetchCampaignMembers(String campaignId, Integer count) throws IOException {
+    // Check count is less than 1000
+    if (count > 1000) {
+      throw new IllegalArgumentException("Count must be less than 1000");
+    }
+
     URIBuilder pathBuilder = new URIBuilder()
       .setPath(String.format("v2/campaigns/%s/members", campaignId))
-      .addParameter("include", "user")
+      .addParameter("include", "user,currently_entitled_tiers")
       .addParameter("page[count]", String.valueOf(count));
     addFieldsParam(pathBuilder, Member.class, Member.MemberField.getDefaultFields());
     addFieldsParam(pathBuilder, UserV2.class, UserV2.UserField.getDefaultFields());
+    addFieldsParam(pathBuilder, Tier.class, Tier.TierField.getDefaultFields());
     return converter.readDocumentCollection(
       getDataStream(pathBuilder.toString()),
       Member.class
