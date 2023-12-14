@@ -124,6 +124,19 @@ public class PatreonAPI {
     );
   }
 
+  public JSONAPIDocument<Member> v2FetchMember(String memberId) throws IOException {
+    URIBuilder pathBuilder = new URIBuilder()
+      .setPath(String.format("v2/members/%s", memberId))
+      .addParameter("include", "user,currently_entitled_tiers");
+    addFieldsParam(pathBuilder, Member.class, Member.MemberField.getDefaultFields());
+    addFieldsParam(pathBuilder, UserV2.class, UserV2.UserField.getDefaultFields());
+    addFieldsParam(pathBuilder, Tier.class, Tier.TierField.getDefaultFields());
+    return converter.readDocument(
+      getDataStream(pathBuilder.toString()),
+      Member.class
+    );
+  }
+
   /**
    * Get the user object of the creator
    *
