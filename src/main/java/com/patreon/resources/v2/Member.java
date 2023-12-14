@@ -11,23 +11,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-/**
- * Attribute	Type	Description
- * campaign_lifetime_support_cents	integer	The total amount that the member has ever paid to the campaign in campaign's currency. 0 if never paid.
- * currently_entitled_amount_cents	integer	The amount in cents that the member is entitled to.This includes a current pledge, or payment that covers the current payment period.
- * email	string	The member's email address. Requires the campaigns.members[email] scope.
- * full_name	string	Full name of the member user.
- * is_follower	boolean	The user is not a pledging patron but has subscribed to updates about public posts.
- * last_charge_date	string (UTC ISO format)	Datetime of last attempted charge. null if never charged. Can be null.
- * last_charge_status	string	The result of the last attempted charge.The only successful status is Paid.null if never charged. One of Paid, Declined, Deleted, Pending, Refunded, Fraud, Other. Can be null.
- * lifetime_support_cents	integer	The total amount that the member has ever paid to the campaign. 0 if never paid.
- * next_charge_date	string (UTC ISO format)	Datetime of next charge. null if annual pledge downgrade. Can be null
- * note	string	The creator's notes on the member.
- * patron_status	string	One of active_patron, declined_patron, former_patron. A null value indicates the member has never pledged. Can be null.
- * pledge_cadence	integer	Number of months between charges.
- * pledge_relationship_start	string (UTC ISO format)	Datetime of beginning of most recent pledge chainfrom this member to the campaign. Pledge updates do not change this value. Can be null.
- * will_pay_amount_cents	integer	The amount in cents the user will pay at the next pay cycle.
- */
 @Type("member")
 public class Member extends BaseResource {
   public enum MemberField implements Field {
