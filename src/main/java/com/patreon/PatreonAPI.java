@@ -10,6 +10,7 @@ import com.patreon.resources.v1.Pledge;
 import com.patreon.resources.v1.RequestUtil;
 import com.patreon.resources.v1.User;
 import com.patreon.resources.v2.CampaignV2;
+import com.patreon.resources.v2.Member;
 import com.patreon.resources.v2.UserV2;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URIBuilder;
@@ -62,6 +63,7 @@ public class PatreonAPI {
       User.class,
       UserV2.class,
       Campaign.class,
+      Member.class,
       CampaignV2.class,
       Pledge.class
     );
@@ -77,6 +79,19 @@ public class PatreonAPI {
     return converter.readDocument(
       getDataStream(pathBuilder.toString()),
       UserV2.class
+    );
+  }
+
+  public JSONAPIDocument<List<Member>> v2FetchCampaignMembers(String campaignId, Integer count) throws IOException {
+    URIBuilder pathBuilder = new URIBuilder()
+      .setPath(String.format("v2/campaigns/%s/members", campaignId))
+      .addParameter("include", "user")
+      .addParameter("page[count]", String.valueOf(count));
+    addFieldsParam(pathBuilder, Member.class, Member.MemberField.getDefaultFields());
+    addFieldsParam(pathBuilder, UserV2.class, UserV2.UserField.getDefaultFields());
+    return converter.readDocumentCollection(
+      getDataStream(pathBuilder.toString()),
+      Member.class
     );
   }
 
