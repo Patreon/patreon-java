@@ -3,12 +3,12 @@ package com.patreon;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.github.jasminb.jsonapi.*;
+import com.patreon.resources.shared.BaseResource;
+import com.patreon.resources.shared.Field;
 import com.patreon.resources.v1.Campaign;
 import com.patreon.resources.v1.Pledge;
 import com.patreon.resources.v1.RequestUtil;
 import com.patreon.resources.v1.User;
-import com.patreon.resources.shared.BaseResource;
-import com.patreon.resources.shared.Field;
 import com.patreon.resources.v2.CampaignV2;
 import com.patreon.resources.v2.UserV2;
 import org.apache.http.NameValuePair;
@@ -68,7 +68,7 @@ public class PatreonAPI {
     this.converter.enableDeserializationOption(DeserializationFeature.ALLOW_UNKNOWN_INCLUSIONS);
   }
 
-  public JSONAPIDocument<UserV2> fetchIdentity() throws IOException {
+  public JSONAPIDocument<UserV2> v2FetchIdentity() throws IOException {
     URIBuilder pathBuilder = new URIBuilder()
       .setPath("v2/identity")
       .addParameter("include", "campaign");
