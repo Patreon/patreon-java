@@ -89,7 +89,7 @@ public class PatreonAPITest extends TestCase {
 
     JSONAPIDocument<User> user = api.fetchUser();
 
-    verify(requestUtil).request(eq("current_user?include=pledges"), eq(MOCK_TOKEN));
+    verify(requestUtil).request(eq("/current_user?include=pledges"), eq(MOCK_TOKEN));
     assertEquals("https://www.patreon.com/api/user/32187", user.getLinks().getSelf().toString());
     assertEquals(5, user.get().getPledges().size());
     assertEquals("corgi", user.get().getVanity());
@@ -109,7 +109,7 @@ public class PatreonAPITest extends TestCase {
     verify(requestUtil).request(captor.capture(), eq(MOCK_TOKEN));
 
     String arg = captor.getValue();
-    assertTrue(arg.startsWith("current_user?"));
+    assertTrue("should start with '/current_user?'", arg.startsWith("/current_user?"));
 
     //Extract and decode the query params from the URL
     List<NameValuePair> parsed = URLEncodedUtils.parse(arg.substring(arg.indexOf('?') + 1), Charset.forName("UTF-8"));
@@ -161,7 +161,7 @@ public class PatreonAPITest extends TestCase {
     );
 
     JSONAPIDocument<User> user = api.fetchUser();
-    verify(requestUtil).request(eq("current_user?include=pledges"), eq(MOCK_TOKEN));
+    verify(requestUtil).request(eq("/current_user?include=pledges"), eq(MOCK_TOKEN));
     assertEquals("https://www.patreon.com/api/user/32187", user.getLinks().getSelf().toString());
   }
 }
