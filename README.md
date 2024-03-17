@@ -25,13 +25,14 @@ Step 2. Use this library
 ---
 
 ## For the Log In with Patreon flow
+
 ```java
 import com.github.jasminb.jsonapi.JSONAPIDocument;
 import com.patreon.PatreonAPI;
 import com.patreon.PatreonOAuth;
 import com.patreon.PatreonOAuth;
-import com.patreon.resources.User;
-import com.patreon.resources.Pledge;
+import com.patreon.resources.v1.User;
+import com.patreon.resources.v1.Pledge;
 
     ...
 
@@ -49,12 +50,18 @@ String accessToken = tokens.getAccessToken();
 PatreonAPI apiClient = new PatreonAPI(accessToken);
 JSONAPIDocument<User> userResponse = apiClient.fetchUser();
 User user = userResponse.get();
-Log.i(user.getFullName());
+Log.
+
+i(user.getFullName());
 List<Pledge> pledges = user.getPledges()
-if (pledges != null && pledges.size() > 0) {
-    Pledge pledge = pledges.get(0);
-    Log.i(pledge.getAmountCents());
-}
+if(pledges !=null&&pledges.
+
+size() >0){
+Pledge pledge = pledges.get(0);
+    Log.
+
+i(pledge.getAmountCents());
+        }
 // You should save the user's PatreonOAuth.TokensResponse in your database
 // (for refreshing their Patreon data whenever you like),
 // along with any relevant user info or pledge info you want to store.

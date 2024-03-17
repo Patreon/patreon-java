@@ -1,4 +1,4 @@
-package com.patreon.resources;
+package com.patreon.resources.v1;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
