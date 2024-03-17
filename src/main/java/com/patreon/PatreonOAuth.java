@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.net.Proxy;
 import java.net.URISyntaxException;
 import java.util.Calendar;
 import java.util.Date;
@@ -22,11 +23,20 @@ public class PatreonOAuth {
   private final String clientID;
   private final String clientSecret;
   private final String redirectUri;
+  private final Proxy proxy;
 
   public PatreonOAuth(String clientID, String clientSecret, String redirectUri) {
     this.clientID = clientID;
     this.clientSecret = clientSecret;
     this.redirectUri = redirectUri;
+    this.proxy = null;
+  }
+
+  public PatreonOAuth(String clientID, String clientSecret, String redirectUri, Proxy proxy) {
+    this.clientID = clientID;
+    this.clientSecret = clientSecret;
+    this.redirectUri = redirectUri;
+    this.proxy = proxy;
   }
 
   private static <E> E toObject(String str, Class<E> clazz) {
@@ -54,9 +64,7 @@ public class PatreonOAuth {
                                .data("client_secret", clientSecret)
                                .data("redirect_uri", redirectUri)
                                .ignoreContentType(true);
-    String response = requestInfo.post().body().text();
-
-    return toObject(response, TokensResponse.class);
+    return toObject(getResponseBodyText(requestInfo, this.proxy), TokensResponse.class);
   }
 
   public TokensResponse refreshTokens(String refreshToken) throws IOException {
@@ -66,8 +74,14 @@ public class PatreonOAuth {
                                .data("client_secret", clientSecret)
                                .data("refresh_token", refreshToken)
                                .ignoreContentType(true);
-    String response = requestInfo.post().body().text();
-    return toObject(response, TokensResponse.class);
+    return toObject(getResponseBodyText(requestInfo, this.proxy), TokensResponse.class);
+  }
+
+  private String getResponseBodyText(Connection requestInfo, Proxy proxy) throws IOException {
+    if (proxy == null) {
+      return requestInfo.post().body().text();
+    }
+    return requestInfo.proxy(proxy).post().body().text();
   }
 
   public static class TokensResponse {
