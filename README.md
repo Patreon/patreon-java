@@ -1,4 +1,12 @@
 # patreon-java
+
+> [!CAUTION]
+> This package is deprecated. It uses Patreon API v1, which is deprecated and no longer maintained. This SDK will not receive further updates.
+>
+> We recommend migrating to the Patreon API v2 by integrating directly using your own HTTP client. See the [API documentation](https://docs.patreon.com) and [v1 to v2 migration overview](https://docs.patreon.com/#migrating-from-api-v1-to-api-v2) for details.
+
+---
+
 Interact with the Patreon API via OAuth.
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.patreon/patreon/badge.svg)]
@@ -6,13 +14,11 @@ Interact with the Patreon API via OAuth.
 Get the artifact from [Maven](http://search.maven.org/#search|ga|1|g%3A%22com.patreon%22%20AND%20a%3A%22patreon%22)
 ```xml
 <dependency>
-    <groupId>com.patreon</groupId>
-    <artifactId>patreon</artifactId>
-    <version>0.4.2</version>
+    <groupId>com.patreon</groupId>
+    <artifactId>patreon</artifactId>
+    <version>0.4.2</version>
 </dependency>
 ```
-
-This library is not maintained at the moment, and its not certain whether it will return to a maintained status and if so, when. So if you want to use this lib, forking it and adapting it to your needs would be the best option.
 
 Step 1. Get your client_id and client_secret
 ---
