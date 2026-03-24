@@ -3,6 +3,7 @@ package com.patreon.resources;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.Proxy;
 import java.net.URL;
 
 import static com.patreon.PatreonAPI.BASE_URI;
@@ -13,9 +14,18 @@ import static com.patreon.PatreonAPI.BASE_URI;
 public class RequestUtil {
 
   public InputStream request(String pathSuffix, String accessToken) throws IOException {
+    return request(pathSuffix, accessToken, null);
+  }
+
+  public InputStream request(String pathSuffix, String accessToken, Proxy proxy) throws IOException {
       String prefix = BASE_URI + "/api/oauth2/api/";
       URL url = new URL(prefix.concat(pathSuffix));
-      HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+      HttpURLConnection connection;
+      if (proxy == null) {
+        connection = (HttpURLConnection) url.openConnection();
+      } else {
+        connection = (HttpURLConnection) url.openConnection(proxy);
+      }
       connection.setRequestProperty("Authorization", "Bearer ".concat(accessToken));
       connection.setRequestProperty("User-Agent",
         String.format(
