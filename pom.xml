@@ -130,7 +130,7 @@ and https://issues.apache.org/jira/browse/SUREFIRE-1588 -->
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
-            <version>1.10.3</version>
+            <version>1.15.3</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
